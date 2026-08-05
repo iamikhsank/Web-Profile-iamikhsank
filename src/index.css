@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: #000000;
+  color: #f5f5f7;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 0px; }
+
+/* Glassmorphism Utilities */
+.glass-nav {
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel {
+  background: rgba(20, 20, 22, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* Gradients */
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-rose {
+  background: linear-gradient(135deg, #fb7185 0%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Glow */
+.ambient-glow {
+  position: absolute;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(5,150,105,0.15) 0%, rgba(0,0,0,0) 60%);
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Tech Stack Marquee Animation */
+.tech-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.tech-marquee {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.tech-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  margin: 0 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.tech-icon-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.tech-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* FAQ Accordion Transition */
+.faq-content {
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.faq-item.active .faq-content {
+  max-height: 200px;
+  opacity: 1;
+}
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+

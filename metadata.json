@@ -1,0 +1,6 @@
+{
+  "name": "Jasa Web App Google Apps Script",
+  "description": "Landing page modern dan responsif untuk jasa pembuatan aplikasi web berbasis Google Apps Script terintegrasi Google Workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
