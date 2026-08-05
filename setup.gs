@@ -31,7 +31,7 @@ function inisialisasiDatabase() {
       "Tracking Kematangan Budaya (CML 360°) Seluruh Satker,Monitoring Championship Program & EVP,Export Laporan Formal Otomatis ke PDF A4,Single Source of Truth Google Sheets Engine",
       "100% Zero Cost",
       "Penghematan Biaya Server BI",
-      "/assets/prj_img/BI_BEGR.png",
+      "./assets/prj_img/BI_BEGR.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,TypeScript"
     ],
@@ -46,7 +46,7 @@ function inisialisasiDatabase() {
       "Analisis Matriks ABC-XYZ (Pareto 80/20 & Volatilitas Demand),Dynamic Reorder Point (ROP) & Safety Stock Estimator,Lost Sales Calculator & Dead Stock Liquidation Hub,Multi-Warehouse Governance & Stock Transfer Logging",
       "0% Lost Sales",
       "Optimasi Modal Kerja Gudang",
-      "/assets/prj_img/StockflowERP.png",
+      "./assets/prj_img/StockflowERP.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,Pure SVG Engine"
     ],
@@ -61,7 +61,7 @@ function inisialisasiDatabase() {
       "Interactive Visual Siteplan Map (Status Unit Ready, Sold, Booked),Automated IPL & Rent Billing Generator (Invoice & PDF Drive),Tenant Portal Mandiri & Riwayat Pembayaran Tagihan,Multi-Block Estate Occupancy & Revenue Analytics",
       "98% On-time",
       "Ketepatan Pembayaran Tagihan IPL",
-      "/assets/prj_img/EstateManagement ERP.png",
+      "./assets/prj_img/EstateManagement ERP.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,Motion"
     ],
@@ -76,7 +76,7 @@ function inisialisasiDatabase() {
       "Multichannel Sales Order Consolidation & Sync,Integrated Financial Ledger & Real-time Revenue Reporting,Role-Based Access Control (RBAC) & Approval Workflows,System-wide Diagnostic Monitoring & Idempotent Log Engine",
       "5 Channel -> 1 Cockpit",
       "Konsolidasi Data Real-time",
-      "/assets/prj_img/Sales Analytics Cockpit.png",
+      "./assets/prj_img/Sales Analytics Cockpit.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,TypeScript"
     ],
@@ -91,7 +91,7 @@ function inisialisasiDatabase() {
       "Real-time Capital Rotation Tracking (11 GICS Sectors),Relative Strength & Momentum Rank Scoring Engine,Interactive Recharts Visual Analytics (Cyclical vs Defensive),Automated Textual Market Signal & Risk Mitigation Insights",
       "11 Sektor Real-time",
       "Deteksi Sinyal Rotasi Modal",
-      "/assets/prj_img/Dynamic Sector Rotation & Momentum Analytics.png",
+      "./assets/prj_img/Dynamic Sector Rotation & Momentum Analytics.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,Recharts"
     ],
@@ -106,7 +106,7 @@ function inisialisasiDatabase() {
       "Unified Operations Cockpit & Revenue Stream Tracker,Dynamic Comparison Engine (YoY Historical Growth Milestones),Integrated CRM & Member Collaboration Channels,Frictionless Auth & Session-Mapped Google Sheets API Router",
       "100% Unified",
       "Konsolidasi Operations Cockpit",
-      "/assets/prj_img/AnalyticsWorkspace.png",
+      "./assets/prj_img/AnalyticsWorkspace.png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,TypeScript"
     ],
@@ -181,7 +181,7 @@ function inisialisasiDatabase() {
       "Sales Funnel & Pipeline Stage Conversion Tracking,Representative Target vs Achievement Leaderboard,Commission Calculator & Deal Velocity Analytics,Real-time Sales Revenue Forecast & Projection Charts",
       "3.5x Fast",
       "Percepatan Deal Velocity Sales",
-      "/assets/prj_img/Sales Analytics Cockpit (2).png",
+      "./assets/prj_img/Sales Analytics Cockpit (2).png",
       "https://your-dashboard-link-here.com",
       "Apps Script,Google Sheets,React 19,Vite"
     ],

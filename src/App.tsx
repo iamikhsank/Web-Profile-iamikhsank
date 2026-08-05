@@ -160,7 +160,7 @@ export default function App() {
             ],
             metrikNilai: "100% Zero Cost",
             metrikLabel: "Penghematan Biaya Server BI",
-            linkGambar: "/assets/prj_img/BI_BEGR.png",
+            linkGambar: "./assets/prj_img/BI_BEGR.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "TypeScript"]
           },
@@ -180,7 +180,7 @@ export default function App() {
             ],
             metrikNilai: "0% Lost Sales",
             metrikLabel: "Optimasi Modal Kerja Gudang",
-            linkGambar: "/assets/prj_img/StockflowERP.png",
+            linkGambar: "./assets/prj_img/StockflowERP.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "Pure SVG Engine"]
           },
@@ -200,7 +200,7 @@ export default function App() {
             ],
             metrikNilai: "98% On-time",
             metrikLabel: "Ketepatan Pembayaran Tagihan IPL",
-            linkGambar: "/assets/prj_img/EstateManagement ERP.png",
+            linkGambar: "./assets/prj_img/EstateManagement ERP.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "Motion"]
           },
@@ -220,7 +220,7 @@ export default function App() {
             ],
             metrikNilai: "5 Channel -> 1 Cockpit",
             metrikLabel: "Konsolidasi Data Real-time",
-            linkGambar: "/assets/prj_img/Sales Analytics Cockpit.png",
+            linkGambar: "./assets/prj_img/Sales Analytics Cockpit.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "TypeScript"]
           },
@@ -240,7 +240,7 @@ export default function App() {
             ],
             metrikNilai: "11 Sektor Real-time",
             metrikLabel: "Deteksi Sinyal Rotasi Modal",
-            linkGambar: "/assets/prj_img/Dynamic Sector Rotation & Momentum Analytics.png",
+            linkGambar: "./assets/prj_img/Dynamic Sector Rotation & Momentum Analytics.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "Recharts"]
           },
@@ -260,7 +260,7 @@ export default function App() {
             ],
             metrikNilai: "100% Unified",
             metrikLabel: "Konsolidasi Operations Cockpit",
-            linkGambar: "/assets/prj_img/AnalyticsWorkspace.png",
+            linkGambar: "./assets/prj_img/AnalyticsWorkspace.png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "TypeScript"]
           },
@@ -360,7 +360,7 @@ export default function App() {
             ],
             metrikNilai: "3.5x Fast",
             metrikLabel: "Percepatan Deal Velocity Sales",
-            linkGambar: "/assets/prj_img/Sales Analytics Cockpit (2).png",
+            linkGambar: "./assets/prj_img/Sales Analytics Cockpit (2).png",
             linkProject: "#",
             techStack: ["Apps Script", "Google Sheets", "React 19", "Vite"]
           },
