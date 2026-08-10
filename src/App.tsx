@@ -78,6 +78,14 @@ export default function App() {
       document.title = "Spesialis Data Analysis & ETL Data Cleansing | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Spesialis Data Analysis & Data Cleansing. Pembersihan data mentah, SQL database engineering, dan konsolidasi data terpusat.");
+    } else if (currentRoute === "#/services/business-intelligence") {
+      document.title = "Konsultan Business Intelligence & Corporate BI | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Business Intelligence (BI) Perusahaan. Arsitektur data serverless Apps Script, pelaporan KPI eksekutif, dan efisiensi TCO Rp 0.");
+    } else if (currentRoute === "#/services/machine-learning-ai") {
+      document.title = "Predictive Analytics & AI Machine Learning Consultant | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Machine Learning & AI Predictive Analytics. Sales Forecasting, Churn Prediction, Segmentasi RFM, dan Integrasi AI Enterprise.");
     } else {
       document.title = "Spesialis Data Analytics & Konsultan Business Intelligence (BI) | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -778,10 +786,12 @@ ${formData.message}`;
       <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
           <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
               <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
-              <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-[#86868b]">
+              <div className="hidden lg:flex items-center space-x-5 text-sm font-medium text-[#86868b]">
                   <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/' ? 'text-white font-semibold' : ''}`}>Utama</a>
                   <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
                   <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
+                  <a href="#/services/business-intelligence" onClick={() => setCurrentRoute('#/services/business-intelligence')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
+                  <a href="#/services/machine-learning-ai" onClick={() => setCurrentRoute('#/services/machine-learning-ai')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML & AI</a>
                   <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
                   <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
@@ -974,6 +984,194 @@ ${formData.message}`;
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Master Consolidation</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Apps Script ETL</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* CORPORATE BUSINESS INTELLIGENCE LANDING PAGE VIEW */}
+    {currentRoute === "#/services/business-intelligence" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">Utama</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+              Konsultan Business Intelligence & Corporate BI
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+            Corporate Business Intelligence. <br />
+            <span className="text-[#86868b]">Arsitektur Data Serverless Tanpa Biaya Server.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Membangun arsitektur data terpusat, otomatisasi alur kerja Apps Script, dan konsolidasi KPI eksekutif dengan penghematan TCO 100% (<span className="text-white font-medium">Zero Server Cost</span>).
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-purple-400 mb-1">100%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Zero Server Cost TCO</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-emerald-400 mb-1">5 Channel</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Konsolidasi 1 Cockpit</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-blue-400 mb-1">&lt; 5 Detik</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync Pipeline</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Corporate BI</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Arsitektur Business Intelligence</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Single Source of Truth Architecture</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Integration</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Single Source</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Automated Formal PDF Reporting</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">PDF Automation</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Google Drive Sync</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">03</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Executive Approval Workflow Engine</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Approval Engine</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Governance</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Role-Based Access Control (RBAC)</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">RBAC Security</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Google Auth</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* PREDICTIVE ANALYTICS & AI MACHINE LEARNING LANDING PAGE VIEW */}
+    {currentRoute === "#/services/machine-learning-ai" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">Utama</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+              Predictive Analytics & Enterprise AI Consultant
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+            Machine Learning & AI Analytics. <br />
+            <span className="text-[#86868b]">Prediksi Omzet & Presisi Strategi Bisnis.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Memanfaatkan pemodelan skrip Python canggih (<span className="text-white font-medium">Pandas, Scikit-learn, PyTorch</span>) untuk <span className="text-white font-medium">Sales Forecasting</span>, <span className="text-white font-medium">Customer Churn Prediction</span>, segmentasi RFM, dan integrasi Enterprise AI.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-purple-400 mb-1">94.5%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Skor Akurasi Prediksi Sales</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-emerald-400 mb-1">3x</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Peningkatan Konversi RFM</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-blue-400 mb-1">0%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Penumpukan Dead Stock</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Machine Learning & AI</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Predictive Analytics Enterprise</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Predictive Sales & Revenue Forecasting</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Sales Forecast</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Time-Series ML</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6 text-rose-400 font-bold">02</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Customer Churn Prediction Engine</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Churn Analytics</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Scikit-learn</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">03</div>
+              <h3 className="text-xl font-bold mb-3 text-white">RFM Customer Segmentation</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">RFM Analysis</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Clustering</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-bold">04</div>
+              <h3 className="text-xl font-bold mb-3 text-white">LLM & Chat With Your Data Engine</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Enterprise AI</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Chat With Data</span>
               </div>
             </div>
           </div>
