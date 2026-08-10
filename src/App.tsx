@@ -51,6 +51,69 @@ if (typeof window !== "undefined") {
 export default function App() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<PortofolioItem | null>(null);
+  const [currentRoute, setCurrentRoute] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      return window.location.hash || "#/";
+    }
+    return "#/";
+  });
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash || "#/";
+      setCurrentRoute(hash);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    if (currentRoute === "#/services/power-bi-dashboard") {
+      document.title = "Konsultan Power BI & Tableau Dashboard | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Power BI & Tableau Dashboard eksekutif. Mengubah data perusahaan menjadi visualisasi interaktif real-time berstandar B2B.");
+    } else if (currentRoute === "#/services/data-analysis") {
+      document.title = "Spesialis Data Analysis & ETL Data Cleansing | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Layanan Spesialis Data Analysis & Data Cleansing. Pembersihan data mentah, SQL database engineering, dan konsolidasi data terpusat.");
+    } else {
+      document.title = "Spesialis Data Analytics & Konsultan Business Intelligence (BI) | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Ikhsan Kamal - Data Analyst Indonesia & Business Intelligence Consultant. Layanan Dashboard Power BI, Data Analytics Consultant, SQL & Python Data Analyst, serta Business Analytics.");
+    }
+  }, [currentRoute]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetSectionId: string) => {
+    e.preventDefault();
+    if (currentRoute !== "#/" && currentRoute !== "") {
+      window.location.hash = "#/";
+      setCurrentRoute("#/");
+      setTimeout(() => {
+        if (targetSectionId === "top" || targetSectionId === "") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+        const element = document.getElementById(targetSectionId);
+        if (element) {
+          const yOffset = -80;
+          const targetY = element.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) + yOffset;
+          const scrollObj = { y: window.scrollY || window.pageYOffset };
+          gsap.to(scrollObj, {
+            y: targetY,
+            duration: 0.6,
+            ease: "power2.out",
+            onUpdate: () => window.scrollTo(0, scrollObj.y)
+          });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }, 150);
+    } else {
+      scrollToSection(e, targetSectionId);
+    }
+  };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -714,21 +777,213 @@ ${formData.message}`;
     <header>
       <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
           <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-              <a href="#" onClick={(e) => scrollToSection(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
-              <div className="hidden md:flex space-x-8 text-sm font-medium text-[#86868b]">
-                  <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
-                  <a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white transition cursor-pointer">Layanan & AI</a>
-                  <a href="#workflow" onClick={(e) => scrollToSection(e, 'workflow')} className="hover:text-white transition cursor-pointer">Alur Kerja</a>
-                  <a href="#pricing" onClick={(e) => scrollToSection(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
-                  <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
+              <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
+              <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-[#86868b]">
+                  <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/' ? 'text-white font-semibold' : ''}`}>Utama</a>
+                  <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
+                  <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
+                  <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
+                  <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
+                  <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
               </div>
-              <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
           </div>
       </nav>
     </header>
 
     <main id="main-content">
 
+    {/* POWER BI DASHBOARD LANDING PAGE VIEW */}
+    {currentRoute === "#/services/power-bi-dashboard" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">Utama</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="px-4 py-1.5 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+              Konsultan Power BI & Tableau Dashboard
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+            Power BI & Tableau Dashboard Eksekutif. <br />
+            <span className="text-[#86868b]">Visualisasi Real-time Berstandar Korporat.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Memvisualisasikan metrik bisnis krusial (<span className="text-white font-medium">Sales Performance, Inventory Tracking, Cash Flow, Marketing ROI</span>) ke dalam dasbor Power BI, Tableau, dan React Web App interaktif yang dapat diakses langsung dari desktop dan mobile.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-blue-400 mb-1">3.5x</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Decision Making</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-emerald-400 mb-1">100%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Sinkronisasi Data Real-time</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-purple-400 mb-1">Rp 0</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Pemborosan Biaya Lisensi</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Visualisasi Data</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Dashboard Power BI & Tableau Korporat</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">01</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Executive Sales & Revenue Cockpit</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Power BI DAX</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Sales Pipeline</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Financial Cash Flow & P&L Analytics</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Cash Flow</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Tableau Desktop</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Multi-Warehouse Inventory Control</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto ABC-XYZ</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Inventory BI</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Custom Web App Embedding</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Embedded BI</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">React + Apps Script</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* DATA ANALYSIS & ETL LANDING PAGE VIEW */}
+    {currentRoute === "#/services/data-analysis" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">Utama</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+              Spesialis Data Analysis & ETL Data Cleansing
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+            Data Scrubbing & SQL Engineering. <br />
+            <span className="text-[#86868b]">Mengubah Data Berantakan Menjadi Aset Valid.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Pembersihan, ekstraksi (<span className="text-white font-medium">ETL Pipeline</span>), standarisasi format, dan penyusunan tabel relasional dari Google Sheets, MS Excel, Database SQL (MySQL/PostgreSQL), POS Kasir, dan CRM ke dalam master data yang valid dan bebas duplikasi.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-emerald-400 mb-1">99.9%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Akurasi Validasi Data</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-blue-400 mb-1">100%</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Eliminasi Duplikasi</p>
+            </div>
+            <div className="glass-panel p-6 rounded-2xl text-center">
+              <p className="text-3xl font-extrabold text-purple-400 mb-1">&lt; 5 Detik</p>
+              <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync ETL</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-emerald-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Data Analysis</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Data Engineering & Cleansing</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">01</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Multi-Source Data Scrubbing</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Data Scrubbing</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Automated ETL</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">02</div>
+              <h3 className="text-xl font-bold mb-3 text-white">SQL Relational Database Engineering</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">SQL Engineering</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Schema Design</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Dynamic Pareto ABC-XYZ Analytics</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto Analysis</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Modeling</span>
+              </div>
+            </div>
+
+            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-xl font-bold mb-3 text-white">Automated Master Sheet Consolidation</h3>
+              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Master Consolidation</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Apps Script ETL</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* DEFAULT HOMEPAGE VIEW */}
+    {(currentRoute === "#/" || currentRoute === "") && (
+      <>
     {/* 1. HERO SECTION */}
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10 pt-36 md:pt-44 lg:pt-48 pb-16">
         <div className="ambient-glow"></div>
@@ -1533,6 +1788,8 @@ ${formData.message}`;
             </div>
         </div>
     </section>
+    </>
+    )}
     </main>
 
     <footer className="text-center pb-8 pt-8 text-[#86868b] text-sm border-t border-white/5">
