@@ -86,6 +86,10 @@ export default function App() {
       document.title = "Predictive Analytics & AI Machine Learning Consultant | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Machine Learning & AI Predictive Analytics. Sales Forecasting, Churn Prediction, Segmentasi RFM, dan Integrasi AI Enterprise.");
+    } else if (currentRoute === "#/case-studies") {
+      document.title = "Studi Kasus 6-Tahap Data Analytics & Business Intelligence | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Arsip Studi Kasus 6-Tahap Data Analytics & Business Intelligence oleh Ikhsan Kamal. Problem, Data ETL, Analisis, Visualisasi Dashboard, Insight, dan ROI Impact.");
     } else {
       document.title = "Spesialis Data Analytics & Konsultan Business Intelligence (BI) | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -786,12 +790,13 @@ ${formData.message}`;
       <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
           <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
               <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
-              <div className="hidden lg:flex items-center space-x-5 text-sm font-medium text-[#86868b]">
+              <div className="hidden lg:flex items-center space-x-4 text-sm font-medium text-[#86868b]">
                   <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/' ? 'text-white font-semibold' : ''}`}>Utama</a>
                   <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
                   <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
                   <a href="#/services/business-intelligence" onClick={() => setCurrentRoute('#/services/business-intelligence')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
                   <a href="#/services/machine-learning-ai" onClick={() => setCurrentRoute('#/services/machine-learning-ai')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML & AI</a>
+                  <a href="#/case-studies" onClick={() => setCurrentRoute('#/case-studies')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
                   <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
                   <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
@@ -911,8 +916,8 @@ ${formData.message}`;
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
-            Data Scrubbing & SQL Engineering. <br />
-            <span className="text-[#86868b]">Mengubah Data Berantakan Menjadi Aset Valid.</span>
+            Analisis & Pembersihan Data Terpadu. <br />
+            <span className="text-[#86868b]">Restrukturisasi Data Mentah Menjadi Aset & Wawasan Valid.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
@@ -1174,6 +1179,72 @@ ${formData.message}`;
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Chat With Data</span>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* FULL 6-STAGE CASE STUDIES GALLERY LANDING PAGE VIEW */}
+    {currentRoute === "#/case-studies" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">Utama</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+              Arsip Studi Kasus 6-Tahap MBB Standard
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-5xl">
+            Studi Kasus Analisis Data.
+            <span className="block text-2xl md:text-4xl lg:text-5xl text-[#86868b] font-semibold tracking-normal mt-4 leading-snug">
+              Problem → Data → Analysis → Dashboard → Insight → ROI Impact.
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Eksplorasi mendalam bagaimana 10 proyek analitik data dan dashboard BI membantu perusahaan mengeliminasi bottleneck operasional, menghemat biaya server, dan mempercepat pengambilan keputusan eksekutif.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Studi Kasus Anda</a>
+            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Beranda Utama</a>
+          </div>
+        </section>
+
+        {/* Portfolio Case Studies Grid */}
+        <section className="py-12 max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {portofolio.map((item) => (
+              <div key={item.id} className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
+                    <img src={item.linkGambar} alt={item.seoTitle} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-black/70 backdrop-blur-md text-emerald-400 border border-emerald-500/30">
+                      {item.kategori}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
+                    {item.seoTitle}
+                  </h3>
+
+                  <p className="text-xs text-[#86868b] font-medium mb-3">Klien: {item.klien}</p>
+                  <p className="text-xs text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
+
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-5">
+                    <p className="text-[11px] text-[#86868b] uppercase tracking-wider font-semibold mb-0.5">{item.metrikLabel}</p>
+                    <p className="text-lg font-extrabold text-emerald-400">{item.metrikNilai}</p>
+                  </div>
+                </div>
+
+                <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300">
+                  Baca Case Study (6-Stage Deep-Dive)
+                </button>
+              </div>
+            ))}
           </div>
         </section>
       </div>
