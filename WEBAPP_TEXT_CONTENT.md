@@ -214,22 +214,22 @@ Dokumen ini berisi seluruh konten teks yang ditampilkan di dalam aplikasi web la
 
 1. **Data Cleansing & ETL Pipeline**
    - Pembersihan, standarisasi, dan konsolidasi data dari berbagai sumber (*Google Sheets, MS Excel, Database MySQL, CRM, ERP, atau POS Kasir*) menjadi format rasional yang valid dan bebas duplikasi.
-   - *Tag*: Data Scrubbing, Multi-source Integration, Schema Validation.
+   - *Tag*: Analytics Engineer, SQL Data Analyst, MS Excel & Spreadsheets.
 
 2. **Power BI, Tableau & Web App Dashboards**
-   - Pengembangan visualisasi tingkat korporat untuk memantau metrik krusial seperti *Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI* dalam satu layar interaktif web & mobile.
-   - *Tag*: Power BI, Tableau, React & Apps Script.
+   - Pengembangan Data Visualization & Dashboard Power BI tingkat korporat untuk memantau metrik krusial seperti *Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI* dalam satu layar interaktif.
+   - *Tag*: Dashboard Power BI, Tableau, Power BI Consultant.
 
 3. **Data Science & Predictive Analytics (ML)**
-   - Menggunakan algoritma Python canggih (*Pandas, Scikit-learn*) untuk strategi AI bisnis presisi:
+   - Layanan Python Data Analyst mengombinasikan algoritma Machine Learning (*Pandas, Scikit-learn*) untuk strategi Data Science bisnis presisi:
      - **Sales Forecasting**: Prediksi volume omzet & penjualan di masa depan.
      - **RFM Segmentation**: Memetakan profil pelanggan dengan daya beli tertinggi.
      - **Churn Prediction**: Mendeteksi potensi pelanggan yang akan pindah ke kompetitor.
-   - *Tag*: Python AI, Scikit-learn, RFM Analysis.
+   - *Tag*: Machine Learning, Data Science, Python Data Analyst.
 
 4. **Actionable Insights & Executive Reporting**
-   - Penyerahan dokumen laporan analitik komprehensif berisi *hidden insights* dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.
-   - *Tag*: Executive Summary, Strategic Recommendations, PDF Reporting.
+   - Penyerahan dokumen laporan Business Analytics komprehensif berisi *hidden insights* dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.
+   - *Tag*: Business Analytics, BI Consultant, Full-Stack Developer.
 
 ### Solusi Relevan Untuk Sektor Industri:
 
@@ -281,7 +281,7 @@ Dokumen ini berisi seluruh konten teks yang ditampilkan di dalam aplikasi web la
 - **Sub-header**: The Expert
 - **Nama**: Ikhsan Kamal.
 - **Jabatan / Gelar**: Spesialis Data Analytics & Konsultan Business Intelligence.
-- **Biografi**: Spesialis Data Analytics, Business Intelligence, dan Machine Learning. Saya siap mengubah jutaan baris data mentah (*raw data*) perusahaan Anda menjadi Executive Dashboard interaktif dan prediksi bisnis yang melacak KPI, memantau tren penjualan, serta menekan inefisiensi operasional secara real-time.
+- **Biografi**: Spesialis Data Analytics & Business Intelligence Consultant berbasis di Indonesia. Sebagai konsultan independen, saya membantu perusahaan mengubah jutaan baris data mentah (*raw data*) menjadi Executive Dashboard interaktif, pemodelan Machine Learning, dan laporan strategis yang melacak KPI serta menekan inefisiensi operasional secara real-time.
 - **Statistik Pengalaman**:
   - **5+** Tahun Pengalaman
   - **50+** Proyek Skala Enterprise
