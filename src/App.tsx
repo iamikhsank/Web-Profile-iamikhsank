@@ -577,20 +577,24 @@ ${formData.message}`;
     <div className="selection:bg-emerald-500/30">
         
 
-    {/* Navigation */}
-    <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" onClick={(e) => scrollToSection(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
-            <div className="hidden md:flex space-x-8 text-sm font-medium text-[#86868b]">
-                <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
-                <a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white transition cursor-pointer">Layanan & AI</a>
-                <a href="#workflow" onClick={(e) => scrollToSection(e, 'workflow')} className="hover:text-white transition cursor-pointer">Alur Kerja</a>
-                <a href="#pricing" onClick={(e) => scrollToSection(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
-                <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
-            </div>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
-        </div>
-    </nav>
+    {/* Navigation Header */}
+    <header>
+      <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
+          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+              <a href="#" onClick={(e) => scrollToSection(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
+              <div className="hidden md:flex space-x-8 text-sm font-medium text-[#86868b]">
+                  <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="hover:text-white transition cursor-pointer">Karya</a>
+                  <a href="#services" onClick={(e) => scrollToSection(e, 'services')} className="hover:text-white transition cursor-pointer">Layanan & AI</a>
+                  <a href="#workflow" onClick={(e) => scrollToSection(e, 'workflow')} className="hover:text-white transition cursor-pointer">Alur Kerja</a>
+                  <a href="#pricing" onClick={(e) => scrollToSection(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
+                  <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
+              </div>
+              <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
+          </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
 
     {/* 1. HERO SECTION */}
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10 pt-36 md:pt-44 lg:pt-48 pb-16">
@@ -1380,6 +1384,7 @@ ${formData.message}`;
             </div>
         </div>
     </section>
+    </main>
 
     <footer className="text-center pb-8 pt-8 text-[#86868b] text-sm border-t border-white/5">
         <p>© 2026 Ikhsan K. Spesialis Data Analytics & Konsultan Business Intelligence.</p>
