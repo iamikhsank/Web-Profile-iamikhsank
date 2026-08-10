@@ -958,9 +958,9 @@ ${formData.message}`;
                             Pembersihan, standarisasi, dan konsolidasi data dari berbagai sumber (<span className="text-white/80 font-medium">Google Sheets, MS Excel, Database MySQL, CRM, ERP, atau POS Kasir</span>) menjadi format rasional yang valid dan bebas duplikasi.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Data Scrubbing</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Multi-source Integration</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Schema Validation</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Analytics Engineer</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>SQL Data Analyst</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>MS Excel & Spreadsheets</span>
                         </div>
                     </div>
                 </div>
@@ -974,12 +974,12 @@ ${formData.message}`;
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Power BI, Tableau & Web App Dashboards</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-6">
-                            Pengembangan visualisasi tingkat korporat untuk memantau metrik krusial seperti <span className="text-white/80 font-medium">Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI</span> dalam satu layar interaktif web & mobile.
+                            Pengembangan Data Visualization & Dashboard Power BI tingkat korporat untuk memantau metrik krusial seperti <span className="text-white/80 font-medium">Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI</span> dalam satu layar interaktif.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Dashboard Power BI</span>
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Tableau</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>React & Apps Script</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI Consultant</span>
                         </div>
                     </div>
                 </div>
@@ -993,7 +993,7 @@ ${formData.message}`;
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Data Science & Predictive Analytics (ML)</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-4">
-                            Menggunakan algoritma Python canggih (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) untuk strategi AI bisnis presisi:
+                            Layanan Python Data Analyst mengombinasikan algoritma Machine Learning (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) untuk strategi Data Science bisnis presisi:
                         </p>
                         <ul className="space-y-2 text-xs md:text-sm text-[#f5f5f7]/80 mb-6">
                             <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Sales Forecasting:</span> Prediksi volume omzet & penjualan di masa depan.</li>
@@ -1001,9 +1001,9 @@ ${formData.message}`;
                             <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Churn Prediction:</span> Mendeteksi potensi pelanggan yang akan pindah ke kompetitor.</li>
                         </ul>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python AI</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Scikit-learn</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>RFM Analysis</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Machine Learning</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Data Science</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python Data Analyst</span>
                         </div>
                     </div>
                 </div>
@@ -1017,12 +1017,12 @@ ${formData.message}`;
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Actionable Insights & Executive Reporting</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-6">
-                            Penyerahan dokumen laporan analitik komprehensif berisi <span className="text-white/80 font-medium">hidden insights</span> dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.
+                            Penyerahan dokumen laporan Business Analytics komprehensif berisi <span className="text-white/80 font-medium">hidden insights</span> dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Executive Summary</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Strategic Recommendations</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>PDF Reporting</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Business Analytics</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>BI Consultant</span>
+                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Full-Stack Developer</span>
                         </div>
                     </div>
                 </div>
@@ -1187,7 +1187,7 @@ ${formData.message}`;
                     <p className="text-xl md:text-2xl text-white font-medium mb-8">Spesialis Data Analytics & Konsultan Business Intelligence.</p>
                     
                     <p className="text-[#86868b] text-base md:text-lg leading-relaxed font-light mb-10">
-                        Spesialis <span className="text-white font-medium">Data Analytics</span>, <span className="text-white font-medium">Business Intelligence</span>, dan <span className="text-white font-medium">Machine Learning</span>. Saya siap mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) perusahaan Anda menjadi Executive Dashboard interaktif dan prediksi bisnis yang melacak KPI, memantau tren penjualan, serta menekan inefisiensi operasional secara real-time.
+                        Spesialis <span className="text-white font-medium">Data Analytics</span> & <span className="text-white font-medium">Business Intelligence Consultant</span> berbasis di Indonesia. Sebagai konsultan independen, saya membantu perusahaan mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) menjadi Executive Dashboard interaktif, pemodelan Machine Learning, dan laporan strategis yang melacak KPI serta menekan inefisiensi operasional secara real-time.
                     </p>
 
                     {/* Stats / Highlight */}
@@ -1330,6 +1330,13 @@ ${formData.message}`;
                         <div className="flex items-center gap-3">
                             <svg className="w-5 h-5 text-emerald-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>Responsibilitas Tipikal: 12-24 Jam</span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-2 pt-2">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-white/40 mr-1">Platform Profil:</span>
+                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fastwork</a>
+                            <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
+                            <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
+                            <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Instagram</a>
                         </div>
                     </div>
                 </div>
