@@ -20,6 +20,8 @@ body {
 }
 
 ::-webkit-scrollbar { width: 0px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Glassmorphism Utilities */
 .glass-nav {

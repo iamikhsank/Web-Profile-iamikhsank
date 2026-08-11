@@ -816,7 +816,18 @@ ${formData.message}`;
                   </button>
               </div>
           </div>
-      </nav>
+      {/* Mobile Horizontal Scrollable Tab Bar (Direct Navbar Visibility for Mobile) */}
+      <div className="lg:hidden fixed top-16 left-0 right-0 z-40 bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-white/10 px-3 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2 whitespace-nowrap">
+        <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/' ? 'bg-white text-black font-semibold shadow-sm' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Utama</a>
+        <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/power-bi-dashboard' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Power BI</a>
+        <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/data-analysis' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Data Analysis</a>
+        <a href="#/services/business-intelligence" onClick={() => setCurrentRoute('#/services/business-intelligence')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/business-intelligence' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Corporate BI</a>
+        <a href="#/services/machine-learning-ai" onClick={() => setCurrentRoute('#/services/machine-learning-ai')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/machine-learning-ai' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>ML & AI</a>
+        <a href="#/case-studies" onClick={() => setCurrentRoute('#/case-studies')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/case-studies' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Case Studies</a>
+        <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">Karya</a>
+        <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">Harga</a>
+        <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">FAQ</a>
+      </div>
 
       {/* Mobile Navigation Drawer Overlay */}
       {mobileMenuOpen && (
