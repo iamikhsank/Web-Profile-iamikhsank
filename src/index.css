@@ -69,6 +69,13 @@ body {
   pointer-events: none;
 }
 
+@media (max-width: 640px) {
+  .ambient-glow {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
 /* Tech Stack Marquee Animation */
 .tech-marquee-wrapper {
   overflow: hidden;
@@ -107,6 +114,17 @@ body {
   cursor: default;
 }
 
+@media (max-width: 640px) {
+  .tech-icon-box {
+    padding: 8px 14px;
+    margin: 0 8px;
+    gap: 8px;
+  }
+  .tech-icon-box span {
+    font-size: 12px;
+  }
+}
+
 .tech-icon-box:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.3);
@@ -126,7 +144,7 @@ body {
   overflow: hidden;
 }
 .faq-item.active .faq-content {
-  max-height: 200px;
+  max-height: 1000px;
   opacity: 1;
 }
 .faq-item.active .faq-icon {

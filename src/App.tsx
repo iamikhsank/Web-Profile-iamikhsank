@@ -51,6 +51,7 @@ if (typeof window !== "undefined") {
 export default function App() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<PortofolioItem | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentRoute, setCurrentRoute] = useState<string>(() => {
     if (typeof window !== "undefined") {
       return window.location.hash || "#/";
@@ -788,7 +789,7 @@ ${formData.message}`;
     {/* Navigation Header */}
     <header>
       <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
-          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
               <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
               <div className="hidden lg:flex items-center space-x-4 text-sm font-medium text-[#86868b]">
                   <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/' ? 'text-white font-semibold' : ''}`}>Utama</a>
@@ -801,9 +802,53 @@ ${formData.message}`;
                   <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">Harga</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
               </div>
-              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
+              <div className="flex items-center gap-3">
+                  <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hidden sm:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
+                  {/* Hamburger Menu Button */}
+                  <button 
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+                    className="lg:hidden flex flex-col items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded={mobileMenuOpen}
+                  >
+                    <span className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[3px]' : ''}`}></span>
+                    <span className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 mt-1 ${mobileMenuOpen ? '-rotate-45 -translate-y-[3px]' : ''}`}></span>
+                  </button>
+              </div>
           </div>
       </nav>
+
+      {/* Mobile Navigation Drawer Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMobileMenuOpen(false)}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+      )}
+      <div className={`fixed top-0 right-0 z-45 h-full w-[280px] sm:w-[320px] bg-[#0a0a0c]/95 backdrop-blur-2xl border-l border-white/10 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] transform transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{zIndex: 45}}>
+        <div className="flex flex-col h-full pt-20 pb-8 px-6 overflow-y-auto">
+          {/* Layanan Section */}
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-emerald-500 mb-3">Layanan</p>
+          <div className="space-y-1 mb-6">
+            <a href="#/" onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Utama</a>
+            <a href="#/services/power-bi-dashboard" onClick={() => { setCurrentRoute('#/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI & Tableau</a>
+            <a href="#/services/data-analysis" onClick={() => { setCurrentRoute('#/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis & ETL</a>
+            <a href="#/services/business-intelligence" onClick={() => { setCurrentRoute('#/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
+            <a href="#/services/machine-learning-ai" onClick={() => { setCurrentRoute('#/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML & AI</a>
+          </div>
+          {/* Navigasi Section */}
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#86868b] mb-3">Navigasi</p>
+          <div className="space-y-1 mb-6">
+            <a href="#/case-studies" onClick={() => { setCurrentRoute('#/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
+            <a href="#showcase" onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">Karya</a>
+            <a href="#pricing" onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">Harga</a>
+            <a href="#faq" onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
+          </div>
+          {/* CTA */}
+          <div className="mt-auto">
+            <a href="#contact" onClick={(e) => { handleNavClick(e, 'contact'); setMobileMenuOpen(false); }} className="block w-full text-center bg-[#f5f5f7] text-black px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white transition-all">Konsultasi Gratis</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main id="main-content">
@@ -821,7 +866,7 @@ ${formData.message}`;
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
             Power BI & Tableau Dashboard Eksekutif. <br />
             <span className="text-[#86868b]">Visualisasi Real-time Berstandar Korporat.</span>
           </h1>
@@ -858,7 +903,7 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">01</div>
               <h3 className="text-xl font-bold mb-3 text-white">Executive Sales & Revenue Cockpit</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
@@ -868,7 +913,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
               <h3 className="text-xl font-bold mb-3 text-white">Financial Cash Flow & P&L Analytics</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
@@ -878,7 +923,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
               <h3 className="text-xl font-bold mb-3 text-white">Multi-Warehouse Inventory Control</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
@@ -888,7 +933,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
               <h3 className="text-xl font-bold mb-3 text-white">Custom Web App Embedding</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
@@ -915,7 +960,7 @@ ${formData.message}`;
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
             Analisis & Pembersihan Data Terpadu. <br />
             <span className="text-[#86868b]">Restrukturisasi Data Mentah Menjadi Aset & Wawasan Valid.</span>
           </h1>
@@ -952,7 +997,7 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">01</div>
               <h3 className="text-xl font-bold mb-3 text-white">Multi-Source Data Scrubbing</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
@@ -962,7 +1007,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">02</div>
               <h3 className="text-xl font-bold mb-3 text-white">SQL Relational Database Engineering</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
@@ -972,7 +1017,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
               <h3 className="text-xl font-bold mb-3 text-white">Dynamic Pareto ABC-XYZ Analytics</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
@@ -982,7 +1027,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
               <h3 className="text-xl font-bold mb-3 text-white">Automated Master Sheet Consolidation</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
@@ -1009,7 +1054,7 @@ ${formData.message}`;
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
             Corporate Business Intelligence. <br />
             <span className="text-[#86868b]">Arsitektur Data Serverless Tanpa Biaya Server.</span>
           </h1>
@@ -1046,7 +1091,7 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
               <h3 className="text-xl font-bold mb-3 text-white">Single Source of Truth Architecture</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
@@ -1056,7 +1101,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
               <h3 className="text-xl font-bold mb-3 text-white">Automated Formal PDF Reporting</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
@@ -1066,7 +1111,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">03</div>
               <h3 className="text-xl font-bold mb-3 text-white">Executive Approval Workflow Engine</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
@@ -1076,7 +1121,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
               <h3 className="text-xl font-bold mb-3 text-white">Role-Based Access Control (RBAC)</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
@@ -1103,7 +1148,7 @@ ${formData.message}`;
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1] max-w-5xl">
             Machine Learning & AI Analytics. <br />
             <span className="text-[#86868b]">Prediksi Omzet & Presisi Strategi Bisnis.</span>
           </h1>
@@ -1140,7 +1185,7 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
               <h3 className="text-xl font-bold mb-3 text-white">Predictive Sales & Revenue Forecasting</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
@@ -1150,7 +1195,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6 text-rose-400 font-bold">02</div>
               <h3 className="text-xl font-bold mb-3 text-white">Customer Churn Prediction Engine</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
@@ -1160,7 +1205,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">03</div>
               <h3 className="text-xl font-bold mb-3 text-white">RFM Customer Segmentation</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
@@ -1170,7 +1215,7 @@ ${formData.message}`;
               </div>
             </div>
 
-            <div className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
+            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
               <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-bold">04</div>
               <h3 className="text-xl font-bold mb-3 text-white">LLM & Chat With Your Data Engine</h3>
               <p className="text-[#86868b] text-sm leading-relaxed mb-4">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
@@ -1197,9 +1242,9 @@ ${formData.message}`;
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-5xl">
             Studi Kasus Analisis Data.
-            <span className="block text-2xl md:text-4xl lg:text-5xl text-[#86868b] font-semibold tracking-normal mt-4 leading-snug">
+            <span className="block text-lg sm:text-xl md:text-4xl lg:text-5xl text-[#86868b] font-semibold tracking-normal mt-4 leading-snug">
               Problem → Data → Analysis → Dashboard → Insight → ROI Impact.
             </span>
           </h1>
@@ -1261,18 +1306,18 @@ ${formData.message}`;
             Data Analytics & Business Intelligence
         </span>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]">
             Data-Driven Decisions. <br/>
             <span className="text-[#86868b]">Bukan Lagi Tebakan.</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mt-4 mb-10">
+        <p className="text-base sm:text-lg md:text-2xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mt-4 mb-10">
             Mengubah jutaan baris data mentah menjadi Executive Dashboard Interaktif, Prediksi Bisnis berbasis Machine Learning, dan Laporan Strategis yang siap dieksekusi oleh manajemen.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-24">
-            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-transform cursor-pointer">Lihat Proyek</a>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/5 transition-colors cursor-pointer">Konsultasi Gratis</a>
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24">
+            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer">Lihat Proyek</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer">Konsultasi Gratis</a>
         </div>
         
         {/* Tech Stack Marquee (Inserted Here) */}
@@ -1408,7 +1453,7 @@ ${formData.message}`;
                     const svgColorClass = svgColorMap[item.warnaKategori] || svgColorMap.default;
 
                     return (
-                        <div key={item.id} className="project-card sticky top-24 pt-4 pb-4" style={{ zIndex: index + 10 }}>
+                        <div key={item.id} className="project-card md:sticky md:top-24 pt-4 pb-4" style={{ zIndex: index + 10 }}>
                             <div className={`card-inner w-full rounded-3xl border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] ${index % 2 !== 0 ? 'bg-[#121214]' : 'bg-[#0a0a0c]'} overflow-hidden flex flex-col md:flex-row relative origin-top`}>
                                 <div className="w-full md:w-[62%] p-6 md:p-8 flex flex-col justify-between z-10">
                                     <div>
@@ -1558,10 +1603,10 @@ ${formData.message}`;
             {/* Testimonials (Bento Style) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                 {/* Testi 1 */}
-                <div className="glass-panel p-10 rounded-[2rem] opacity-0 translate-y-10 social-anim relative overflow-hidden group">
+                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] opacity-0 translate-y-10 social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <svg className="w-10 h-10 text-emerald-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    <p className="text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
+                    <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
                         "Sistem ini mengubah total cara gudang kami beroperasi. Laporan yang biasanya memakan waktu 3 hari sekarang tersaji secara real-time. Yang paling luar biasa, kami <span className="text-white font-semibold">tidak membayar biaya server sepeserpun</span> setiap bulannya."
                     </p>
                     <div className="flex items-center gap-4 relative z-10">
@@ -1576,10 +1621,10 @@ ${formData.message}`;
                 </div>
 
                 {/* Testi 2 */}
-                <div className="glass-panel p-10 rounded-[2rem] opacity-0 translate-y-10 social-anim relative overflow-hidden group">
+                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] opacity-0 translate-y-10 social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <svg className="w-10 h-10 text-blue-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                    <p className="text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
+                    <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
                         "Sangat jarang menemukan solusi yang paham betul <span className="text-white font-semibold">proses bisnis (BI) sekaligus mahir dalam Web Development</span>. Portal HR yang dibangun sangat responsif, aman, dan integrasinya dengan Google Workspace sangat mulus."
                     </p>
                     <div className="flex items-center gap-4 relative z-10">
@@ -1597,23 +1642,23 @@ ${formData.message}`;
     </section>
 
     {/* 2.4 SPESIALISASI LAYANAN & ARSITEKTUR DATA */}
-    <section id="services" className="py-32 relative bg-black border-t border-white/5">
+    <section id="services" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
+            <div className="text-center mb-10 md:mb-20">
                 <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">Spesialisasi Layanan & Arsitektur Data</span>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+                <h2 className="text-3xl md:text-6xl font-bold tracking-tight leading-tight">
                     Executive Dashboard &<br/>
                     <span className="text-[#86868b]">Predictive Analytics (Machine Learning).</span>
                 </h2>
-                <p className="text-[#86868b] mt-4 text-lg max-w-3xl mx-auto font-light">
+                <p className="text-[#86868b] mt-4 text-base md:text-lg max-w-3xl mx-auto font-light">
                     Mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) perusahaan Anda menjadi wawasan taktis berlandaskan data aktual (<span className="text-white font-medium">Data-Driven Decision Making</span>).
                 </p>
             </div>
 
             {/* 4 Pillars Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-20">
                 {/* Service 1 */}
-                <div className="glass-panel p-8 md:p-10 rounded-[2rem] relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.12)', backdropFilter: 'blur(20px)'}}>
@@ -1632,7 +1677,7 @@ ${formData.message}`;
                 </div>
 
                 {/* Service 2 */}
-                <div className="glass-panel p-8 md:p-10 rounded-[2rem] relative overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.12)', backdropFilter: 'blur(20px)'}}>
@@ -1651,7 +1696,7 @@ ${formData.message}`;
                 </div>
 
                 {/* Service 3 */}
-                <div className="glass-panel p-8 md:p-10 rounded-[2rem] relative overflow-hidden group hover:border-purple-500/30 transition-all duration-500">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-purple-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.12)', backdropFilter: 'blur(20px)'}}>
@@ -1675,7 +1720,7 @@ ${formData.message}`;
                 </div>
 
                 {/* Service 4 */}
-                <div className="glass-panel p-8 md:p-10 rounded-[2rem] relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.12)', backdropFilter: 'blur(20px)'}}>
@@ -1695,40 +1740,40 @@ ${formData.message}`;
             </div>
 
             {/* Target Industry Sectors */}
-            <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
+            <div className="glass-panel p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
                 <div className="text-center mb-10">
                     <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">Solusi Relevan Untuk Sektor Industri</span>
                     <h3 className="text-2xl md:text-4xl font-bold">Pengalaman Lintas Industri.</h3>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
                             <img src="https://ico.hugeicons.com/shopping-bag-01-stroke-rounded@3x.webp" alt="Retail" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
-                        <h4 className="text-white font-bold text-sm md:text-base mb-1">Retail, F&B & E-Commerce</h4>
-                        <p className="text-[11px] text-[#86868b]">POS Kasir, Stok & Sales</p>
+                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Retail, F&B & E-Commerce</h4>
+                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">POS Kasir, Stok & Sales</p>
                     </div>
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
                             <img src="https://ico.hugeicons.com/truck-01-stroke-rounded@3x.webp" alt="Distribusi" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
-                        <h4 className="text-white font-bold text-sm md:text-base mb-1">Distribusi & Supply Chain</h4>
-                        <p className="text-[11px] text-[#86868b]">FMCG, Logistik & Fleet</p>
+                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Distribusi & Supply Chain</h4>
+                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">FMCG, Logistik & Fleet</p>
                     </div>
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
                             <img src="https://ico.hugeicons.com/bank-stroke-rounded@3x.webp" alt="Keuangan" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
-                        <h4 className="text-white font-bold text-sm md:text-base mb-1">Keuangan & Perbankan</h4>
-                        <p className="text-[11px] text-[#86868b]">Cash Flow & Telemetri Budaya</p>
+                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Keuangan & Perbankan</h4>
+                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">Cash Flow & Telemetri Budaya</p>
                     </div>
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
                             <img src="https://ico.hugeicons.com/target-02-stroke-rounded@3x.webp" alt="Digital Marketing" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
-                        <h4 className="text-white font-bold text-sm md:text-base mb-1">Digital Marketing Agency</h4>
-                        <p className="text-[11px] text-[#86868b]">ROI, Funnel & Lead Analytics</p>
+                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Digital Marketing Agency</h4>
+                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">ROI, Funnel & Lead Analytics</p>
                     </div>
                 </div>
             </div>
@@ -1736,11 +1781,11 @@ ${formData.message}`;
     </section>
 
     {/* 2.5 WHY APPS SCRIPT */}
-    <section id="why-apps-script" className="py-32 relative bg-black border-t border-white/5">
+    <section id="why-apps-script" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
                 <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">Alasan Utama Memilih Apps Script</span>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+                <h2 className="text-3xl md:text-6xl font-bold tracking-tight leading-tight">
                     Aplikasi Enterprise.<br/>
                     <span className="text-[#86868b]">Tanpa Tagihan Infrastruktur Bulanan.</span>
                 </h2>
@@ -1748,11 +1793,11 @@ ${formData.message}`;
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Feature 1 */}
-                <div className="glass-panel p-10 rounded-[2rem] feature-card opacity-0 translate-y-10">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card opacity-0 translate-y-10">
                     <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
                         <img src="https://ico.hugeicons.com/coins-01-stroke-rounded@3x.webp" alt="Zero Server Cost" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">Zero Server Cost</h3>
+                    <h3 className="text-xl md:text-2xl font-bold mb-3">Zero Server Cost</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm md:text-base">Sistem Anda berjalan 100% di atas infrastruktur serverless Google. Ucapkan selamat tinggal pada biaya langganan AWS, Azure, atau VPS bulanan untuk hosting backend.</p>
                 </div>
 
@@ -1778,8 +1823,8 @@ ${formData.message}`;
     </section>
 
     {/* 3. ALUR PENGERJAAN (Scroll Highlight) */}
-    <section id="workflow" className="py-32 relative bg-[#050505]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 relative">
+    <section id="workflow" className="py-16 md:py-24 lg:py-32 relative bg-[#050505]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative">
             {/* Pinned Title */}
             <div className="md:sticky top-1/3 h-fit">
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">Proses Kerja <br/>yang Presisi.</h2>
@@ -1787,7 +1832,7 @@ ${formData.message}`;
             </div>
             
             {/* Scrolling Steps */}
-            <div className="space-y-24 py-10 step-container">
+            <div className="space-y-12 md:space-y-24 py-10 step-container">
                 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">01. Audit Kebutuhan Bisnis</span>
@@ -1823,16 +1868,16 @@ ${formData.message}`;
     </section>
 
     {/* 3.5 ABOUT THE EXPERT */}
-    <section id="about" className="py-32 relative bg-black border-t border-white/5 overflow-hidden">
+    <section id="about" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="about-card glass-panel p-8 md:p-16 rounded-[3rem] relative flex flex-col md:flex-row gap-12 items-center opacity-0 translate-y-10">
+            <div className="about-card glass-panel p-5 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center opacity-0 translate-y-10">
                 
                 {/* Ambient Glow inside the card */}
                 <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
                 {/* Profile Photo */}
                 <div className="w-full md:w-1/3 relative group z-10 shrink-0">
-                    <div className="aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
+                    <div className="aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
                         {/* Placeholder Photo: Ganti dengan foto profesional Anda */}
                         <img src="https://drive.google.com/thumbnail?id=184y2ZUwxJn1mXCgPtX_kuomeJaQ461zE&sz=w1000" referrerPolicy="no-referrer" 
                              alt="Ikhsan Kamal" 
@@ -1878,7 +1923,7 @@ ${formData.message}`;
 
     
     {/* 4. PRICING */}
-    <section id="pricing" className="py-32 relative">
+    <section id="pricing" className="py-16 md:py-24 lg:py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Investasi Cerdas.</h2>
@@ -1892,7 +1937,7 @@ ${formData.message}`;
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {paketHarga.map((paket) => (
-                        <div key={paket.id} className={`glass-panel p-10 rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 ${paket.rekomendasi ? 'border-emerald-500/50 relative transform md:scale-105 z-10 bg-[#111] shadow-[0_0_50px_rgba(5,150,105,0.15)]' : ''}`}>
+                        <div key={paket.id} className={`glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 ${paket.rekomendasi ? 'border-emerald-500/50 relative transform md:scale-105 z-10 bg-[#111] shadow-[0_0_50px_rgba(5,150,105,0.15)]' : ''}`}>
                             {paket.rekomendasi && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-1 rounded-full text-xs font-bold tracking-wide">RECOMMENDED</div>
                             )}
@@ -1954,11 +1999,11 @@ ${formData.message}`;
     </section>
 
     {/* 6. CONTACT & BOOKING SYSTEM */}
-    <section id="contact" className="py-32 relative border-t border-white/5 overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 lg:py-32 relative border-t border-white/5 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
                 
                 {/* Left: Copy & Booking Info */}
                 <div className="z-10">
@@ -2008,7 +2053,7 @@ ${formData.message}`;
                 </div>
 
                 {/* Right: Glass Form */}
-                <div className="glass-panel p-8 md:p-10 rounded-[2rem] relative z-10 form-anim opacity-0 translate-y-10">
+                <div className="glass-panel p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2rem] relative z-10 form-anim opacity-0 translate-y-10">
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div className="space-y-2">
@@ -2068,7 +2113,7 @@ ${formData.message}`;
     {/* 6-STAGE CASE STUDY INTERACTIVE GLASSMORPHISM MODAL DRAWER */}
     {selectedCaseStudy && (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-xl transition-all duration-300 overflow-y-auto">
-        <div className="relative w-full max-w-5xl bg-[#0a0a0c] border border-white/15 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden my-8 max-h-[90vh] flex flex-col">
+        <div className="relative w-full max-w-5xl bg-[#0a0a0c] border border-white/15 rounded-none sm:rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden my-0 sm:my-8 max-h-[100vh] md:max-h-[90vh] flex flex-col">
           {/* Modal Header */}
           <div className="sticky top-0 z-20 px-6 md:px-8 py-5 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
             <div>
@@ -2091,7 +2136,7 @@ ${formData.message}`;
           <div className="p-6 md:p-8 space-y-8 overflow-y-auto custom-scrollbar">
             {/* Banner Image & High Impact Metric */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-56 md:h-64 relative bg-black">
+              <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-36 sm:h-48 md:h-64 relative bg-black">
                 <img src={selectedCaseStudy.linkGambar} alt={selectedCaseStudy.judul} className="w-full h-full object-cover object-left-top" />
               </div>
               <div className="glass-panel p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
