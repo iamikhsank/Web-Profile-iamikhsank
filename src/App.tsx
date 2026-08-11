@@ -803,7 +803,7 @@ ${formData.message}`;
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
               </div>
               <div className="flex items-center gap-3">
-                  <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hidden sm:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
+                  <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hidden lg:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">Konsultasi</a>
                   {/* Hamburger Menu Button */}
                   <button 
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
@@ -816,18 +816,7 @@ ${formData.message}`;
                   </button>
               </div>
           </div>
-      {/* Mobile Horizontal Scrollable Tab Bar (Direct Navbar Visibility for Mobile) */}
-      <div className="lg:hidden fixed top-16 left-0 right-0 z-40 bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-white/10 px-3 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2 whitespace-nowrap">
-        <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/' ? 'bg-white text-black font-semibold shadow-sm' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Utama</a>
-        <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/power-bi-dashboard' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Power BI</a>
-        <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/data-analysis' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Data Analysis</a>
-        <a href="#/services/business-intelligence" onClick={() => setCurrentRoute('#/services/business-intelligence')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/business-intelligence' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Corporate BI</a>
-        <a href="#/services/machine-learning-ai" onClick={() => setCurrentRoute('#/services/machine-learning-ai')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/services/machine-learning-ai' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>ML & AI</a>
-        <a href="#/case-studies" onClick={() => setCurrentRoute('#/case-studies')} className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 ${currentRoute === '#/case-studies' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold' : 'bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white'}`}>Case Studies</a>
-        <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">Karya</a>
-        <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">Harga</a>
-        <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="px-3 py-1.5 rounded-full text-xs font-medium transition-all shrink-0 bg-white/5 text-[#a1a1aa] border border-white/10 hover:text-white">FAQ</a>
-      </div>
+      </nav>
 
       {/* Mobile Navigation Drawer Overlay */}
       {mobileMenuOpen && (
@@ -1310,25 +1299,25 @@ ${formData.message}`;
     {(currentRoute === "#/" || currentRoute === "") && (
       <>
     {/* 1. HERO SECTION */}
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10 pt-36 md:pt-44 lg:pt-48 pb-16">
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-6 relative z-10 pt-28 sm:pt-36 md:pt-44 lg:pt-48 pb-16">
         <div className="ambient-glow"></div>
         
-        <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm">
+        <span className="px-5 py-2 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm">
             Data Analytics & Business Intelligence
         </span>
         
-        <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.08]">
             Data-Driven Decisions. <br/>
             <span className="text-[#86868b]">Bukan Lagi Tebakan.</span>
         </h1>
         
-        <p className="text-base sm:text-lg md:text-2xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mt-4 mb-10">
+        <p className="text-lg sm:text-xl md:text-2xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mt-4 mb-10">
             Mengubah jutaan baris data mentah menjadi Executive Dashboard Interaktif, Prediksi Bisnis berbasis Machine Learning, dan Laporan Strategis yang siap dieksekusi oleh manajemen.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24">
-            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer">Lihat Proyek</a>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer">Konsultasi Gratis</a>
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
+            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">Lihat Proyek</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">Konsultasi Gratis</a>
         </div>
         
         {/* Tech Stack Marquee (Inserted Here) */}
@@ -1881,7 +1870,7 @@ ${formData.message}`;
     {/* 3.5 ABOUT THE EXPERT */}
     <section id="about" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="about-card glass-panel p-5 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center opacity-0 translate-y-10">
+            <div className="about-card glass-panel p-5 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center opacity-0 translate-y-10" itemScope itemType="https://schema.org/Person">
                 
                 {/* Ambient Glow inside the card */}
                 <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -1892,6 +1881,7 @@ ${formData.message}`;
                         {/* Placeholder Photo: Ganti dengan foto profesional Anda */}
                         <img src="https://drive.google.com/thumbnail?id=184y2ZUwxJn1mXCgPtX_kuomeJaQ461zE&sz=w1000" referrerPolicy="no-referrer" 
                              alt="Ikhsan Kamal" 
+                             itemProp="image"
                              className="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105" />
                         
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -1905,8 +1895,8 @@ ${formData.message}`;
                         <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase">The Expert</span>
                     </div>
                     
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-3">Ikhsan Kamal.</h2>
-                    <p className="text-xl md:text-2xl text-white font-medium mb-8">Spesialis Data Analytics & Konsultan Business Intelligence.</p>
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-3" itemProp="name">Ikhsan Kamal.</h2>
+                    <p className="text-xl md:text-2xl text-white font-medium mb-8" itemProp="jobTitle">Spesialis Data Analytics & Konsultan Business Intelligence.</p>
                     
                     <p className="text-[#86868b] text-base md:text-lg leading-relaxed font-light mb-10">
                         Spesialis <span className="text-white font-medium">Data Analytics</span> & <span className="text-white font-medium">Business Intelligence Consultant</span> berbasis di Indonesia. Sebagai konsultan independen, saya membantu perusahaan mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) menjadi Executive Dashboard interaktif, pemodelan Machine Learning, dan laporan strategis yang melacak KPI serta menekan inefisiensi operasional secara real-time.
@@ -2019,42 +2009,42 @@ ${formData.message}`;
                 {/* Left: Copy & Booking Info */}
                 <div className="z-10">
                     <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">Mulai Kolaborasi</span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">Otomatiskan bisnis <br/>Anda hari ini.</h2>
-                    <p className="text-[#86868b] text-lg mb-10 leading-relaxed font-light max-w-lg">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">Otomatiskan bisnis <br/>Anda hari ini.</h2>
+                    <p className="text-[#86868b] text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-light max-w-lg">
                         Jadwalkan sesi <span className="text-white font-medium">discovery call (30 Menit)</span>. Kita akan membedah alur kerja Anda saat ini dan memetakan arsitektur sistem yang tepat—tanpa komitmen apapun.
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
                         
                         {/* Direct Booking Button (Calendly style) */}
-                        <a href="https://calendly.com/your-link" target="_blank" className="flex items-center justify-center gap-2 bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <a href="https://calendly.com/your-link" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-500 text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors text-center">
+                            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                             Booking Kalender
                         </a>
                         {/* WhatsApp Button */}
-                        <a href="https://wa.me/6282126574799" target="_blank" className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#20b958] transition-colors">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        <a href="https://wa.me/6282126574799" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-[#20b958] transition-colors text-center">
+                            <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                             WhatsApp
                         </a>
                         {/* Alternative Direct Email */}
-                        <a href="mailto:iamikhsank@gmail.com" className="flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors">
+                        <a href="mailto:iamikhsank@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors text-center">
                             Email
                         </a>
                         
                     </div>
 
                     {/* Micro Info */}
-                    <div className="space-y-4 text-sm text-[#86868b]">
+                    <div className="space-y-3.5 text-xs sm:text-sm text-[#86868b]">
                         <div className="flex items-center gap-3">
-                            <svg className="w-5 h-5 text-emerald-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <svg className="w-5 h-5 text-emerald-500/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             <span>Berbasis di Bandung, Indonesia (Tersedia Remote Global)</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <svg className="w-5 h-5 text-emerald-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <svg className="w-5 h-5 text-emerald-500/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>Responsibilitas Tipikal: 12-24 Jam</span>
                         </div>
-                        <div className="flex flex-wrap items-center gap-2 pt-2">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-white/40 mr-1">Platform Profil:</span>
+                        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-white/40 mr-1 block w-full sm:w-auto mb-1 sm:mb-0">Platform Profil:</span>
                             <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fastwork</a>
                             <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
                             <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
