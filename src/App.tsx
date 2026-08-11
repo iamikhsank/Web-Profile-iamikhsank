@@ -877,6 +877,7 @@ ${formData.message}`;
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
+            <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
             <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
           </div>
 
@@ -971,6 +972,7 @@ ${formData.message}`;
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
+            <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork (Terverifikasi & Ulasan Klien)</a>
             <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
           </div>
 
@@ -1063,8 +1065,10 @@ ${formData.message}`;
             Membangun arsitektur data terpusat, otomatisasi alur kerja Apps Script, dan konsolidasi KPI eksekutif dengan penghematan TCO 100% (<span className="text-white font-medium">Zero Server Cost</span>).
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
+            <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
+            <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Otomasi Apps Script</a>
             <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
           </div>
 
@@ -1157,8 +1161,10 @@ ${formData.message}`;
             Memanfaatkan pemodelan skrip Python canggih (<span className="text-white font-medium">Pandas, Scikit-learn, PyTorch</span>) untuk <span className="text-white font-medium">Sales Forecasting</span>, <span className="text-white font-medium">Customer Churn Prediction</span>, segmentasi RFM, dan integrasi Enterprise AI.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
+            <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Machine Learning (Terverifikasi & Ulasan Klien)</a>
+            <a href="https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Data Science & Predictive</a>
             <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">Kembali ke Portofolio Utama</a>
           </div>
 
@@ -1262,34 +1268,65 @@ ${formData.message}`;
         {/* Portfolio Case Studies Grid */}
         <section className="py-12 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portofolio.map((item) => (
-              <div key={item.id} className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                  <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
-                    <img src={item.linkGambar} alt={item.seoTitle} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-black/70 backdrop-blur-md text-emerald-400 border border-emerald-500/30">
-                      {item.kategori}
-                    </span>
+            {portofolio.map((item) => {
+              const kat = (item.kategori || '').toLowerCase();
+              const fastworkUrl = kat.includes('power bi') || kat.includes('tableau') || kat.includes('dashboard')
+                ? "https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service"
+                : kat.includes('machine learning') || kat.includes('ai')
+                ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
+                : kat.includes('corporate bi') || kat.includes('business intelligence')
+                ? "https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service"
+                : kat.includes('data science') || kat.includes('predictive')
+                ? "https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service"
+                : kat.includes('apps script') || kat.includes('sheets') || kat.includes('excel')
+                ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
+                : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service";
+
+              return (
+                <div key={item.id} className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
+                  <div>
+                    <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
+                      <img src={item.linkGambar} alt={`Studi Kasus Analisis Data ${item.judul} - ${item.kategori}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <a 
+                        href={fastworkUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="absolute top-3 left-3 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-lg hover:bg-white/20 transition-all cursor-pointer"
+                        title={`Pesan Layanan Kategori ${item.kategori} di Fastwork`}
+                      >
+                        {item.kategori} ↗
+                      </a>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
+                      {item.seoTitle}
+                    </h3>
+
+                    <p className="text-xs text-[#86868b] font-medium mb-3">Klien: {item.klien}</p>
+                    <p className="text-xs text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
+
+                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-5">
+                      <p className="text-[11px] text-[#86868b] uppercase tracking-wider font-semibold mb-0.5">{item.metrikLabel}</p>
+                      <p className="text-lg font-extrabold text-emerald-400">{item.metrikNilai}</p>
+                    </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
-                    {item.seoTitle}
-                  </h3>
-
-                  <p className="text-xs text-[#86868b] font-medium mb-3">Klien: {item.klien}</p>
-                  <p className="text-xs text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
-
-                  <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-5">
-                    <p className="text-[11px] text-[#86868b] uppercase tracking-wider font-semibold mb-0.5">{item.metrikLabel}</p>
-                    <p className="text-lg font-extrabold text-emerald-400">{item.metrikNilai}</p>
+                  <div className="space-y-2">
+                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer">
+                      Baca Case Study (6-Stage Deep-Dive)
+                    </button>
+                    <a 
+                      href={fastworkUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="block w-full py-2.5 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-semibold text-xs tracking-wider transition-all cursor-pointer"
+                    >
+                      Pesan Jasa Kategori Ini di Fastwork →
+                    </a>
                   </div>
                 </div>
-
-                <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300">
-                  Baca Case Study (6-Stage Deep-Dive)
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </div>
@@ -1327,11 +1364,11 @@ ${formData.message}`;
                 <div className="tech-marquee">
                     {/* Original Set */}
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Apps Script" className="w-6 h-6 object-contain" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Apps Script</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Google Sheets" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Google Sheets</span>
                     </div>
                     <div className="tech-icon-box">
@@ -1343,37 +1380,37 @@ ${formData.message}`;
                         <span className="text-sm font-medium">Tailwind v4</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="TypeScript" className="w-6 h-6 object-contain" />
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">TypeScript</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="HTML" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">HTML</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">CSS</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Power BI" className="w-6 h-6 object-contain" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Power BI</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Tableau" className="w-6 h-6 object-contain" />
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Tableau</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://img.icons8.com/color/512/python--v1.png" alt="Python" className="w-6 h-6 object-contain" />
+                        <img src="https://img.icons8.com/color/512/python--v1.png" alt="Logo Python - Machine Learning & Data Science Modeling" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Python</span>
                     </div>
                     
                     {/* Duplicated Set for Infinite Scroll Illusion */}
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Apps Script" className="w-6 h-6 object-contain" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Apps Script</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Google Sheets" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Google Sheets</span>
                     </div>
                     <div className="tech-icon-box">
@@ -1385,27 +1422,27 @@ ${formData.message}`;
                         <span className="text-sm font-medium">Tailwind v4</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="TypeScript" className="w-6 h-6 object-contain" />
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">TypeScript</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="HTML" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">HTML</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS" className="w-6 h-6 object-contain" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">CSS</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Power BI" className="w-6 h-6 object-contain" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Power BI</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Tableau" className="w-6 h-6 object-contain" />
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Tableau</span>
                     </div>
                     <div className="tech-icon-box">
-                        <img src="https://img.icons8.com/color/512/python--v1.png" alt="Python" className="w-6 h-6 object-contain" />
+                        <img src="https://img.icons8.com/color/512/python--v1.png" alt="Logo Python - Machine Learning & Data Science Modeling" className="w-6 h-6 object-contain" />
                         <span className="text-sm font-medium">Python</span>
                     </div>
                 </div>
@@ -1509,7 +1546,7 @@ ${formData.message}`;
                                 </div>
                                 <div className="w-full md:w-[38%] min-h-[220px] md:min-h-full relative overflow-hidden bg-black/50 p-4 md:p-5 cursor-pointer group">
                                     <div className="w-full h-full min-h-[200px] rounded-2xl overflow-hidden relative shadow-xl border border-white/5">
-                                        <img src={item.linkGambar} alt={item.judul} className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 opacity-85" />
+                                        <img src={item.linkGambar} alt={`Tampilan Visualisasi Dashboard ${item.judul} oleh Ikhsan Kamal`} className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 opacity-85" />
                                         
                                         {/* Link Overlay */}
                                         {item.linkProject && item.linkProject !== '#' && (
@@ -1547,53 +1584,53 @@ ${formData.message}`;
                     <div className="tech-marquee flex items-center">
                         {/* First Set */}
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Pertamina" className="h-7 w-auto object-contain" />
+                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Bank Central Asia" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Bank Indonesia" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Kementerian Keuangan" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Kementerian Kehutanan" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="BMKG" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
 
                         {/* Duplicated Set for Infinite Loop */}
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Pertamina" className="h-7 w-auto object-contain" />
+                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Bank Central Asia" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Bank Indonesia" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Kementerian Keuangan" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Kementerian Kehutanan" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="BMKG" className="h-7 w-auto object-contain" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
                     </div>
@@ -1662,7 +1699,7 @@ ${formData.message}`;
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <img src="https://ico.hugeicons.com/database-stroke-rounded@3x.webp" alt="Database" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/database-stroke-rounded@3x.webp" alt="Ikon Layanan Data Cleansing & ETL Pipeline" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Data Cleansing & ETL Pipeline</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-6">
@@ -1673,6 +1710,7 @@ ${formData.message}`;
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>SQL Data Analyst</span>
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>MS Excel & Spreadsheets</span>
                         </div>
+                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors mt-4">Pesan Jasa Analisis Data (Terverifikasi & Ulasan Klien) →</a>
                     </div>
                 </div>
 
@@ -1681,7 +1719,7 @@ ${formData.message}`;
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <img src="https://ico.hugeicons.com/dashboard-browsing-stroke-rounded@3x.webp" alt="Dashboard" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(190deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/dashboard-browsing-stroke-rounded@3x.webp" alt="Ikon Layanan Power BI & Tableau Dashboard" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(190deg) brightness(0.85)'}} />
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Power BI, Tableau & Web App Dashboards</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-6">
@@ -1692,6 +1730,7 @@ ${formData.message}`;
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Tableau</span>
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI Consultant</span>
                         </div>
+                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors mt-4">Pesan Dashboard Power BI & Tableau →</a>
                     </div>
                 </div>
 
@@ -1700,7 +1739,7 @@ ${formData.message}`;
                     <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <img src="https://ico.hugeicons.com/artificial-intelligence-04-stroke-rounded@3x.webp" alt="AI" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(250deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/artificial-intelligence-04-stroke-rounded@3x.webp" alt="Ikon Layanan Data Science & Predictive Analytics Machine Learning" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(250deg) brightness(0.85)'}} />
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Data Science & Predictive Analytics (ML)</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-4">
@@ -1716,6 +1755,7 @@ ${formData.message}`;
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Data Science</span>
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python Data Analyst</span>
                         </div>
+                        <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors mt-4">Pesan Model Machine Learning (Terverifikasi & Ulasan Klien) →</a>
                     </div>
                 </div>
 
@@ -1724,7 +1764,7 @@ ${formData.message}`;
                     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
                         <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <img src="https://ico.hugeicons.com/task-01-stroke-rounded@3x.webp" alt="Report" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(30deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/task-01-stroke-rounded@3x.webp" alt="Ikon Layanan Actionable Insights & Executive Reporting" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(30deg) brightness(0.85)'}} />
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Actionable Insights & Executive Reporting</h3>
                         <p className="text-[#86868b] text-sm leading-relaxed mb-6">
@@ -1735,6 +1775,7 @@ ${formData.message}`;
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>BI Consultant</span>
                             <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Full-Stack Developer</span>
                         </div>
+                        <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors mt-4">Pesan Business Intelligence Specialist →</a>
                     </div>
                 </div>
             </div>
@@ -1749,28 +1790,28 @@ ${formData.message}`;
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                     <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <img src="https://ico.hugeicons.com/shopping-bag-01-stroke-rounded@3x.webp" alt="Retail" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/shopping-bag-01-stroke-rounded@3x.webp" alt="Ikon Solusi Sektor Retail, F&B & E-Commerce" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
                         <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Retail, F&B & E-Commerce</h4>
                         <p className="text-[10px] sm:text-[11px] text-[#86868b]">POS Kasir, Stok & Sales</p>
                     </div>
                     <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <img src="https://ico.hugeicons.com/truck-01-stroke-rounded@3x.webp" alt="Distribusi" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/truck-01-stroke-rounded@3x.webp" alt="Ikon Solusi Sektor Distribusi & Supply Chain FMCG" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
                         <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Distribusi & Supply Chain</h4>
                         <p className="text-[10px] sm:text-[11px] text-[#86868b]">FMCG, Logistik & Fleet</p>
                     </div>
                     <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <img src="https://ico.hugeicons.com/bank-stroke-rounded@3x.webp" alt="Keuangan" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/bank-stroke-rounded@3x.webp" alt="Ikon Solusi Sektor Keuangan & Perbankan" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
                         <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Keuangan & Perbankan</h4>
                         <p className="text-[10px] sm:text-[11px] text-[#86868b]">Cash Flow & Telemetri Budaya</p>
                     </div>
                     <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <img src="https://ico.hugeicons.com/target-02-stroke-rounded@3x.webp" alt="Digital Marketing" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                            <img src="https://ico.hugeicons.com/target-02-stroke-rounded@3x.webp" alt="Ikon Solusi Sektor Digital Marketing Agency" width="24" height="24" className="w-6 h-6" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                         </div>
                         <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Digital Marketing Agency</h4>
                         <p className="text-[10px] sm:text-[11px] text-[#86868b]">ROI, Funnel & Lead Analytics</p>
@@ -1795,7 +1836,7 @@ ${formData.message}`;
                 {/* Feature 1 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card opacity-0 translate-y-10">
                     <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
-                        <img src="https://ico.hugeicons.com/coins-01-stroke-rounded@3x.webp" alt="Zero Server Cost" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
+                        <img src="https://ico.hugeicons.com/coins-01-stroke-rounded@3x.webp" alt="Ikon Fitur Zero Server Cost Serverless" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(120deg) brightness(0.85)'}} />
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold mb-3">Zero Server Cost</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm md:text-base">Sistem Anda berjalan 100% di atas infrastruktur serverless Google. Ucapkan selamat tinggal pada biaya langganan AWS, Azure, atau VPS bulanan untuk hosting backend.</p>
@@ -1804,7 +1845,7 @@ ${formData.message}`;
                 {/* Feature 2 */}
                 <div className="glass-panel p-10 rounded-[2rem] feature-card opacity-0 translate-y-10">
                     <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
-                        <img src="https://ico.hugeicons.com/link-01-stroke-rounded@3x.webp" alt="Native Integration" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(190deg) brightness(0.85)'}} />
+                        <img src="https://ico.hugeicons.com/link-01-stroke-rounded@3x.webp" alt="Ikon Fitur Native Workspace Integration" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(190deg) brightness(0.85)'}} />
                     </div>
                     <h3 className="text-2xl font-bold mb-3">Native Integration</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm md:text-base">Terhubung langsung dengan ekosistem Google Workspace. Generate PDF di Drive, kirim email via Gmail, dan sync ke Calendar tanpa API otorisasi (OAuth) yang rumit.</p>
@@ -1813,11 +1854,17 @@ ${formData.message}`;
                 {/* Feature 3 */}
                 <div className="glass-panel p-10 rounded-[2rem] feature-card opacity-0 translate-y-10">
                     <div className="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20">
-                        <img src="https://ico.hugeicons.com/shield-01-stroke-rounded@3x.webp" alt="Enterprise Security" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(250deg) brightness(0.85)'}} />
+                        <img src="https://ico.hugeicons.com/shield-01-stroke-rounded@3x.webp" alt="Ikon Fitur Enterprise Security" width="28" height="28" className="w-7 h-7" style={{filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(250deg) brightness(0.85)'}} />
                     </div>
                     <h3 className="text-2xl font-bold mb-3">Enterprise Security</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm md:text-base">Keamanan sekelas perusahaan besar. Data Anda tidak pernah keluar dari Google Drive domain Anda, dienkripsi, dan memanfaatkan sistem otorisasi bawaan Google.</p>
                 </div>
+            </div>
+            
+            <div className="text-center mt-12">
+                <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer">
+                    Pesan Otomasi Google Sheets & Apps Script di Fastwork →
+                </a>
             </div>
         </div>
     </section>
@@ -1880,7 +1927,7 @@ ${formData.message}`;
                     <div className="aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
                         {/* Placeholder Photo: Ganti dengan foto profesional Anda */}
                         <img src="https://drive.google.com/thumbnail?id=184y2ZUwxJn1mXCgPtX_kuomeJaQ461zE&sz=w1000" referrerPolicy="no-referrer" 
-                             alt="Ikhsan Kamal" 
+                             alt="Foto Profil Profesional Ikhsan Kamal - Spesialis Data Analytics & Konsultan Business Intelligence" 
                              itemProp="image"
                              className="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105" />
                         
@@ -1955,9 +2002,25 @@ ${formData.message}`;
                                     <li key={`inaktif-${i}`} className="flex items-start gap-3 text-[#86868b]"><span>—</span> {fitur}</li>
                                 ))}
                             </ul>
-                            <a href="#contact" className={`block w-full py-3 rounded-full text-center font-semibold transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
-                                {paket.teksTombol}
-                            </a>
+                            <div className="space-y-2 mt-auto">
+                              <a href="#contact" className={`block w-full py-3 rounded-full text-center font-semibold transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
+                                  {paket.teksTombol}
+                              </a>
+                              <a 
+                                href={
+                                  paket.namaPaket.toLowerCase().includes('basic') || paket.namaPaket.toLowerCase().includes('spreadsheet') 
+                                    ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
+                                    : paket.namaPaket.toLowerCase().includes('enterprise') || paket.namaPaket.toLowerCase().includes('custom')
+                                    ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
+                                    : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service"
+                                } 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="block w-full py-2.5 rounded-full text-center font-semibold text-xs bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition cursor-pointer"
+                              >
+                                  Pesan di Fastwork →
+                              </a>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -2045,7 +2108,7 @@ ${formData.message}`;
                         </div>
                         <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
                             <span className="text-xs font-semibold uppercase tracking-wider text-white/40 mr-1 block w-full sm:w-auto mb-1 sm:mb-0">Platform Profil:</span>
-                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fastwork</a>
+                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition font-medium">Profil Fastwork (6 Jasa Terverifikasi)</a>
                             <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
                             <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
                             <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Instagram</a>
@@ -2119,7 +2182,7 @@ ${formData.message}`;
           <div className="sticky top-0 z-20 px-6 md:px-8 py-5 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">{selectedCaseStudy.kategori}</span>
+                <span className="text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-md">{selectedCaseStudy.kategori}</span>
                 <span className="text-xs text-[#86868b]">Klien: {selectedCaseStudy.klien}</span>
               </div>
               <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug">{selectedCaseStudy.seoTitle || selectedCaseStudy.judul}</h2>
@@ -2138,7 +2201,7 @@ ${formData.message}`;
             {/* Banner Image & High Impact Metric */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
               <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-36 sm:h-48 md:h-64 relative bg-black">
-                <img src={selectedCaseStudy.linkGambar} alt={selectedCaseStudy.judul} className="w-full h-full object-cover object-left-top" />
+                <img src={selectedCaseStudy.linkGambar} alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} className="w-full h-full object-cover object-left-top" />
               </div>
               <div className="glass-panel p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
                 <p className="text-xs uppercase tracking-widest text-emerald-400 font-bold">Hasil ROI & Dampak Utama</p>
@@ -2220,14 +2283,36 @@ ${formData.message}`;
           {/* Modal Footer */}
           <div className="p-6 bg-[#0a0a0c] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#86868b]">Ingin mengimplementasikan arsitektur sistem serupa untuk perusahaan Anda?</p>
-            <a
-              href={`https://wa.me/6282126574799?text=Halo%20Ikhsan,%20saya%20tertarik%20dengan%20Case%20Study%20${encodeURIComponent(selectedCaseStudy.judul)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full bg-emerald-500 text-black font-bold text-xs hover:bg-emerald-400 transition-all hover:scale-105 shrink-0"
-            >
-              Diskusi Proyek Serupa via WhatsApp
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href={
+                  (selectedCaseStudy.kategori || '').toLowerCase().includes('power bi') || (selectedCaseStudy.kategori || '').toLowerCase().includes('tableau') || (selectedCaseStudy.kategori || '').toLowerCase().includes('dashboard')
+                    ? "https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service"
+                    : (selectedCaseStudy.kategori || '').toLowerCase().includes('machine learning') || (selectedCaseStudy.kategori || '').toLowerCase().includes('ai')
+                    ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
+                    : (selectedCaseStudy.kategori || '').toLowerCase().includes('corporate bi') || (selectedCaseStudy.kategori || '').toLowerCase().includes('business intelligence')
+                    ? "https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service"
+                    : (selectedCaseStudy.kategori || '').toLowerCase().includes('data science') || (selectedCaseStudy.kategori || '').toLowerCase().includes('predictive')
+                    ? "https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service"
+                    : (selectedCaseStudy.kategori || '').toLowerCase().includes('apps script') || (selectedCaseStudy.kategori || '').toLowerCase().includes('sheets') || (selectedCaseStudy.kategori || '').toLowerCase().includes('excel')
+                    ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
+                    : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] font-bold text-xs hover:bg-[#00b900]/20 transition-all text-center cursor-pointer"
+              >
+                Pesan Jasa Kategori Ini di Fastwork →
+              </a>
+              <a
+                href={`https://wa.me/6282126574799?text=Halo%20Ikhsan,%20saya%20tertarik%20dengan%20Case%20Study%20${encodeURIComponent(selectedCaseStudy.judul)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full bg-emerald-500 text-black font-bold text-xs hover:bg-emerald-400 transition-all hover:scale-105 text-center cursor-pointer"
+              >
+                Diskusi via WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
