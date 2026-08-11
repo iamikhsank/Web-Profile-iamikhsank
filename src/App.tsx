@@ -912,7 +912,7 @@ ${formData.message}`;
             </div>
           </div>
           {/* Layanan Section */}
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-emerald-500 mb-3">{lang === 'en' ? 'Services' : 'Layanan'}</p>
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-emerald-500 mb-3">{lang === 'en' ? 'Services' : 'Layanan'}</p>
           <div className="space-y-1 mb-6">
             <a href="#/" onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
             <a href="#/services/power-bi-dashboard" onClick={() => { setCurrentRoute('#/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI & Tableau</a>
@@ -921,7 +921,7 @@ ${formData.message}`;
             <a href="#/services/machine-learning-ai" onClick={() => { setCurrentRoute('#/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML & AI</a>
           </div>
           {/* Navigasi Section */}
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
           <div className="space-y-1 mb-6">
             <a href="#/case-studies" onClick={() => { setCurrentRoute('#/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
             <a href="#showcase" onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
@@ -967,62 +967,62 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-blue-400 mb-1">3.5x</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Decision Making</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-emerald-400 mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Sinkronisasi Data Real-time</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-purple-400 mb-1">Rp 0</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Pemborosan Biaya Lisensi</p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 max-w-7xl mx-auto px-6">
+        <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Visualisasi Data</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Dashboard Power BI & Tableau Korporat</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Dashboard Power BI & Tableau Korporat</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">01</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Executive Sales & Revenue Cockpit</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">01</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Executive Sales & Revenue Cockpit</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Power BI DAX</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Sales Pipeline</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Financial Cash Flow & P&L Analytics</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Financial Cash Flow & P&L Analytics</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Cash Flow</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Tableau Desktop</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Multi-Warehouse Inventory Control</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Multi-Warehouse Inventory Control</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto ABC-XYZ</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Inventory BI</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Custom Web App Embedding</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Custom Web App Embedding</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Embedded BI</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">React + Apps Script</span>
@@ -1062,62 +1062,62 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-emerald-400 mb-1">99.9%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Akurasi Validasi Data</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-blue-400 mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Eliminasi Duplikasi</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-purple-400 mb-1">&lt; 5 Detik</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync ETL</p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 max-w-7xl mx-auto px-6">
+        <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-emerald-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Data Analysis</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Data Engineering & Cleansing</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Data Engineering & Cleansing</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">01</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Multi-Source Data Scrubbing</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">01</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Multi-Source Data Scrubbing</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Data Scrubbing</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Automated ETL</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">02</div>
-              <h3 className="text-xl font-bold mb-3 text-white">SQL Relational Database Engineering</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">02</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">SQL Relational Database Engineering</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">SQL Engineering</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Schema Design</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Dynamic Pareto ABC-XYZ Analytics</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Dynamic Pareto ABC-XYZ Analytics</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto Analysis</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Modeling</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Automated Master Sheet Consolidation</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Automated Master Sheet Consolidation</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Master Consolidation</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Apps Script ETL</span>
@@ -1158,62 +1158,62 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-purple-400 mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Zero Server Cost TCO</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-emerald-400 mb-1">5 Channel</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Konsolidasi 1 Cockpit</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-blue-400 mb-1">&lt; 5 Detik</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync Pipeline</p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 max-w-7xl mx-auto px-6">
+        <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Corporate BI</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Arsitektur Business Intelligence</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Arsitektur Business Intelligence</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Single Source of Truth Architecture</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Single Source of Truth Architecture</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Integration</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Single Source</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Automated Formal PDF Reporting</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Automated Formal PDF Reporting</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">PDF Automation</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Google Drive Sync</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">03</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Executive Approval Workflow Engine</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">03</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Executive Approval Workflow Engine</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Approval Engine</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Governance</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Role-Based Access Control (RBAC)</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Role-Based Access Control (RBAC)</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">RBAC Security</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Google Auth</span>
@@ -1254,62 +1254,62 @@ ${formData.message}`;
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-purple-400 mb-1">94.5%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Skor Akurasi Prediksi Sales</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-emerald-400 mb-1">3x</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Peningkatan Konversi RFM</p>
             </div>
-            <div className="glass-panel p-6 rounded-2xl text-center">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
               <p className="text-3xl font-extrabold text-blue-400 mb-1">0%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Penumpukan Dead Stock</p>
             </div>
           </div>
         </section>
 
-        <section className="py-20 max-w-7xl mx-auto px-6">
+        <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Machine Learning & AI</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Solusi Predictive Analytics Enterprise</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Predictive Analytics Enterprise</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Predictive Sales & Revenue Forecasting</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Predictive Sales & Revenue Forecasting</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Sales Forecast</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Time-Series ML</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6 text-rose-400 font-bold">02</div>
-              <h3 className="text-xl font-bold mb-3 text-white">Customer Churn Prediction Engine</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6 text-rose-400 font-bold">02</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Customer Churn Prediction Engine</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Churn Analytics</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Scikit-learn</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">03</div>
-              <h3 className="text-xl font-bold mb-3 text-white">RFM Customer Segmentation</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">03</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">RFM Customer Segmentation</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">RFM Analysis</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Clustering</span>
               </div>
             </div>
 
-            <div className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-bold">04</div>
-              <h3 className="text-xl font-bold mb-3 text-white">LLM & Chat With Your Data Engine</h3>
-              <p className="text-[#86868b] text-sm leading-relaxed mb-4">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-bold">04</div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">LLM & Chat With Your Data Engine</h3>
+              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Enterprise AI</span>
                 <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Chat With Data</span>
@@ -1354,7 +1354,7 @@ ${formData.message}`;
         </section>
 
         {/* Portfolio Case Studies Grid */}
-        <section className="py-12 max-w-7xl mx-auto px-6">
+        <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portofolio.map((item) => {
               const kat = (item.kategori || '').toLowerCase();
@@ -1371,7 +1371,7 @@ ${formData.message}`;
                 : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service";
 
               return (
-                <div key={item.id} className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
+                <div key={item.id} className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
                   <div>
                     <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
                       <img src={item.linkGambar} alt={`Studi Kasus Analisis Data ${item.judul} - ${item.kategori}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1386,28 +1386,28 @@ ${formData.message}`;
                       </a>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
                       {item.seoTitle}
                     </h3>
 
-                    <p className="text-xs text-[#86868b] font-medium mb-3">{lang === 'en' ? 'Client:' : 'Klien:'} {item.klien}</p>
-                    <p className="text-xs text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
+                    <p className="text-sm sm:text-base text-[#86868b] font-medium mb-3">{lang === 'en' ? 'Client:' : 'Klien:'} {item.klien}</p>
+                    <p className="text-sm sm:text-base text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
 
                     <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-5">
-                      <p className="text-[11px] text-[#86868b] uppercase tracking-wider font-semibold mb-0.5">{item.metrikLabel}</p>
+                      <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-0.5">{item.metrikLabel}</p>
                       <p className="text-lg font-extrabold text-emerald-400">{item.metrikNilai}</p>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer">
+                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 cursor-pointer">
                       {lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}
                     </button>
                     <a 
                       href={fastworkUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="block w-full py-2.5 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-semibold text-xs tracking-wider transition-all cursor-pointer"
+                      className="block w-full py-2.5 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-bold text-sm sm:text-base tracking-wider transition-all cursor-pointer"
                     >
                       {lang === 'en' ? 'Order This Category Service on Fastwork →' : 'Pesan Jasa Kategori Ini di Fastwork →'}
                     </a>
@@ -1431,7 +1431,7 @@ ${formData.message}`;
             Data Analytics & Business Intelligence
         </span>
         
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.08]">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.08]">
             Data-Driven Decisions. <br/>
             <span className="text-[#86868b]">{lang === 'en' ? 'No Longer Guesses.' : 'Bukan Lagi Tebakan.'}</span>
         </h1>
@@ -1444,8 +1444,8 @@ ${formData.message}`;
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
-            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</a>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
+            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
         </div>
         
         {/* Tech Stack Marquee (Inserted Here) */}
@@ -1545,8 +1545,8 @@ ${formData.message}`;
     {/* 2. SHOWCASE (Stacked Cards) */}
     <section id="showcase" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{lang === 'en' ? 'Transformational Portfolio.' : 'Karya Transformasional.'}</h2>
-            <p className="text-[#86868b] mt-4 text-lg">{lang === 'en' ? 'Empirical proof of efficiency using modern BI & data architecture.' : 'Bukti nyata efisiensi menggunakan arsitektur modern.'}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Transformational Portfolio.' : 'Karya Transformasional.'}</h2>
+            <p className="text-[#86868b] mt-4 text-sm sm:text-base md:text-lg">{lang === 'en' ? 'Empirical proof of efficiency using modern BI & data architecture.' : 'Bukti nyata efisiensi menggunakan arsitektur modern.'}</p>
         </div>
 
         <div className="cards-container relative pb-16 space-y-6">
@@ -1582,31 +1582,31 @@ ${formData.message}`;
 
                     return (
                         <div key={item.id} className="project-card md:sticky md:top-24 pt-4 pb-4" style={{ zIndex: index + 10 }}>
-                            <div className={`card-inner w-full rounded-3xl border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] ${index % 2 !== 0 ? 'bg-[#121214]' : 'bg-[#0a0a0c]'} overflow-hidden flex flex-col md:flex-row relative origin-top`}>
-                                <div className="w-full md:w-[62%] p-6 md:p-8 flex flex-col justify-between z-10">
+                            <div className={`card-inner w-full rounded-2xl md:rounded-3xl border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] ${index % 2 !== 0 ? 'bg-[#121214]' : 'bg-[#0a0a0c]'} overflow-hidden flex flex-col md:flex-row relative origin-top`}>
+                                <div className="w-full md:w-[62%] p-6 sm:p-8 md:p-10 flex flex-col justify-between z-10">
                                     <div>
                                         {/* Badge Section */}
                                         <div className="flex items-center gap-2.5 mb-3">
-                                            <span className={`text-[10px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full ${colorClass}`}>{item.kategori}</span>
+                                            <span className={`text-xs sm:text-sm font-semibold tracking-widest uppercase px-2.5 py-0.5 rounded-full ${colorClass}`}>{item.kategori}</span>
                                         </div>
                                         
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1.5 tracking-tight leading-tight">{item.judul}</h3>
+                                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1.5 tracking-tight leading-tight">{item.judul}</h3>
                                         
                                         {/* Klien Info */}
-                                        <p className="text-xs font-semibold text-[#86868b] uppercase tracking-wider mb-4">{lang === 'en' ? 'Client:' : 'Klien:'} {item.klien}</p>
+                                        <p className="text-sm sm:text-base font-semibold text-[#86868b] uppercase tracking-wider mb-4">{lang === 'en' ? 'Client:' : 'Klien:'} {item.klien}</p>
                                         
-                                        <p className="text-[#86868b] text-sm font-light leading-relaxed mb-5">
+                                        <p className="text-[#86868b] text-sm sm:text-base font-light leading-relaxed mb-5">
                                             <span className="text-white font-medium">{item.highlight}</span> {item.deskripsi}
                                         </p>
                                         
                                         {/* Fitur Inti List */}
                                         <div>
-                                            <p className="text-[10px] font-bold tracking-widest uppercase text-white/50 mb-2.5">{lang === 'en' ? 'Core Implemented Features:' : 'Fitur Inti yang Diimplementasikan:'}</p>
+                                            <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-white/50 mb-2.5">{lang === 'en' ? 'Core Implemented Features:' : 'Fitur Inti yang Diimplementasikan:'}</p>
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                 {item.fitur.map((f, i) => (
                                                     <div key={i} className="flex items-start gap-2">
-                                                        <svg className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${svgColorClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                                                        <p className="text-xs text-[#f5f5f7]">{f}</p>
+                                                        <svg className={`w-5 h-5 shrink-0 mt-0.5 ${svgColorClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                                                        <p className="text-sm sm:text-base text-[#f5f5f7]">{f}</p>
                                                     </div>
                                                 ))}
                                             </div>
@@ -1615,27 +1615,27 @@ ${formData.message}`;
                                     
                                     <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
                                         <div>
-                                            <p className={`text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 ${gradientClass}`}>{item.metrikNilai}</p>
-                                            <p className="text-[10px] text-[#86868b] font-medium tracking-wide uppercase">{item.metrikLabel}</p>
+                                            <p className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-0.5 ${gradientClass}`}>{item.metrikNilai}</p>
+                                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] tracking-wide uppercase">{item.metrikLabel}</p>
                                         </div>
                                         <div className="flex flex-col items-end gap-2 w-full sm:w-auto">
                                             <button
                                                 onClick={() => setSelectedCaseStudy(item)}
-                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all cursor-pointer shadow-sm hover:scale-[1.02]"
+                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm sm:text-base font-bold hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all cursor-pointer shadow-sm hover:scale-[1.02]"
                                             >
                                                 <span>{lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}</span>
-                                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                                             </button>
                                             {/* Tech Stack minimal */}
                                             <div className="flex flex-wrap gap-1.5 justify-end max-w-[240px]">
                                                 {item.techStack.map((tech, i) => (
-                                                    <span key={i} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[11px] text-[#86868b]">{tech}</span>
+                                                    <span key={i} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold text-[#86868b]">{tech}</span>
                                                 ))}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-full md:w-[38%] min-h-[220px] md:min-h-full relative overflow-hidden bg-black/50 p-4 md:p-5 cursor-pointer group">
+                                <div className="w-full md:w-[38%] min-h-[220px] md:min-h-full relative overflow-hidden bg-black/50 p-6 sm:p-8 md:p-10 cursor-pointer group">
                                     <div className="w-full h-full min-h-[200px] rounded-2xl overflow-hidden relative shadow-xl border border-white/5">
                                         <img src={item.linkGambar} alt={`Tampilan Visualisasi Dashboard ${item.judul} oleh Ikhsan Kamal`} className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 opacity-85" />
                                         
@@ -1665,11 +1665,11 @@ ${formData.message}`;
     </section>
 
     {/* 2.3 SOCIAL PROOF (KLIEN & TESTIMONI) */}
-    <section id="social-proof" className="py-24 relative bg-[#050505]">
+    <section id="social-proof" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
         <div className="max-w-7xl mx-auto px-6">
             
             {/* Client Marquee */}
-            <div className="text-center mb-20 social-anim">
+            <div className="text-center mb-10 md:mb-20 social-anim">
                 <p className="text-xs uppercase tracking-[0.2em] text-[#86868b] mb-8 font-semibold">Telah Dipercaya Oleh Lembaga Negara & Enterprise</p>
                 <div className="tech-marquee-wrapper">
                     <div className="tech-marquee flex items-center">
@@ -1731,7 +1731,7 @@ ${formData.message}`;
             {/* Testimonials (Bento Style) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                 {/* Testi 1 */}
-                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <svg className="w-10 h-10 text-emerald-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
@@ -1742,14 +1742,14 @@ ${formData.message}`;
                             <span className="text-emerald-400 font-bold text-sm tracking-wider">BS</span>
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold text-sm">Budi Santoso</h4>
-                            <p className="text-[#86868b] text-xs">Operations Manager · Retail & Logistics Division</p>
+                            <h4 className="text-white font-bold text-base sm:text-lg">Budi Santoso</h4>
+                            <p className="text-[#86868b] text-sm sm:text-base">Operations Manager · Retail & Logistics Division</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Testi 2 */}
-                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <svg className="w-10 h-10 text-blue-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
@@ -1760,8 +1760,8 @@ ${formData.message}`;
                             <span className="text-blue-400 font-bold text-sm tracking-wider">SW</span>
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold text-sm">Sarah Wijaya</h4>
-                            <p className="text-[#86868b] text-xs">VP of Human Capital · Enterprise Group</p>
+                            <h4 className="text-white font-bold text-base sm:text-lg">Sarah Wijaya</h4>
+                            <p className="text-[#86868b] text-sm sm:text-base">VP of Human Capital · Enterprise Group</p>
                         </div>
                     </div>
                 </div>
@@ -1770,15 +1770,15 @@ ${formData.message}`;
     </section>
 
     {/* 2.4 SPESIALISASI LAYANAN & ARSITEKTUR DATA */}
-    <section id="services" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
+    <section id="services" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10 md:mb-20">
                 <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Services & Data Architecture' : 'Spesialisasi Layanan & Arsitektur Data'}</span>
-                <h2 className="text-3xl md:text-6xl font-bold tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight">
                     Executive Dashboard &<br/>
                     <span className="text-[#86868b]">Predictive Analytics (Machine Learning).</span>
                 </h2>
-                <p className="text-[#86868b] mt-4 text-base md:text-lg max-w-3xl mx-auto font-light">
+                <p className="text-[#86868b] mt-4 text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-light">
                     {lang === 'en' ? 'Transforming millions of raw data rows into tactical Insights grounded in actual Data-Driven Decision Making.' : <>Mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) perusahaan Anda menjadi wawasan taktis berlandaskan data aktual (<span className="text-white font-medium">Data-Driven Decision Making</span>).</>}
                 </p>
             </div>
@@ -1789,19 +1789,19 @@ ${formData.message}`;
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3M21 19c0 1.66-4.03 3-9 3s-9-1.34-9-3M3 5v14M21 5v14"/></svg>
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.12)', backdropFilter: 'blur(20px)'}}>
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3M21 19c0 1.66-4.03 3-9 3s-9-1.34-9-3M3 5v14M21 5v14"/></svg>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Data Cleansing & ETL Pipeline</h3>
-                        <p className="text-[#86868b] text-sm leading-relaxed mb-6">
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Cleansing & ETL Pipeline</h3>
+                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
                             {lang === 'en' ? 'Cleansing, standardization, and consolidation of data from multiple sources (Google Sheets, MS Excel, MySQL, CRM, ERP, or POS) into valid, deduplicated rational formats.' : <>Pembersihan, standarisasi, dan konsolidasi data dari berbagai sumber (<span className="text-white/80 font-medium">Google Sheets, MS Excel, Database MySQL, CRM, ERP, atau POS Kasir</span>) menjadi format rasional yang valid dan bebas duplikasi.</>}
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Analytics Engineer</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>SQL Data Analyst</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-emerald-400/90 font-medium tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>MS Excel & Spreadsheets</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Analytics Engineer</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>SQL Data Analyst</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>MS Excel & Spreadsheets</span>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors mt-4">{lang === 'en' ? 'Order Data Analysis Service (Verified & Client Reviews) →' : 'Pesan Jasa Analisis Data (Terverifikasi & Ulasan Klien) →'}</a>
+                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-emerald-400 hover:text-emerald-300 transition-colors mt-4">{lang === 'en' ? 'Order Data Analysis Service (Verified & Client Reviews) →' : 'Pesan Jasa Analisis Data (Terverifikasi & Ulasan Klien) →'}</a>
                     </div>
                 </div>
 
@@ -1809,19 +1809,19 @@ ${formData.message}`;
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 9h18M9 21V9M14 15l2-2 3 3"/></svg>
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.12)', backdropFilter: 'blur(20px)'}}>
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 9h18M9 21V9M14 15l2-2 3 3"/></svg>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Power BI, Tableau & Web App Dashboards</h3>
-                        <p className="text-[#86868b] text-sm leading-relaxed mb-6">
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Power BI, Tableau & Web App Dashboards</h3>
+                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
                             {lang === 'en' ? 'Enterprise Power BI Data Visualization & Dashboard development to monitor critical metrics such as Sales Performance, Inventory Tracking, Financial Cash Flow, to Marketing ROI in a single interactive view.' : <>Pengembangan Data Visualization & Dashboard Power BI tingkat korporat untuk memantau metrik krusial seperti <span className="text-white/80 font-medium">Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI</span> dalam satu layar interaktif.</>}
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Dashboard Power BI</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Tableau</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-blue-400/90 font-medium tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI Consultant</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Dashboard Power BI</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Tableau</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI Consultant</span>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors mt-4">{lang === 'en' ? 'Order Power BI & Tableau Dashboard →' : 'Pesan Dashboard Power BI & Tableau →'}</a>
+                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-blue-400 hover:text-blue-300 transition-colors mt-4">{lang === 'en' ? 'Order Power BI & Tableau Dashboard →' : 'Pesan Dashboard Power BI & Tableau →'}</a>
                     </div>
                 </div>
 
@@ -1829,24 +1829,24 @@ ${formData.message}`;
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-purple-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 2a4 4 0 00-4 4c0 1.9 1.3 3.5 3 3.9V13h2V9.9c1.7-.4 3-2 3-3.9a4 4 0 00-4-4zM6 14a3 3 0 100 6 3 3 0 000-6zm12 0a3 3 0 100 6 3 3 0 000-6zM8.5 16h7"/></svg>
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.12)', backdropFilter: 'blur(20px)'}}>
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 2a4 4 0 00-4 4c0 1.9 1.3 3.5 3 3.9V13h2V9.9c1.7-.4 3-2 3-3.9a4 4 0 00-4-4zM6 14a3 3 0 100 6 3 3 0 000-6zm12 0a3 3 0 100 6 3 3 0 000-6zM8.5 16h7"/></svg>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Data Science & Predictive Analytics (ML)</h3>
-                        <p className="text-[#86868b] text-sm leading-relaxed mb-4">
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Science & Predictive Analytics (ML)</h3>
+                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">
                             {lang === 'en' ? 'Python Data Analyst services combining Machine Learning algorithms (Pandas, Scikit-learn) for precise business Data Science strategies:' : <>Layanan Python Data Analyst mengombinasikan algoritma Machine Learning (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) untuk strategi Data Science bisnis presisi:</>}
                         </p>
-                        <ul className="space-y-2 text-xs md:text-sm text-[#f5f5f7]/80 mb-6">
+                        <ul className="space-y-2 text-sm sm:text-base text-[#f5f5f7]/80 mb-6">
                             <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Sales Forecasting:</span> {lang === 'en' ? 'Predicting future revenue & sales volumes.' : 'Prediksi volume omzet & penjualan di masa depan.'}</li>
                             <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">RFM Segmentation:</span> {lang === 'en' ? 'Mapping customer profiles with highest purchasing power.' : 'Memetakan profil pelanggan dengan daya beli tertinggi.'}</li>
                             <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Churn Prediction:</span> {lang === 'en' ? 'Detecting customers at risk of switching to competitors.' : 'Mendeteksi potensi pelanggan yang akan pindah ke kompetitor.'}</li>
                         </ul>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Machine Learning</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Data Science</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-purple-400/90 font-medium tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python Data Analyst</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Machine Learning</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Data Science</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python Data Analyst</span>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors mt-4">{lang === 'en' ? 'Order Machine Learning Model (Verified & Client Reviews) →' : 'Pesan Model Machine Learning (Terverifikasi & Ulasan Klien) →'}</a>
+                        <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-purple-400 hover:text-purple-300 transition-colors mt-4">{lang === 'en' ? 'Order Machine Learning Model (Verified & Client Reviews) →' : 'Pesan Model Machine Learning (Terverifikasi & Ulasan Klien) →'}</a>
                     </div>
                 </div>
 
@@ -1854,58 +1854,58 @@ ${formData.message}`;
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
                     <div className="relative z-10">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.12)', backdropFilter: 'blur(20px)'}}>
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">Actionable Insights & Executive Reporting</h3>
-                        <p className="text-[#86868b] text-sm leading-relaxed mb-6">
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Actionable Insights & Executive Reporting</h3>
+                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
                             {lang === 'en' ? 'Delivery of comprehensive Business Analytics report documents containing hidden insights and strategic recommendations ready for executive board execution.' : <>Penyerahan dokumen laporan Business Analytics komprehensif berisi <span className="text-white/80 font-medium">hidden insights</span> dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.</>}
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Business Analytics</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>BI Consultant</span>
-                            <span className="px-3 py-1.5 rounded-full text-[11px] text-amber-400/90 font-medium tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Full-Stack Developer</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Business Analytics</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>BI Consultant</span>
+                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Full-Stack Developer</span>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors mt-4">{lang === 'en' ? 'Order Business Intelligence Specialist →' : 'Pesan Business Intelligence Specialist →'}</a>
+                        <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-amber-400 hover:text-amber-300 transition-colors mt-4">{lang === 'en' ? 'Order Business Intelligence Specialist →' : 'Pesan Business Intelligence Specialist →'}</a>
                     </div>
                 </div>
             </div>
 
             {/* Target Industry Sectors */}
-            <div className="glass-panel p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
                 <div className="text-center mb-10">
                     <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">{lang === 'en' ? 'Relevant Solutions for Industry Sectors' : 'Solusi Relevan Untuk Sektor Industri'}</span>
-                    <h3 className="text-2xl md:text-4xl font-bold">{lang === 'en' ? 'Cross-Industry Experience.' : 'Pengalaman Lintas Industri.'}</h3>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">{lang === 'en' ? 'Cross-Industry Experience.' : 'Pengalaman Lintas Industri.'}</h3>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         </div>
-                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Retail, F&B & E-Commerce</h4>
-                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">{lang === 'en' ? 'POS Cashier, Stock & Sales' : 'POS Kasir, Stok & Sales'}</p>
+                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">Retail, F&B & E-Commerce</h4>
+                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'POS Cashier, Stock & Sales' : 'POS Kasir, Stok & Sales'}</p>
                     </div>
-                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1h2m4 0h2a1 1 0 001-1v-4a1 1 0 00-.293-.707l-3-3A1 1 0 0015.586 7H14v9a1 1 0 001 1h2"/></svg>
+                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1h2m4 0h2a1 1 0 001-1v-4a1 1 0 00-.293-.707l-3-3A1 1 0 0015.586 7H14v9a1 1 0 001 1h2"/></svg>
                         </div>
-                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">{lang === 'en' ? 'Distribution & Supply Chain' : 'Distribusi & Supply Chain'}</h4>
-                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">FMCG, Logistik & Fleet</p>
+                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">{lang === 'en' ? 'Distribution & Supply Chain' : 'Distribusi & Supply Chain'}</h4>
+                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">FMCG, Logistik & Fleet</p>
                     </div>
-                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg>
+                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg>
                         </div>
-                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">{lang === 'en' ? 'Finance & Banking' : 'Keuangan & Perbankan'}</h4>
-                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">{lang === 'en' ? 'Cash Flow & Culture Telemetry' : 'Cash Flow & Telemetri Budaya'}</p>
+                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">{lang === 'en' ? 'Finance & Banking' : 'Keuangan & Perbankan'}</h4>
+                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'Cash Flow & Culture Telemetry' : 'Cash Flow & Telemetri Budaya'}</p>
                     </div>
-                    <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
+                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
                         </div>
-                        <h4 className="text-white font-bold text-xs sm:text-sm md:text-base mb-1">Digital Marketing Agency</h4>
-                        <p className="text-[10px] sm:text-[11px] text-[#86868b]">ROI, Funnel & Lead Analytics</p>
+                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">Digital Marketing Agency</h4>
+                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">ROI, Funnel & Lead Analytics</p>
                     </div>
                 </div>
             </div>
@@ -1913,11 +1913,11 @@ ${formData.message}`;
     </section>
 
     {/* 2.5 WHY APPS SCRIPT */}
-    <section id="why-apps-script" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
+    <section id="why-apps-script" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-                <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Key Reasons to Choose Our Architecture' : 'Alasan Utama Memilih Arsitektur Kami'}</span>
-                <h2 className="text-3xl md:text-6xl font-bold tracking-tight leading-tight">
+            <div className="text-center mb-10 md:mb-20">
+                <span className="text-emerald-500 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Key Reasons to Choose Our Architecture' : 'Alasan Utama Memilih Arsitektur Kami'}</span>
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight">
                     {lang === 'en' ? <>Enterprise Applications.<br/><span className="text-[#86868b]">Zero Monthly Infrastructure Bills.</span></> : <>Aplikasi Enterprise.<br/><span className="text-[#86868b]">Tanpa Tagihan Infrastruktur Bulanan.</span></>}
                 </h2>
             </div>
@@ -1925,40 +1925,40 @@ ${formData.message}`;
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Feature 1 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
-                        <svg className="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold mb-3">Zero Server Cost</h3>
-                    <p className="text-[#86868b] leading-relaxed text-sm md:text-base">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-3">Zero Server Cost</h3>
+                    <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Your system runs 100% on Google serverless infrastructure. Say goodbye to monthly AWS, Azure, or VPS backend hosting bills.' : 'Sistem Anda berjalan 100% di atas infrastruktur serverless Google. Ucapkan selamat tinggal pada biaya langganan AWS, Azure, atau VPS bulanan untuk hosting backend.'}
                     </p>
                 </div>
 
                 {/* Feature 2 */}
-                <div className="glass-panel p-10 rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
-                        <svg className="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">Native Integration</h3>
-                    <p className="text-[#86868b] leading-relaxed text-sm md:text-base">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-3">Native Integration</h3>
+                    <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Directly connected with the Google Workspace ecosystem. Generate PDFs in Drive, send emails via Gmail, and sync to Calendar without complex OAuth APIs.' : 'Terhubung langsung dengan ekosistem Google Workspace. Generate PDF di Drive, kirim email via Gmail, dan sync ke Calendar tanpa API otorisasi (OAuth) yang rumit.'}
                     </p>
                 </div>
 
                 {/* Feature 3 */}
-                <div className="glass-panel p-10 rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20">
-                        <svg className="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20">
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">Enterprise Security</h3>
-                    <p className="text-[#86868b] leading-relaxed text-sm md:text-base">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-3">Enterprise Security</h3>
+                    <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Enterprise-grade security. Your data never leaves your Google Drive domain, encrypted, and backed by Google native authorization.' : 'Keamanan sekelas perusahaan besar. Data Anda tidak pernah keluar dari Google Drive domain Anda, dienkripsi, dan memanfaatkan sistem otorisasi bawaan Google.'}
                     </p>
                 </div>
             </div>
             
             <div className="text-center mt-12">
-                <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer">
+                <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full text-sm sm:text-base font-bold hover:bg-[#00b900]/20 transition-all cursor-pointer">
                     {lang === 'en' ? 'Order Google Sheets & Apps Script Automation on Fastwork →' : 'Pesan Otomasi Google Sheets & Apps Script di Fastwork →'}
                 </a>
             </div>
@@ -1966,12 +1966,12 @@ ${formData.message}`;
     </section>
 
     {/* 3. ALUR PENGERJAAN (Scroll Highlight) */}
-    <section id="workflow" className="py-16 md:py-24 lg:py-32 relative bg-[#050505]">
+    <section id="workflow" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative">
             {/* Pinned Title */}
             <div className="md:sticky top-1/3 h-fit">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">{lang === 'en' ? <>Precision Working <br/>Process.</> : <>Proses Kerja <br/>yang Presisi.</>}</h2>
-                <p className="text-[#86868b] text-lg md:text-xl">{lang === 'en' ? '5-stage professional consultancy workflow. Systematic, transparent, and driven by real business results.' : 'Alur kerja konsulansi profesional 5 tahap. Sistematis, transparan, dan berorientasi pada hasil bisnis nyata.'}</p>
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4">{lang === 'en' ? <>Precision Working <br/>Process.</> : <>Proses Kerja <br/>yang Presisi.</>}</h2>
+                <p className="text-[#86868b] text-sm sm:text-base md:text-lg">{lang === 'en' ? '5-stage professional consultancy workflow. Systematic, transparent, and driven by real business results.' : 'Alur kerja konsulansi profesional 5 tahap. Sistematis, transparan, dan berorientasi pada hasil bisnis nyata.'}</p>
             </div>
             
             {/* Scrolling Steps */}
@@ -1979,40 +1979,40 @@ ${formData.message}`;
                 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">01. {lang === 'en' ? 'Business Requirements Audit' : 'Audit Kebutuhan Bisnis'}</span>
-                    <h3 className="text-3xl font-bold mb-4">{lang === 'en' ? 'Goals & KPI Metrics Discussion' : 'Diskusi Target & Metrik KPI'}</h3>
-                    <p className="text-[#86868b] text-lg">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Goals & KPI Metrics Discussion' : 'Diskusi Target & Metrik KPI'}</h3>
+                    <p className="text-[#86868b] text-sm sm:text-base">
                         {lang === 'en' ? 'In-depth discussion on key target Goals and KPI metrics to be achieved by your management.' : <>Diskusi mendalam mengenai target (<span className="text-white font-medium">Goals</span>) dan metrik utama (<span className="text-white font-medium">KPI</span>) yang ingin dicapai oleh manajemen atau perusahaan Anda.</>}
                     </p>
                 </div>
                 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">02. {lang === 'en' ? 'Data Injection & Evaluation' : 'Injeksi & Evaluasi Data'}</span>
-                    <h3 className="text-3xl font-bold mb-4">{lang === 'en' ? 'Multi-Source Data Integration' : 'Integrasi Multi-Sumber Data'}</h3>
-                    <p className="text-[#86868b] text-lg">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Multi-Source Data Integration' : 'Integrasi Multi-Sumber Data'}</h3>
+                    <p className="text-[#86868b] text-sm sm:text-base">
                         {lang === 'en' ? 'Extracting and evaluating raw data from your existing systems (Excel, Google Sheets, CRM, SQL, ERP, POS).' : <>Menarik dan mengevaluasi data mentah dari sistem Anda (<span className="text-white font-medium">Excel, Google Sheets, CRM, SQL, ERP, atau POS Kasir</span>).</>}
                     </p>
                 </div>
                 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">03. Data Engineering & ETL</span>
-                    <h3 className="text-3xl font-bold mb-4">{lang === 'en' ? 'Cleansing & Restructuring' : 'Cleansing & Restrukturisasi'}</h3>
-                    <p className="text-[#86868b] text-lg">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Cleansing & Restructuring' : 'Cleansing & Restrukturisasi'}</h3>
+                    <p className="text-[#86868b] text-sm sm:text-base">
                         {lang === 'en' ? 'Data scrubbing, format standardization, duplicate handling, and relational table restructuring.' : 'Pembersihan data, standarisasi format, penanganan duplikasi, dan restrukturisasi tabel relasional komprehensif.'}
                     </p>
                 </div>
 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">04. {lang === 'en' ? 'Modeling & Visual Architecture' : 'Pemodelan & Arsitektur Visual'}</span>
-                    <h3 className="text-3xl font-bold mb-4">{lang === 'en' ? 'Algorithms & Interactive Dashboards' : 'Algoritma & Dashboard Interaktif'}</h3>
-                    <p className="text-[#86868b] text-lg">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Algorithms & Interactive Dashboards' : 'Algoritma & Dashboard Interaktif'}</h3>
+                    <p className="text-[#86868b] text-sm sm:text-base">
                         {lang === 'en' ? 'Building Machine Learning / BI logic algorithms and developing enterprise interactive dashboard interfaces.' : 'Pembangunan logika algoritma Machine Learning / BI serta pengembangan antarmuka dashboard interaktif tingkat korporat.'}
                     </p>
                 </div>
 
                 <div className="step-item opacity-20 transition-opacity duration-500">
                     <span className="text-emerald-500 font-bold text-xl mb-2 block">05. {lang === 'en' ? 'Strategic Handover & Delivery' : 'Penyerahan & Handover Strategis'}</span>
-                    <h3 className="text-3xl font-bold mb-4">{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
-                    <p className="text-[#86868b] text-lg">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
+                    <p className="text-[#86868b] text-sm sm:text-base">
                         {lang === 'en' ? 'Delivery of final assets (Power BI/Tableau files, Apps Script Web App, Python scripts, Executive PDF) along with data insight interpretation guidelines.' : <>Pengiriman aset akhir (<span className="text-white font-medium">File Power BI/Tableau, Web App Apps Script, Skrip Python, PDF Eksekutif</span>) beserta panduan pembacaan wawasan data.</>}
                     </p>
                 </div>
@@ -2020,17 +2020,17 @@ ${formData.message}`;
         </div>
     </section>
 
-    {/* 3.5 ABOUT THE EXPERT */}
-    <section id="about" className="py-16 md:py-24 lg:py-32 relative bg-black border-t border-white/5 overflow-hidden">
+    {/* 2.6 ABOUT THE EXPERT */}
+    <section id="about" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="about-card glass-panel p-5 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center" itemScope itemType="https://schema.org/Person">
+            <div className="about-card glass-panel p-6 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center" itemScope itemType="https://schema.org/Person">
                 
                 {/* Ambient Glow inside the card */}
                 <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
                 {/* Profile Photo */}
                 <div className="w-full md:w-1/3 relative group z-10 shrink-0">
-                    <div className="aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
+                    <div className="aspect-[3/4] md:aspect-[4/5] rounded-2xl md:rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
                         {/* Placeholder Photo: Ganti dengan foto profesional Anda */}
                         <img src="https://lh3.googleusercontent.com/d/184y2ZUwxJn1mXCgPtX_kuomeJaQ461zE=s1000" referrerPolicy="no-referrer" 
                              alt="Foto Profil Profesional Ikhsan Kamal - Spesialis Data Analytics & Konsultan Business Intelligence" 
@@ -2045,13 +2045,13 @@ ${formData.message}`;
                 <div className="w-full md:w-2/3 z-10">
                     <div className="mb-2 flex items-center gap-4">
                         <div className="h-[1px] w-12 bg-emerald-500"></div>
-                        <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase">The Expert</span>
+                        <span className="text-emerald-500 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase">The Expert</span>
                     </div>
                     
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-3" itemProp="name">Ikhsan Kamal.</h2>
-                    <p className="text-xl md:text-2xl text-white font-medium mb-8" itemProp="jobTitle">{lang === 'en' ? 'Data Analytics Specialist & Business Intelligence Consultant.' : 'Spesialis Data Analytics & Konsultan Business Intelligence.'}</p>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-3" itemProp="name">Ikhsan Kamal.</h2>
+                    <p className="text-2xl sm:text-3xl text-white font-bold mb-8" itemProp="jobTitle">{lang === 'en' ? 'Data Analytics Specialist & Business Intelligence Consultant.' : 'Spesialis Data Analytics & Konsultan Business Intelligence.'}</p>
                     
-                    <p className="text-[#86868b] text-base md:text-lg leading-relaxed font-light mb-10">
+                    <p className="text-[#86868b] text-sm sm:text-base md:text-lg leading-relaxed font-light mb-10">
                         {lang === 'en' 
                           ? <>Data Analytics Specialist & Business Intelligence Consultant based in Indonesia. As an independent consultant, I help enterprises transform millions of raw data rows into interactive Executive Dashboards, Machine Learning predictive models, and executive-ready strategic reports tracking KPIs and cutting operational inefficiencies in real-time.</>
                           : <>Spesialis <span className="text-white font-medium">Data Analytics</span> & <span className="text-white font-medium">Business Intelligence Consultant</span> berbasis di Indonesia. Sebagai konsultan independen, saya membantu perusahaan mengubah jutaan baris data mentah (<span className="text-white font-medium">raw data</span>) menjadi Executive Dashboard interaktif, pemodelan Machine Learning, dan laporan strategis yang melacak KPI serta menekan inefisiensi operasional secara real-time.</>
@@ -2062,15 +2062,15 @@ ${formData.message}`;
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8 border-t border-white/10 pt-8">
                         <div>
                             <p className="text-4xl font-bold text-white mb-2 tracking-tighter">5<span className="text-emerald-500">+</span></p>
-                            <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">{lang === 'en' ? 'Years Experience' : 'Tahun Pengalaman'}</p>
+                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Years Experience' : 'Tahun Pengalaman'}</p>
                         </div>
                         <div>
                             <p className="text-4xl font-bold text-white mb-2 tracking-tighter">50<span className="text-emerald-500">+</span></p>
-                            <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">{lang === 'en' ? 'Enterprise Projects' : 'Proyek Skala Enterprise'}</p>
+                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Enterprise Projects' : 'Proyek Skala Enterprise'}</p>
                         </div>
                         <div className="hidden md:block">
                             <p className="text-4xl font-bold text-white mb-2 tracking-tighter">100<span className="text-emerald-500">%</span></p>
-                            <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">{lang === 'en' ? 'Custom Systems' : 'Sistem Kustom'}</p>
+                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Custom Systems' : 'Sistem Kustom'}</p>
                         </div>
                     </div>
                 </div>
@@ -2080,11 +2080,11 @@ ${formData.message}`;
 
     
     {/* 4. PRICING */}
-    <section id="pricing" className="py-16 md:py-24 lg:py-32 relative">
+    <section id="pricing" className="py-20 md:py-24 lg:py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Smart Investment.' : 'Investasi Cerdas.'}</h2>
-                <p className="text-[#86868b] mt-4 text-lg">{lang === 'en' ? 'Choose the development package suited for your business system complexity.' : 'Pilih paket pengembangan sesuai kompleksitas sistem bisnis Anda.'}</p>
+            <div className="text-center mb-10 md:mb-20">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Smart Investment.' : 'Investasi Cerdas.'}</h2>
+                <p className="text-[#86868b] mt-4 text-sm sm:text-base md:text-lg">{lang === 'en' ? 'Choose the development package suited for your business system complexity.' : 'Pilih paket pengembangan sesuai kompleksitas sistem bisnis Anda.'}</p>
             </div>
             
             {isLoadingPaket ? (
@@ -2124,16 +2124,16 @@ ${formData.message}`;
                         }
 
                         return (
-                          <div key={paket.id} className={`glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 ${paket.rekomendasi ? 'border-emerald-500/50 relative transform md:scale-105 z-10 bg-[#111] shadow-[0_0_50px_rgba(5,150,105,0.15)]' : ''}`}>
+                          <div key={paket.id} className={`glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 ${paket.rekomendasi ? 'border-emerald-500/50 relative transform md:scale-105 z-10 bg-[#111] shadow-[0_0_50px_rgba(5,150,105,0.15)]' : ''}`}>
                               {paket.rekomendasi && (
-                                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-1 rounded-full text-xs font-bold tracking-wide">RECOMMENDED</div>
+                                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-1 rounded-full text-xs sm:text-sm font-bold tracking-wide">RECOMMENDED</div>
                               )}
-                              <h3 className={`text-2xl font-bold mb-2 ${paket.rekomendasi ? 'text-emerald-400' : ''}`}>{paket.namaPaket}</h3>
-                              <p className="text-[#86868b] mb-6 text-sm">{subjudul}</p>
+                              <h3 className={`text-2xl sm:text-3xl font-bold mb-2 ${paket.rekomendasi ? 'text-emerald-400' : ''}`}>{paket.namaPaket}</h3>
+                              <p className="text-[#86868b] mb-6 text-sm sm:text-base">{subjudul}</p>
                               <div className="mb-8">
                                   <span className="text-4xl font-bold">{harga}</span>
                               </div>
-                              <ul className="space-y-4 mb-10 text-sm text-[#f5f5f7]">
+                              <ul className="space-y-4 mb-10 text-sm sm:text-base text-[#f5f5f7]">
                                   {fiturAktif.map((fitur, i) => (
                                       <li key={`aktif-${i}`} className="flex items-start gap-3"><span>✓</span> {fitur}</li>
                                   ))}
@@ -2142,7 +2142,7 @@ ${formData.message}`;
                                   ))}
                               </ul>
                               <div className="space-y-2 mt-auto">
-                                <a href="#contact" className={`block w-full py-3 rounded-full text-center font-semibold transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
+                                <a href="#contact" className={`block w-full py-3 rounded-full text-center font-bold text-sm sm:text-base transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
                                     {teksTombol}
                                 </a>
                                 <a 
@@ -2155,7 +2155,7 @@ ${formData.message}`;
                                   } 
                                   target="_blank" 
                                   rel="noopener noreferrer" 
-                                  className="block w-full py-2.5 rounded-full text-center font-semibold text-xs bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition cursor-pointer"
+                                  className="block w-full py-2.5 rounded-full text-center font-bold text-sm sm:text-base bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition cursor-pointer"
                                 >
                                     {lang === 'en' ? 'Order on Fastwork →' : 'Pesan di Fastwork →'}
                                 </a>
@@ -2170,10 +2170,10 @@ ${formData.message}`;
 
 
     {/* 5. FAQ */}
-    <section id="faq" className="py-32 relative bg-[#050505]">
+    <section id="faq" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
         <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Frequently Asked Questions.' : 'Tanya Jawab.'}</h2>
+            <div className="text-center mb-10 md:mb-20">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Frequently Asked Questions.' : 'Tanya Jawab.'}</h2>
             </div>
 
             <div className="space-y-4">
@@ -2184,7 +2184,7 @@ ${formData.message}`;
                         onClick={() => setActiveFaq(activeFaq === index ? null : index)}
                     >
                         <button className="w-full px-6 py-5 flex justify-between items-center text-left">
-                            <span className="font-semibold text-lg">{faq.q}</span>
+                            <span className="font-bold text-xl sm:text-2xl">{faq.q}</span>
                             <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
                                 <svg className="w-4 h-4 faq-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
@@ -2192,7 +2192,7 @@ ${formData.message}`;
                             </div>
                         </button>
                         <div className="faq-content bg-black/20 border-t border-white/5">
-                            <p className="px-6 py-5 text-[#86868b] leading-relaxed">
+                            <p className="px-6 py-5 text-[#86868b] text-sm sm:text-base leading-relaxed">
                                 {faq.a}
                             </p>
                         </div>
@@ -2203,7 +2203,7 @@ ${formData.message}`;
     </section>
 
     {/* 6. CONTACT & BOOKING SYSTEM */}
-    <section id="contact" className="py-16 md:py-24 lg:py-32 relative border-t border-white/5 overflow-hidden">
+    <section id="contact" className="py-20 md:py-24 lg:py-32 relative border-t border-white/5 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-7xl mx-auto px-6">
@@ -2211,8 +2211,8 @@ ${formData.message}`;
                 
                 {/* Left: Copy & Booking Info */}
                 <div className="z-10">
-                    <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Start Collaboration' : 'Mulai Kolaborasi'}</span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{lang === 'en' ? <>Automate your business <br/>today.</> : <>Otomatiskan bisnis <br/>Anda hari ini.</>}</h2>
+                    <span className="text-emerald-500 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Start Collaboration' : 'Mulai Kolaborasi'}</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{lang === 'en' ? <>Automate your business <br/>today.</> : <>Otomatiskan bisnis <br/>Anda hari ini.</>}</h2>
                     <p className="text-[#86868b] text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-light max-w-lg">
                         {lang === 'en' ? <>Schedule a <span className="text-white font-medium">30-minute discovery call</span>. We will analyze your current workflow and map out the right system architecture—no commitment required.</> : <>Jadwalkan sesi <span className="text-white font-medium">discovery call (30 Menit)</span>. Kita akan membedah alur kerja Anda saat ini dan memetakan arsitektur sistem yang tepat—tanpa komitmen apapun.</>}
                     </p>
@@ -2220,24 +2220,24 @@ ${formData.message}`;
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
                         
                         {/* Direct Booking Button (Calendly style) */}
-                        <a href="https://calendly.com/your-link" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-500 text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-colors text-center">
+                        <a href="https://calendly.com/your-link" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-500 text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-emerald-400 transition-colors text-center">
                             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                             {lang === 'en' ? 'Calendar Booking' : 'Booking Kalender'}
                         </a>
                         {/* WhatsApp Button */}
-                        <a href="https://wa.me/6282126574799" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-[#20b958] transition-colors text-center">
+                        <a href="https://wa.me/6282126574799" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#20b958] transition-colors text-center">
                             <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                             WhatsApp
                         </a>
                         {/* Alternative Direct Email */}
-                        <a href="mailto:iamikhsank@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-colors text-center">
+                        <a href="mailto:iamikhsank@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition-colors text-center">
                             Email
                         </a>
                         
                     </div>
 
                     {/* Micro Info */}
-                    <div className="space-y-3.5 text-xs sm:text-sm text-[#86868b]">
+                    <div className="space-y-3.5 text-sm sm:text-base text-[#86868b]">
                         <div className="flex items-center gap-3">
                             <svg className="w-5 h-5 text-emerald-500/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             <span>{lang === 'en' ? 'Based in Bandung, Indonesia (Available for Global Remote)' : 'Berbasis di Bandung, Indonesia (Tersedia Remote Global)'}</span>
@@ -2247,37 +2247,37 @@ ${formData.message}`;
                             <span>{lang === 'en' ? 'Typical Response: 12-24 Hours' : 'Responsibilitas Tipikal: 12-24 Jam'}</span>
                         </div>
                         <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-white/40 mr-1 block w-full sm:w-auto mb-1 sm:mb-0">{lang === 'en' ? 'Profile Platforms:' : 'Platform Profil:'}</span>
-                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition font-medium">{lang === 'en' ? 'Fastwork Profile (6 Verified Services)' : 'Profil Fastwork (6 Jasa Terverifikasi)'}</a>
-                            <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
-                            <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
-                            <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Instagram</a>
+                            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/40 mr-1 block w-full sm:w-auto mb-1 sm:mb-0">{lang === 'en' ? 'Profile Platforms:' : 'Platform Profil:'}</span>
+                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition">{lang === 'en' ? 'Fastwork Profile (6 Verified Services)' : 'Profil Fastwork (6 Jasa Terverifikasi)'}</a>
+                            <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
+                            <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
+                            <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Instagram</a>
                         </div>
                     </div>
                 </div>
 
                 {/* Right: Glass Form */}
-                <div className="glass-panel p-5 sm:p-6 md:p-10 rounded-2xl md:rounded-[2rem] relative z-10 form-anim">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative z-10 form-anim">
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div className="space-y-2">
-                                <label className="text-xs text-[#86868b] uppercase tracking-wider font-semibold ml-1">{lang === 'en' ? 'Full Name' : 'Nama Lengkap'}</label>
-                                <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-sm" placeholder={lang === 'en' ? 'E.g.: Alex Turner' : 'Misal: Budi Santoso'} />
+                                <label className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider ml-1">{lang === 'en' ? 'Full Name' : 'Nama Lengkap'}</label>
+                                <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-base" placeholder={lang === 'en' ? 'E.g.: Alex Turner' : 'Misal: Budi Santoso'} />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs text-[#86868b] uppercase tracking-wider font-semibold ml-1">{lang === 'en' ? 'Professional Email' : 'Email Profesional'}</label>
-                                <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-sm" placeholder={lang === 'en' ? 'alex@company.com' : 'budi@perusahaan.com'} />
+                                <label className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider ml-1">{lang === 'en' ? 'Professional Email' : 'Email Profesional'}</label>
+                                <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-base" placeholder={lang === 'en' ? 'alex@company.com' : 'budi@perusahaan.com'} />
                             </div>
                             <div className="space-y-2 sm:col-span-2">
-                                <label className="text-xs text-[#86868b] uppercase tracking-wider font-semibold ml-1">{lang === 'en' ? 'WhatsApp Number' : 'Nomor WhatsApp'}</label>
-                                <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-sm" placeholder={lang === 'en' ? '081234567890' : 'Misal: 081234567890'} />
+                                <label className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider ml-1">{lang === 'en' ? 'WhatsApp Number' : 'Nomor WhatsApp'}</label>
+                                <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-base" placeholder={lang === 'en' ? '081234567890' : 'Misal: 081234567890'} />
                             </div>
                         </div>
                         
                         <div className="space-y-2">
-                            <label className="text-xs text-[#86868b] uppercase tracking-wider font-semibold ml-1">{lang === 'en' ? 'Service Category' : 'Kategori Kebutuhan'}</label>
+                            <label className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider ml-1">{lang === 'en' ? 'Service Category' : 'Kategori Kebutuhan'}</label>
                             <div className="relative">
-                                <select required name="category" value={formData.category} onChange={handleInputChange} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[#f5f5f7] focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-sm appearance-none cursor-pointer">
+                                <select required name="category" value={formData.category} onChange={handleInputChange} className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-[#f5f5f7] focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-base appearance-none cursor-pointer">
                                     <option value="" disabled className="bg-zinc-900 text-gray-400">{lang === 'en' ? 'Select service type...' : 'Pilih jenis layanan...'}</option>
                                     <option value="bi" className="bg-zinc-900 text-white">Dashboard BI / Data Pipeline</option>
                                     <option value="webapp" className="bg-zinc-900 text-white">Web App Kustom (React/Tailwind)</option>
@@ -2290,14 +2290,14 @@ ${formData.message}`;
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs text-[#86868b] uppercase tracking-wider font-semibold ml-1">{lang === 'en' ? 'Briefly Describe Your Needs' : 'Ceritakan Singkat Kebutuhan Anda'}</label>
-                            <textarea rows="4" name="message" value={formData.message} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-sm resize-none" placeholder={lang === 'en' ? 'Currently our team spends 10 hours a week on manual data recap...' : 'Saat ini tim kami menghabiskan 10 jam seminggu untuk rekap data manual...'}></textarea>
+                            <label className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider ml-1">{lang === 'en' ? 'Briefly Describe Your Needs' : 'Ceritakan Singkat Kebutuhan Anda'}</label>
+                            <textarea rows="4" name="message" value={formData.message} onChange={handleInputChange} required className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-[#f5f5f7] placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all text-base resize-none" placeholder={lang === 'en' ? 'Currently our team spends 10 hours a week on manual data recap...' : 'Saat ini tim kami menghabiskan 10 jam seminggu untuk rekap data manual...'}></textarea>
                         </div>
                         {/* Success Message (Hidden by default) */}
-                        <div id="success-msg" className={`${submitStatus === 'success' ? 'block' : 'hidden'} bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-3 rounded-xl text-sm text-center`}>
+                        <div id="success-msg" className={`${submitStatus === 'success' ? 'block' : 'hidden'} bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-3 rounded-xl text-sm sm:text-base text-center`}>
                             {lang === 'en' ? 'Thank you! Your message has been received. Redirecting to WhatsApp...' : 'Terima kasih! Pesan Anda telah diterima. Mengalihkan ke WhatsApp...'}
                         </div>
-                        <button type="submit" disabled={isSubmitting} className="w-full bg-[#f5f5f7] text-black font-bold rounded-xl py-4 mt-2 hover:bg-white hover:scale-[1.02] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)] disabled:opacity-50 disabled:hover:scale-100">
+                        <button type="submit" disabled={isSubmitting} className="w-full bg-[#f5f5f7] text-black font-bold text-base sm:text-lg rounded-xl py-4 mt-2 hover:bg-white hover:scale-[1.02] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)] disabled:opacity-50 disabled:hover:scale-100">
                             {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Mengirim...') : (lang === 'en' ? 'Send Inquiry' : 'Kirim Pertanyaan')}
                         </button>
                     </form>
@@ -2322,10 +2322,10 @@ ${formData.message}`;
           <div className="sticky top-0 z-20 px-6 md:px-8 py-5 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-md">{selectedCaseStudy.kategori}</span>
-                <span className="text-xs text-[#86868b]">{lang === 'en' ? 'Client:' : 'Klien:'} {selectedCaseStudy.klien}</span>
+                <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-md">{selectedCaseStudy.kategori}</span>
+                <span className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'Client:' : 'Klien:'} {selectedCaseStudy.klien}</span>
               </div>
-              <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug">{selectedCaseStudy.seoTitle || selectedCaseStudy.judul}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">{selectedCaseStudy.seoTitle || selectedCaseStudy.judul}</h2>
             </div>
             <button
               onClick={() => setSelectedCaseStudy(null)}
@@ -2343,13 +2343,13 @@ ${formData.message}`;
               <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-36 sm:h-48 md:h-64 relative bg-black">
                 <img src={selectedCaseStudy.linkGambar} alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} className="w-full h-full object-cover object-left-top" />
               </div>
-              <div className="glass-panel p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
-                <p className="text-xs uppercase tracking-widest text-emerald-400 font-bold">{lang === 'en' ? 'ROI Results & Primary Impact' : 'Hasil ROI & Dampak Utama'}</p>
+              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">{lang === 'en' ? 'ROI Results & Primary Impact' : 'Hasil ROI & Dampak Utama'}</p>
                 <p className="text-3xl font-extrabold text-white tracking-tight">{selectedCaseStudy.metrikNilai}</p>
-                <p className="text-xs text-[#86868b] uppercase tracking-wider">{selectedCaseStudy.metrikLabel}</p>
+                <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{selectedCaseStudy.metrikLabel}</p>
                 <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5">
                   {selectedCaseStudy.techStack.map((t, i) => (
-                    <span key={i} className="px-2 py-0.5 rounded bg-white/10 text-[11px] text-white/80">{t}</span>
+                    <span key={i} className="px-2 py-0.5 rounded bg-white/10 text-xs sm:text-sm font-semibold text-white/80">{t}</span>
                   ))}
                 </div>
               </div>
@@ -2359,62 +2359,62 @@ ${formData.message}`;
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="h-[1px] w-8 bg-emerald-500"></div>
-                <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">6-Stage Business Intelligence Case Study Breakdown</span>
+                <span className="text-emerald-400 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">6-Stage Business Intelligence Case Study Breakdown</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Stage 1: Problem */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-rose-400">01. Problem ({lang === 'en' ? 'Business Challenge' : 'Tantangan Bisnis'})</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-rose-400">01. Problem ({lang === 'en' ? 'Business Challenge' : 'Tantangan Bisnis'})</span>
                     <span className="w-7 h-7 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold flex items-center justify-center">1</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.problem || selectedCaseStudy.deskripsi}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.problem || selectedCaseStudy.deskripsi}</p>
                 </div>
 
                 {/* Stage 2: Data */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-400">02. Data (ETL & Ingesting)</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-amber-400">02. Data (ETL & Ingesting)</span>
                     <span className="w-7 h-7 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold flex items-center justify-center">2</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.data}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.data}</p>
                 </div>
 
                 {/* Stage 3: Analysis */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-400">03. Analysis ({lang === 'en' ? 'Methodology & KPI' : 'Metodologi & KPI'})</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-400">03. Analysis ({lang === 'en' ? 'Methodology & KPI' : 'Metodologi & KPI'})</span>
                     <span className="w-7 h-7 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold flex items-center justify-center">3</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.analysis}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.analysis}</p>
                 </div>
 
                 {/* Stage 4: Dashboard */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-purple-400">04. Dashboard ({lang === 'en' ? 'Visualization Features' : 'Fitur Visualisasi'})</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-purple-400">04. Dashboard ({lang === 'en' ? 'Visualization Features' : 'Fitur Visualisasi'})</span>
                     <span className="w-7 h-7 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold flex items-center justify-center">4</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.dashboard}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.dashboard}</p>
                 </div>
 
                 {/* Stage 5: Insight */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">05. Insight (Hidden Insights)</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-cyan-400">05. Insight (Hidden Insights)</span>
                     <span className="w-7 h-7 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold flex items-center justify-center">5</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.insight}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.insight}</p>
                 </div>
 
                 {/* Stage 6: Business Impact */}
-                <div className="glass-panel p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">06. Business Impact ({lang === 'en' ? 'ROI Value' : 'Nilai ROI'})</span>
+                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400">06. Business Impact ({lang === 'en' ? 'ROI Value' : 'Nilai ROI'})</span>
                     <span className="w-7 h-7 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold flex items-center justify-center">6</span>
                   </div>
-                  <p className="text-sm text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.businessImpact}</p>
+                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.businessImpact}</p>
                 </div>
               </div>
             </div>
@@ -2422,7 +2422,7 @@ ${formData.message}`;
 
           {/* Modal Footer */}
           <div className="p-6 bg-[#0a0a0c] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-[#86868b]">{lang === 'en' ? 'Want to implement a similar system architecture for your enterprise?' : 'Ingin mengimplementasikan arsitektur sistem serupa untuk perusahaan Anda?'}</p>
+            <p className="text-sm sm:text-base text-[#86868b]">{lang === 'en' ? 'Want to implement a similar system architecture for your enterprise?' : 'Ingin mengimplementasikan arsitektur sistem serupa untuk perusahaan Anda?'}</p>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href={
@@ -2440,7 +2440,7 @@ ${formData.message}`;
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] font-bold text-xs hover:bg-[#00b900]/20 transition-all text-center cursor-pointer"
+                className="px-6 py-3 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] font-bold text-sm sm:text-base hover:bg-[#00b900]/20 transition-all text-center cursor-pointer"
               >
                 {lang === 'en' ? 'Order This Category Service on Fastwork →' : 'Pesan Jasa Kategori Ini di Fastwork →'}
               </a>
@@ -2448,7 +2448,7 @@ ${formData.message}`;
                 href={`https://wa.me/6282126574799?text=Halo%20Ikhsan,%20saya%20tertarik%20dengan%20Case%20Study%20${encodeURIComponent(selectedCaseStudy.judul)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-emerald-500 text-black font-bold text-xs hover:bg-emerald-400 transition-all hover:scale-105 text-center cursor-pointer"
+                className="px-6 py-3 rounded-full bg-emerald-500 text-black font-bold text-sm sm:text-base hover:bg-emerald-400 transition-all hover:scale-105 text-center cursor-pointer"
               >
                 {lang === 'en' ? 'Discuss via WhatsApp' : 'Diskusi via WhatsApp'}
               </a>
