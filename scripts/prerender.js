@@ -108,6 +108,46 @@ routes.forEach((route) => {
     `<meta property="twitter:url" content="${route.canonical}" />`
   );
 
+  // Inject Static Pre-rendered HTML inside <div id="root">
+  const staticRootContent = `
+    <header>
+      <nav aria-label="Static Page Navigation">
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/">IKHSAN K. - Data Analytics &amp; BI Consultant</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/">Utama</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/power-bi-dashboard/">Power BI &amp; Tableau</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/data-analysis/">Data Analysis &amp; ETL</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/business-intelligence/">Corporate BI</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/machine-learning-ai/">ML &amp; AI</a>
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/case-studies/">Case Studies</a>
+      </nav>
+    </header>
+    <main>
+      <nav aria-label="Breadcrumb">
+        <a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/">Utama</a> &gt; 
+        <a href="${route.canonical}">${route.title}</a>
+      </nav>
+      <article>
+        <h1>${route.title}</h1>
+        <p>${route.description}</p>
+      </article>
+      <section>
+        <h2>Layanan &amp; Navigasi Internal</h2>
+        <ul>
+          <li><a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/power-bi-dashboard/">Jasa Dashboard Power BI &amp; Tableau Enterprise</a></li>
+          <li><a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/data-analysis/">Jasa Analisis Data &amp; SQL Data Analyst</a></li>
+          <li><a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/business-intelligence/">Konsultan Business Intelligence (BI) Enterprise</a></li>
+          <li><a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/services/machine-learning-ai/">Jasa Machine Learning &amp; Predictive Analytics AI</a></li>
+          <li><a href="https://iamikhsank.github.io/Web-Profile-iamikhsank/case-studies/">Galeri Studi Kasus &amp; Portfolio Data Analytics</a></li>
+        </ul>
+      </section>
+    </main>
+  `;
+
+  customHtml = customHtml.replace(
+    /<div id="root">.*?<\/div>/s,
+    `<div id="root">${staticRootContent}</div>`
+  );
+
   const outputPath = path.join(routeDir, 'index.html');
   fs.writeFileSync(outputPath, customHtml, 'utf-8');
   console.log(`✓ Generated SSG static page: ${route.path}/index.html`);
