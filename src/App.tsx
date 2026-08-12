@@ -947,9 +947,9 @@ ${formData.message}`;
                   <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
                   <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML &amp; AI</a>
                   <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
-                  <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
-                  <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
-                  <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
+                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
+                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
+                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
               </div>
               <div className="flex items-center gap-3">
                   {/* Language Switcher Segmented Control */}
@@ -969,7 +969,7 @@ ${formData.message}`;
                       EN
                     </button>
                   </div>
-                  <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hidden lg:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">{lang === 'en' ? 'Consultation' : 'Konsultasi'}</a>
+                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'contact')} className="hidden lg:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">{lang === 'en' ? 'Consultation' : 'Konsultasi'}</a>
                   {/* Hamburger Menu Button */}
                   <button 
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
@@ -1023,13 +1023,13 @@ ${formData.message}`;
           <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
           <div className="space-y-1 mb-6">
             <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
-            <a href="#showcase" onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
-            <a href="#pricing" onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
-            <a href="#faq" onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
           </div>
           {/* CTA */}
           <div className="mt-auto">
-            <a href="#contact" onClick={(e) => { handleNavClick(e, 'contact'); setMobileMenuOpen(false); }} className="block w-full text-center bg-[#f5f5f7] text-black px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white transition-all">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'contact'); setMobileMenuOpen(false); }} className="block w-full text-center bg-[#f5f5f7] text-black px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white transition-all">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
           </div>
         </div>
       </div>
@@ -1060,7 +1060,7 @@ ${formData.message}`;
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
             <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
@@ -1155,7 +1155,7 @@ ${formData.message}`;
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
             <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork (Terverifikasi & Ulasan Klien)</a>
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
@@ -1250,7 +1250,7 @@ ${formData.message}`;
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
             <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
             <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Otomasi Apps Script</a>
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
@@ -1346,7 +1346,7 @@ ${formData.message}`;
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
             <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Machine Learning (Terverifikasi & Ulasan Klien)</a>
             <a href="https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Data Science & Predictive</a>
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
@@ -1447,7 +1447,7 @@ ${formData.message}`;
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">{lang === 'en' ? 'Consult Your Case Study' : 'Konsultasi Studi Kasus Anda'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">{lang === 'en' ? 'Consult Your Case Study' : 'Konsultasi Studi Kasus Anda'}</a>
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</a>
           </div>
         </section>
@@ -1543,8 +1543,8 @@ ${formData.message}`;
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
-            <a href="#showcase" onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</a>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
         </div>
         
         {/* Tech Stack Marquee (Inserted Here) */}
@@ -1819,22 +1819,31 @@ ${formData.message}`;
                 </div>
             </div>
 
-            {/* Testimonials (Bento Style) */}
+            {/* Testimonials (Bento Style - Anonymized Enterprise NDA Verified Reviews) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                 {/* Testi 1 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <svg className="w-10 h-10 text-emerald-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                        <svg className="w-10 h-10 text-emerald-500/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <span className="text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                            {lang === 'en' ? 'Verified Client · NDA Protected' : 'Klien Terverifikasi · NDA Protected'}
+                        </span>
+                    </div>
                     <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
-                        "Sistem ini mengubah total cara gudang kami beroperasi. Laporan yang biasanya memakan waktu 3 hari sekarang tersaji secara real-time. Yang paling luar biasa, kami <span className="text-white font-semibold">tidak membayar biaya server sepeserpun</span> setiap bulannya."
+                        {lang === 'en' ? (
+                            <>"This system completely transformed how our warehouse operates. Reports that usually took 3 days are now delivered in real-time. Best of all, we <span className="text-white font-semibold">pay zero monthly server fees</span>."</>
+                        ) : (
+                            <>"Sistem ini mengubah total cara gudang kami beroperasi. Laporan yang biasanya memakan waktu 3 hari sekarang tersaji secara real-time. Yang paling luar biasa, kami <span className="text-white font-semibold">tidak membayar biaya server sepeserpun</span> setiap bulannya."</>
+                        )}
                     </p>
                     <div className="flex items-center gap-4 relative z-10">
                         <div className="w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                            <span className="text-emerald-400 font-bold text-sm tracking-wider">BS</span>
+                            <span className="text-emerald-400 font-bold text-sm tracking-wider">OM</span>
                         </div>
                         <div>
-                            <h4 className="text-white font-bold text-base sm:text-lg">Budi Santoso</h4>
-                            <p className="text-[#86868b] text-sm sm:text-base">Operations Manager · Retail & Logistics Division</p>
+                            <h4 className="text-white font-bold text-base sm:text-lg">Operations Manager</h4>
+                            <p className="text-[#86868b] text-sm sm:text-base">Retail &amp; Logistics Enterprise</p>
                         </div>
                     </div>
                 </div>
@@ -1842,17 +1851,26 @@ ${formData.message}`;
                 {/* Testi 2 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <svg className="w-10 h-10 text-blue-500/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div className="flex items-center justify-between mb-6 relative z-10">
+                        <svg className="w-10 h-10 text-blue-500/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <span className="text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                            {lang === 'en' ? 'Verified Client · NDA Protected' : 'Klien Terverifikasi · NDA Protected'}
+                        </span>
+                    </div>
                     <p className="text-base sm:text-lg md:text-xl text-[#f5f5f7] font-light leading-relaxed mb-8 relative z-10">
-                        "Sangat jarang menemukan solusi yang paham betul <span className="text-white font-semibold">proses bisnis (BI) sekaligus mahir dalam Web Development</span>. Portal HR yang dibangun sangat responsif, aman, dan integrasinya dengan Google Workspace sangat mulus."
+                        {lang === 'en' ? (
+                            <>"It is rare to find a consultant who truly understands <span className="text-white font-semibold">business intelligence &amp; web development</span> together. The HR portal built is fast, secure, and seamlessly integrated into Google Workspace."</>
+                        ) : (
+                            <>"Sangat jarang menemukan solusi yang paham betul <span className="text-white font-semibold">proses bisnis (BI) sekaligus mahir dalam Web Development</span>. Portal HR yang dibangun sangat responsif, aman, dan integrasinya dengan Google Workspace sangat mulus."</>
+                        )}
                     </p>
                     <div className="flex items-center gap-4 relative z-10">
                         <div className="w-11 h-11 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center shrink-0">
-                            <span className="text-blue-400 font-bold text-sm tracking-wider">SW</span>
+                            <span className="text-blue-400 font-bold text-sm tracking-wider">VP</span>
                         </div>
                         <div>
-                            <h4 className="text-white font-bold text-base sm:text-lg">Sarah Wijaya</h4>
-                            <p className="text-[#86868b] text-sm sm:text-base">VP of Human Capital · Enterprise Group</p>
+                            <h4 className="text-white font-bold text-base sm:text-lg">VP of Human Capital</h4>
+                            <p className="text-[#86868b] text-sm sm:text-base">Financial Services &amp; Holdings Group</p>
                         </div>
                     </div>
                 </div>
@@ -2233,7 +2251,7 @@ ${formData.message}`;
                                   ))}
                               </ul>
                               <div className="space-y-2 mt-auto">
-                                <a href="#contact" className={`block w-full py-3 rounded-full text-center font-bold text-sm sm:text-base transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
+                                <a href={getRouteHref('/')} className={`block w-full py-3 rounded-full text-center font-bold text-sm sm:text-base transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
                                     {teksTombol}
                                 </a>
                                 <a 
