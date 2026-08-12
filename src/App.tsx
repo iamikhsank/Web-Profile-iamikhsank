@@ -72,25 +72,26 @@ const normalizeRoute = (): string => {
   return "/";
 };
 
-const navigateRoute = (targetRoute: string) => {
-  if (typeof window === "undefined") return;
-  const isAppsScript = window.location.hostname.includes("script.google.com") || window.location.protocol === "file:";
-
-  if (isAppsScript) {
-    window.location.hash = targetRoute === "/" ? "#/" : `#${targetRoute}`;
-  } else {
-    const basePath = window.location.pathname.startsWith('/Web-Profile-iamikhsank') ? '/Web-Profile-iamikhsank' : '';
-    const fullPath = targetRoute === "/" ? (basePath ? `${basePath}/` : "/") : `${basePath}${targetRoute}/`;
-    window.history.pushState({}, "", fullPath);
-  }
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
 export default function App() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<PortofolioItem | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentRoute, setCurrentRoute] = useState<string>(() => normalizeRoute());
+
+  const navigateRoute = (targetRoute: string) => {
+    if (typeof window === "undefined") return;
+    const isAppsScript = window.location.hostname.includes("script.google.com") || window.location.protocol === "file:";
+
+    if (isAppsScript) {
+      window.location.hash = targetRoute === "/" ? "#/" : `#${targetRoute}`;
+    } else {
+      const basePath = window.location.pathname.startsWith('/Web-Profile-iamikhsank') ? '/Web-Profile-iamikhsank' : '';
+      const fullPath = targetRoute === "/" ? (basePath ? `${basePath}/` : "/") : `${basePath}${targetRoute}/`;
+      window.history.pushState({}, "", fullPath);
+    }
+    setCurrentRoute(targetRoute);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const handleRouteChange = () => {
