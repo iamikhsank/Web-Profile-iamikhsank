@@ -49,6 +49,17 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+const resolveAssetUrl = (assetPath: string): string => {
+  if (!assetPath) return '';
+  if (assetPath.startsWith('http://') || assetPath.startsWith('https://')) return assetPath;
+  
+  const cleanPath = assetPath.replace(/^\.\//, '').replace(/^\//, '');
+  const isGithubPages = typeof window !== 'undefined' && window.location.pathname.startsWith('/Web-Profile-iamikhsank');
+  const prefix = isGithubPages ? '/Web-Profile-iamikhsank/' : '/';
+  
+  return `${prefix}${cleanPath}`;
+};
+
 const normalizeRoute = (): string => {
   if (typeof window === "undefined") return "/";
   const path = window.location.pathname;
@@ -1410,7 +1421,7 @@ ${formData.message}`;
                 <div key={item.id} className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
                   <div>
                     <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
-                      <img src={item.linkGambar} alt={`Studi Kasus Analisis Data ${item.judul} - ${item.kategori}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={resolveAssetUrl(item.linkGambar)} alt={`Studi Kasus Analisis Data ${item.judul} - ${item.kategori}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <a 
                         href={fastworkUrl} 
                         target="_blank" 
@@ -1673,7 +1684,7 @@ ${formData.message}`;
                                 </div>
                                 <div className="w-full md:w-[38%] min-h-[220px] md:min-h-full relative overflow-hidden bg-black/50 p-6 sm:p-8 md:p-10 cursor-pointer group">
                                     <div className="w-full h-full min-h-[200px] rounded-2xl overflow-hidden relative shadow-xl border border-white/5">
-                                        <img src={item.linkGambar} alt={`Tampilan Visualisasi Dashboard ${item.judul} oleh Ikhsan Kamal`} className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 opacity-85" />
+                                        <img src={resolveAssetUrl(item.linkGambar)} alt={`Tampilan Visualisasi Dashboard ${item.judul} oleh Ikhsan Kamal`} className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 opacity-85" />
                                         
                                         {/* Link Overlay */}
                                         {item.linkProject && item.linkProject !== '#' && (
@@ -2377,7 +2388,7 @@ ${formData.message}`;
             {/* Banner Image & High Impact Metric */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
               <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-36 sm:h-48 md:h-64 relative bg-black">
-                <img src={selectedCaseStudy.linkGambar} alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} className="w-full h-full object-cover object-left-top" />
+                <img src={resolveAssetUrl(selectedCaseStudy.linkGambar)} alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} className="w-full h-full object-cover object-left-top" />
               </div>
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
                 <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">{lang === 'en' ? 'ROI Results & Primary Impact' : 'Hasil ROI & Dampak Utama'}</p>
