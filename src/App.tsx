@@ -49,27 +49,31 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+const GITHUB_PAGES_BASE = '/Web-Profile-iamikhsank';
+
 const resolveAssetUrl = (assetPath: string): string => {
   if (!assetPath) return '';
   if (assetPath.startsWith('http://') || assetPath.startsWith('https://')) return assetPath;
   
   const cleanPath = assetPath.replace(/^\.\//, '').replace(/^\//, '');
-  const isServer = typeof window === 'undefined';
-  const isGithubPages = isServer || (window.location.pathname.startsWith('/Web-Profile-iamikhsank') || window.location.hostname.includes('github.io'));
-  const prefix = isGithubPages ? '/Web-Profile-iamikhsank/' : '/';
+  const isGas = typeof window !== 'undefined' && (window.location.hostname.includes('script.google.com') || window.location.protocol === 'file:');
+  const prefix = isGas ? '/' : `${GITHUB_PAGES_BASE}/`;
   
   return `${prefix}${cleanPath}`;
 };
 
 const getRouteHref = (targetRoute: string): string => {
-  const isServer = typeof window === 'undefined';
-  const isGithubPages = isServer || (window.location.pathname.startsWith('/Web-Profile-iamikhsank') || window.location.hostname.includes('github.io'));
-  const basePath = isGithubPages ? '/Web-Profile-iamikhsank' : '';
-
-  if (targetRoute === '/' || targetRoute === '') {
-    return basePath ? `${basePath}/` : '/';
+  const isGas = typeof window !== 'undefined' && (window.location.hostname.includes('script.google.com') || window.location.protocol === 'file:');
+  if (isGas) {
+    return targetRoute === '/' ? '#/' : `#${targetRoute}`;
   }
-  return `${basePath}${targetRoute}/`;
+
+  if (targetRoute === '/' || targetRoute === '' || targetRoute === '#/') {
+    return `${GITHUB_PAGES_BASE}/`;
+  }
+
+  const cleanRoute = targetRoute.replace(/^#/, '').replace(/^\/?/, '/').replace(/\/$/, '');
+  return `${GITHUB_PAGES_BASE}${cleanRoute}/`;
 };
 
 const normalizeRoute = (): string => {
