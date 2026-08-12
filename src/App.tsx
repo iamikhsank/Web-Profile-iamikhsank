@@ -54,10 +54,22 @@ const resolveAssetUrl = (assetPath: string): string => {
   if (assetPath.startsWith('http://') || assetPath.startsWith('https://')) return assetPath;
   
   const cleanPath = assetPath.replace(/^\.\//, '').replace(/^\//, '');
-  const isGithubPages = typeof window !== 'undefined' && window.location.pathname.startsWith('/Web-Profile-iamikhsank');
+  const isServer = typeof window === 'undefined';
+  const isGithubPages = isServer || (window.location.pathname.startsWith('/Web-Profile-iamikhsank') || window.location.hostname.includes('github.io'));
   const prefix = isGithubPages ? '/Web-Profile-iamikhsank/' : '/';
   
   return `${prefix}${cleanPath}`;
+};
+
+const getRouteHref = (targetRoute: string): string => {
+  const isServer = typeof window === 'undefined';
+  const isGithubPages = isServer || (window.location.pathname.startsWith('/Web-Profile-iamikhsank') || window.location.hostname.includes('github.io'));
+  const basePath = isGithubPages ? '/Web-Profile-iamikhsank' : '';
+
+  if (targetRoute === '/' || targetRoute === '') {
+    return basePath ? `${basePath}/` : '/';
+  }
+  return `${basePath}${targetRoute}/`;
 };
 
 const normalizeRoute = (): string => {
@@ -887,14 +899,14 @@ ${formData.message}`;
     <header>
       <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-              <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
+              <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
               <div className="hidden lg:flex items-center space-x-4 text-sm font-medium text-[#86868b]">
-                  <a href="/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '/' ? 'text-white font-semibold' : ''}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-                  <a href="/services/power-bi-dashboard/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
-                  <a href="/services/data-analysis/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
-                  <a href="/services/business-intelligence/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
-                  <a href="/services/machine-learning-ai/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML &amp; AI</a>
-                  <a href="/case-studies/" onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
+                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '/' ? 'text-white font-semibold' : ''}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+                  <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
+                  <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
+                  <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
+                  <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML &amp; AI</a>
+                  <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
                   <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
                   <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
@@ -961,16 +973,16 @@ ${formData.message}`;
           {/* Layanan Section */}
           <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-emerald-500 mb-3">{lang === 'en' ? 'Services' : 'Layanan'}</p>
           <div className="space-y-1 mb-6">
-            <a href="/" onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-            <a href="/services/power-bi-dashboard/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI &amp; Tableau</a>
-            <a href="/services/data-analysis/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis &amp; ETL</a>
-            <a href="/services/business-intelligence/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
-            <a href="/services/machine-learning-ai/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI &amp; Tableau</a>
+            <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis &amp; ETL</a>
+            <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
+            <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
           </div>
           {/* Navigasi Section */}
           <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
           <div className="space-y-1 mb-6">
-            <a href="/case-studies/" onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
+            <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
             <a href="#showcase" onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
             <a href="#pricing" onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
             <a href="#faq" onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
@@ -991,7 +1003,7 @@ ${formData.message}`;
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Konsultan Power BI & Tableau Dashboard
@@ -1010,7 +1022,7 @@ ${formData.message}`;
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
             <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
@@ -1086,7 +1098,7 @@ ${formData.message}`;
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Spesialis Data Analysis & ETL Data Cleansing
@@ -1105,7 +1117,7 @@ ${formData.message}`;
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
             <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork (Terverifikasi & Ulasan Klien)</a>
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
@@ -1181,7 +1193,7 @@ ${formData.message}`;
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Konsultan Business Intelligence & Corporate BI
@@ -1201,7 +1213,7 @@ ${formData.message}`;
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
             <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
             <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Otomasi Apps Script</a>
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
@@ -1277,7 +1289,7 @@ ${formData.message}`;
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Predictive Analytics & Enterprise AI Consultant
@@ -1297,7 +1309,7 @@ ${formData.message}`;
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
             <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Machine Learning (Terverifikasi & Ulasan Klien)</a>
             <a href="https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Data Science & Predictive</a>
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
@@ -1373,7 +1385,7 @@ ${formData.message}`;
         <div className="ambient-glow"></div>
         <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               {lang === 'en' ? '6-Stage Case Studies Archive (MBB Standard)' : 'Arsip Studi Kasus 6-Tahap MBB Standard'}
@@ -1396,7 +1408,7 @@ ${formData.message}`;
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">{lang === 'en' ? 'Consult Your Case Study' : 'Konsultasi Studi Kasus Anda'}</a>
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</a>
           </div>
         </section>
 
