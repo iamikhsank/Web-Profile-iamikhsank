@@ -1514,86 +1514,78 @@ ${formData.message}`;
                 <div className="tech-marquee">
                     {/* Original Set */}
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                        <span className="text-sm font-semibold">Apps Script</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Apps Script</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 10h18M3 14h18M10 3v18M14 3v18M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
-                        <span className="text-sm font-semibold">Google Sheets</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Google Sheets</span>
                     </div>
                     <div className="tech-icon-box">
                         <svg viewBox="-11.5 -10.232 23 20.463" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
-                        <span className="text-sm font-semibold">React 19</span>
+                        <span className="text-sm font-medium">React 19</span>
                     </div>
                     <div className="tech-icon-box">
                         <svg viewBox="0 0 256 154" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z" fill="#06B6D4"/></svg>
-                        <span className="text-sm font-semibold">Tailwind v4</span>
+                        <span className="text-sm font-medium">Tailwind v4</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span className="text-sm font-semibold">TypeScript</span>
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">TypeScript</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2zM9 7h6M9 11h6M9 15h4"/></svg>
-                        <span className="text-sm font-semibold">HTML5</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">HTML5</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                        <span className="text-sm font-semibold">CSS3</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">CSS3</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        <span className="text-sm font-semibold">Power BI</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Power BI</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-                        <span className="text-sm font-semibold">Tableau</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span className="text-sm font-semibold">Python ML</span>
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Tableau</span>
                     </div>
                     
                     {/* Duplicated Set for Infinite Scroll */}
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                        <span className="text-sm font-semibold">Apps Script</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Apps Script</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 10h18M3 14h18M10 3v18M14 3v18M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
-                        <span className="text-sm font-semibold">Google Sheets</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Google Sheets</span>
                     </div>
                     <div className="tech-icon-box">
                         <svg viewBox="-11.5 -10.232 23 20.463" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
-                        <span className="text-sm font-semibold">React 19</span>
+                        <span className="text-sm font-medium">React 19</span>
                     </div>
                     <div className="tech-icon-box">
                         <svg viewBox="0 0 256 154" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z" fill="#06B6D4"/></svg>
-                        <span className="text-sm font-semibold">Tailwind v4</span>
+                        <span className="text-sm font-medium">Tailwind v4</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span className="text-sm font-semibold">TypeScript</span>
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">TypeScript</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2zM9 7h6M9 11h6M9 15h4"/></svg>
-                        <span className="text-sm font-semibold">HTML5</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">HTML5</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                        <span className="text-sm font-semibold">CSS3</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">CSS3</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        <span className="text-sm font-semibold">Power BI</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Power BI</span>
                     </div>
                     <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-                        <span className="text-sm font-semibold">Tableau</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span className="text-sm font-semibold">Python ML</span>
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">Tableau</span>
                     </div>
                 </div>
             </div>
@@ -1734,53 +1726,53 @@ ${formData.message}`;
                     <div className="tech-marquee flex items-center">
                         {/* First Set */}
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V7a2 2 0 00-2-2h-1.5a2 2 0 01-2-2V3.055"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
 
                         {/* Duplicated Set for Infinite Loop */}
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
                         <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
-                            <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V7a2 2 0 00-2-2h-1.5a2 2 0 01-2-2V3.055"/></svg>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
                     </div>
