@@ -49,46 +49,81 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+const normalizeRoute = (): string => {
+  if (typeof window === "undefined") return "/";
+  const path = window.location.pathname;
+  const hash = window.location.hash;
+
+  if (path.includes("power-bi-dashboard") || hash.includes("power-bi-dashboard")) {
+    return "/services/power-bi-dashboard";
+  }
+  if (path.includes("data-analysis") || hash.includes("data-analysis")) {
+    return "/services/data-analysis";
+  }
+  if (path.includes("business-intelligence") || hash.includes("business-intelligence")) {
+    return "/services/business-intelligence";
+  }
+  if (path.includes("machine-learning-ai") || hash.includes("machine-learning-ai")) {
+    return "/services/machine-learning-ai";
+  }
+  if (path.includes("case-studies") || hash.includes("case-studies")) {
+    return "/case-studies";
+  }
+  return "/";
+};
+
+const navigateRoute = (targetRoute: string) => {
+  if (typeof window === "undefined") return;
+  const isAppsScript = window.location.hostname.includes("script.google.com") || window.location.protocol === "file:";
+
+  if (isAppsScript) {
+    window.location.hash = targetRoute === "/" ? "#/" : `#${targetRoute}`;
+  } else {
+    const basePath = window.location.pathname.startsWith('/Web-Profile-iamikhsank') ? '/Web-Profile-iamikhsank' : '';
+    const fullPath = targetRoute === "/" ? (basePath ? `${basePath}/` : "/") : `${basePath}${targetRoute}/`;
+    window.history.pushState({}, "", fullPath);
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 export default function App() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<PortofolioItem | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentRoute, setCurrentRoute] = useState<string>(() => {
-    if (typeof window !== "undefined") {
-      return window.location.hash || "#/";
-    }
-    return "#/";
-  });
+  const [currentRoute, setCurrentRoute] = useState<string>(() => normalizeRoute());
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash || "#/";
-      setCurrentRoute(hash);
+    const handleRouteChange = () => {
+      setCurrentRoute(normalizeRoute());
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handleRouteChange);
+    window.addEventListener("hashchange", handleRouteChange);
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+      window.removeEventListener("hashchange", handleRouteChange);
+    };
   }, []);
 
   useEffect(() => {
-    if (currentRoute === "#/services/power-bi-dashboard") {
+    if (currentRoute === "/services/power-bi-dashboard") {
       document.title = "Konsultan Power BI & Tableau Dashboard | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Power BI & Tableau Dashboard eksekutif. Mengubah data perusahaan menjadi visualisasi interaktif real-time berstandar B2B.");
-    } else if (currentRoute === "#/services/data-analysis") {
+    } else if (currentRoute === "/services/data-analysis") {
       document.title = "Spesialis Data Analysis & ETL Data Cleansing | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Spesialis Data Analysis & Data Cleansing. Pembersihan data mentah, SQL database engineering, dan konsolidasi data terpusat.");
-    } else if (currentRoute === "#/services/business-intelligence") {
+    } else if (currentRoute === "/services/business-intelligence") {
       document.title = "Konsultan Business Intelligence & Corporate BI | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Business Intelligence (BI) Perusahaan. Arsitektur data serverless Apps Script, pelaporan KPI eksekutif, dan efisiensi TCO Rp 0.");
-    } else if (currentRoute === "#/services/machine-learning-ai") {
+    } else if (currentRoute === "/services/machine-learning-ai") {
       document.title = "Predictive Analytics & AI Machine Learning Consultant | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Machine Learning & AI Predictive Analytics. Sales Forecasting, Churn Prediction, Segmentasi RFM, dan Integrasi AI Enterprise.");
-    } else if (currentRoute === "#/case-studies") {
+    } else if (currentRoute === "/case-studies") {
       document.title = "Studi Kasus 6-Tahap Data Analytics & Business Intelligence | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Arsip Studi Kasus 6-Tahap Data Analytics & Business Intelligence oleh Ikhsan Kamal. Problem, Data ETL, Analisis, Visualisasi Dashboard, Insight, dan ROI Impact.");
@@ -101,9 +136,9 @@ export default function App() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetSectionId: string) => {
     e.preventDefault();
-    if (currentRoute !== "#/" && currentRoute !== "") {
-      window.location.hash = "#/";
-      setCurrentRoute("#/");
+    if (currentRoute !== "/") {
+      navigateRoute("/");
+      setCurrentRoute("/");
       setTimeout(() => {
         if (targetSectionId === "top" || targetSectionId === "") {
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -628,29 +663,29 @@ export default function App() {
 
   useEffect(() => {
     if (lang === 'en') {
-      if (currentRoute === '#/services/power-bi-dashboard') {
+      if (currentRoute === '/services/power-bi-dashboard') {
         document.title = "Power BI & Tableau Consultant | Executive Data Visualization Services";
-      } else if (currentRoute === '#/services/data-analysis') {
+      } else if (currentRoute === '/services/data-analysis') {
         document.title = "Data Analysis & ETL Specialist | Raw Data Restructuring";
-      } else if (currentRoute === '#/services/business-intelligence') {
+      } else if (currentRoute === '/services/business-intelligence') {
         document.title = "Corporate Business Intelligence Consultant | Zero Server Cost Architecture";
-      } else if (currentRoute === '#/services/machine-learning-ai') {
+      } else if (currentRoute === '/services/machine-learning-ai') {
         document.title = "Machine Learning & AI Analytics | Predictive Sales & Churn Models";
-      } else if (currentRoute === '#/case-studies') {
+      } else if (currentRoute === '/case-studies') {
         document.title = "6-Stage Data Analytics Case Studies Archive | MBB Standard";
       } else {
         document.title = "Ikhsan K. | Data Analytics Specialist & Business Intelligence Consultant";
       }
     } else {
-      if (currentRoute === '#/services/power-bi-dashboard') {
+      if (currentRoute === '/services/power-bi-dashboard') {
         document.title = "Konsultan Power BI & Tableau Dashboard | Jasa Visualisasi Data Eksekutif";
-      } else if (currentRoute === '#/services/data-analysis') {
+      } else if (currentRoute === '/services/data-analysis') {
         document.title = "Spesialis Data Analysis & ETL Data Cleansing | Restrukturisasi Data Mentah";
-      } else if (currentRoute === '#/services/business-intelligence') {
+      } else if (currentRoute === '/services/business-intelligence') {
         document.title = "Konsultan Business Intelligence & Corporate BI | Arsitektur Serverless Zero Server Cost";
-      } else if (currentRoute === '#/services/machine-learning-ai') {
+      } else if (currentRoute === '/services/machine-learning-ai') {
         document.title = "Predictive Analytics & Enterprise AI Consultant | Pemodelan Sales & Churn Machine Learning";
-      } else if (currentRoute === '#/case-studies') {
+      } else if (currentRoute === '/case-studies') {
         document.title = "Arsip Studi Kasus Analisis Data 6-Tahap MBB Standard | Ikhsan Kamal";
       } else {
         document.title = "Ikhsan K. | Spesialis Data Analytics & Konsultan Business Intelligence";
@@ -842,12 +877,12 @@ ${formData.message}`;
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
               <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
               <div className="hidden lg:flex items-center space-x-4 text-sm font-medium text-[#86868b]">
-                  <a href="#/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/' ? 'text-white font-semibold' : ''}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-                  <a href="#/services/power-bi-dashboard" onClick={() => setCurrentRoute('#/services/power-bi-dashboard')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
-                  <a href="#/services/data-analysis" onClick={() => setCurrentRoute('#/services/data-analysis')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
-                  <a href="#/services/business-intelligence" onClick={() => setCurrentRoute('#/services/business-intelligence')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
-                  <a href="#/services/machine-learning-ai" onClick={() => setCurrentRoute('#/services/machine-learning-ai')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML & AI</a>
-                  <a href="#/case-studies" onClick={() => setCurrentRoute('#/case-studies')} className={`hover:text-white transition cursor-pointer ${currentRoute === '#/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
+                  <a href="/" onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '/' ? 'text-white font-semibold' : ''}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+                  <a href="/services/power-bi-dashboard/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
+                  <a href="/services/data-analysis/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
+                  <a href="/services/business-intelligence/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
+                  <a href="/services/machine-learning-ai/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML &amp; AI</a>
+                  <a href="/case-studies/" onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
                   <a href="#showcase" onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
                   <a href="#pricing" onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
@@ -914,16 +949,16 @@ ${formData.message}`;
           {/* Layanan Section */}
           <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-emerald-500 mb-3">{lang === 'en' ? 'Services' : 'Layanan'}</p>
           <div className="space-y-1 mb-6">
-            <a href="#/" onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-            <a href="#/services/power-bi-dashboard" onClick={() => { setCurrentRoute('#/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI & Tableau</a>
-            <a href="#/services/data-analysis" onClick={() => { setCurrentRoute('#/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis & ETL</a>
-            <a href="#/services/business-intelligence" onClick={() => { setCurrentRoute('#/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
-            <a href="#/services/machine-learning-ai" onClick={() => { setCurrentRoute('#/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML & AI</a>
+            <a href="/" onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/services/power-bi-dashboard/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI &amp; Tableau</a>
+            <a href="/services/data-analysis/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis &amp; ETL</a>
+            <a href="/services/business-intelligence/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
+            <a href="/services/machine-learning-ai/" onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
           </div>
           {/* Navigasi Section */}
           <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
           <div className="space-y-1 mb-6">
-            <a href="#/case-studies" onClick={() => { setCurrentRoute('#/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '#/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
+            <a href="/case-studies/" onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
             <a href="#showcase" onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
             <a href="#pricing" onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
             <a href="#faq" onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
@@ -939,12 +974,12 @@ ${formData.message}`;
     <main id="main-content">
 
     {/* POWER BI DASHBOARD LANDING PAGE VIEW */}
-    {currentRoute === "#/services/power-bi-dashboard" && (
+    {currentRoute === "/services/power-bi-dashboard" && (
       <div className="pt-28 pb-16">
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Konsultan Power BI & Tableau Dashboard
@@ -1034,12 +1069,12 @@ ${formData.message}`;
     )}
 
     {/* DATA ANALYSIS & ETL LANDING PAGE VIEW */}
-    {currentRoute === "#/services/data-analysis" && (
+    {currentRoute === "/services/data-analysis" && (
       <div className="pt-28 pb-16">
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Spesialis Data Analysis & ETL Data Cleansing
@@ -1129,12 +1164,12 @@ ${formData.message}`;
     )}
 
     {/* CORPORATE BUSINESS INTELLIGENCE LANDING PAGE VIEW */}
-    {currentRoute === "#/services/business-intelligence" && (
+    {currentRoute === "/services/business-intelligence" && (
       <div className="pt-28 pb-16">
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Konsultan Business Intelligence & Corporate BI
@@ -1225,12 +1260,12 @@ ${formData.message}`;
     )}
 
     {/* PREDICTIVE ANALYTICS & AI MACHINE LEARNING LANDING PAGE VIEW */}
-    {currentRoute === "#/services/machine-learning-ai" && (
+    {currentRoute === "/services/machine-learning-ai" && (
       <div className="pt-28 pb-16">
         <div className="ambient-glow"></div>
         <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               Predictive Analytics & Enterprise AI Consultant
@@ -1321,12 +1356,12 @@ ${formData.message}`;
     )}
 
     {/* FULL 6-STAGE CASE STUDIES GALLERY LANDING PAGE VIEW */}
-    {currentRoute === "#/case-studies" && (
+    {currentRoute === "/case-studies" && (
       <div className="pt-28 pb-16">
         <div className="ambient-glow"></div>
         <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
           <div className="flex items-center gap-2 mb-6">
-            <a href="#/" onClick={() => setCurrentRoute('#/')} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
             <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
               {lang === 'en' ? '6-Stage Case Studies Archive (MBB Standard)' : 'Arsip Studi Kasus 6-Tahap MBB Standard'}
@@ -1421,7 +1456,7 @@ ${formData.message}`;
     )}
 
     {/* DEFAULT HOMEPAGE VIEW */}
-    {(currentRoute === "#/" || currentRoute === "") && (
+    {(currentRoute === "/" || currentRoute === "" || currentRoute === "#/") && (
       <>
     {/* 1. HERO SECTION */}
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-6 relative z-10 pt-28 sm:pt-36 md:pt-44 lg:pt-48 pb-16">

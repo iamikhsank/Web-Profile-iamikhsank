@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build && node -e \"const fs = require('fs'); fs.copyFileSync('dist/index.html', 'Dashboard-for-Spreadsheet.html'); fs.copyFileSync('dist/index.html', 'Dashboard-for-Spreadsheet.txt'); if (fs.existsSync('public/sitemap.xml')) fs.copyFileSync('public/sitemap.xml', 'dist/sitemap.xml'); if (fs.existsSync('public/robots.txt')) fs.copyFileSync('public/robots.txt', 'dist/robots.txt'); console.log('✓ Hasil build & sitemap berhasil disinkronkan');\"",
+    "build": "vite build && node -e \"const fs = require('fs'); fs.copyFileSync('dist/index.html', 'Dashboard-for-Spreadsheet.html'); fs.copyFileSync('dist/index.html', 'Dashboard-for-Spreadsheet.txt'); if (fs.existsSync('public/sitemap.xml')) fs.copyFileSync('public/sitemap.xml', 'dist/sitemap.xml'); if (fs.existsSync('public/robots.txt')) fs.copyFileSync('public/robots.txt', 'dist/robots.txt'); console.log('✓ Hasil build & sitemap berhasil disinkronkan');\" && node scripts/prerender.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",
