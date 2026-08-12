@@ -100,6 +100,42 @@ export default function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<PortofolioItem | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentRoute, setCurrentRoute] = useState<string>(() => normalizeRoute());
+  const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleScroll = () => {
+      const stepElements = document.querySelectorAll('.step-item');
+      if (!stepElements || stepElements.length === 0) return;
+
+      const viewportHeight = window.innerHeight;
+      const targetCenter = viewportHeight * 0.45;
+
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      stepElements.forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - targetCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveWorkflowStep(closestIndex);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentRoute]);
 
   const navigateRoute = (targetRoute: string) => {
     if (typeof window === "undefined") return;
@@ -2028,43 +2064,43 @@ ${formData.message}`;
             {/* Scrolling Steps */}
             <div className="space-y-12 md:space-y-24 py-10 step-container">
                 
-                <div className="step-item opacity-20 transition-opacity duration-500">
-                    <span className="text-emerald-500 font-bold text-xl mb-2 block">01. {lang === 'en' ? 'Business Requirements Audit' : 'Audit Kebutuhan Bisnis'}</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Goals & KPI Metrics Discussion' : 'Diskusi Target & Metrik KPI'}</h3>
-                    <p className="text-[#86868b] text-sm sm:text-base">
-                        {lang === 'en' ? 'In-depth discussion on key target Goals and KPI metrics to be achieved by your management.' : <>Diskusi mendalam mengenai target (<span className="text-white font-medium">Goals</span>) dan metrik utama (<span className="text-white font-medium">KPI</span>) yang ingin dicapai oleh manajemen atau perusahaan Anda.</>}
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 0 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>01. {lang === 'en' ? 'Business Requirements Audit' : 'Audit Kebutuhan Bisnis'}</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Goals & KPI Metrics Discussion' : 'Diskusi Target & Metrik KPI'}</h3>
+                    <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
+                        {lang === 'en' ? 'In-depth discussion on key target Goals and KPI metrics to be achieved by your management.' : <>Diskusi mendalam mengenai target (<span className={activeWorkflowStep === 0 ? "text-emerald-300 font-semibold" : "text-white/40"}>Goals</span>) dan metrik utama (<span className={activeWorkflowStep === 0 ? "text-emerald-300 font-semibold" : "text-white/40"}>KPI</span>) yang ingin dicapai oleh manajemen atau perusahaan Anda.</>}
                     </p>
                 </div>
                 
-                <div className="step-item opacity-20 transition-opacity duration-500">
-                    <span className="text-emerald-500 font-bold text-xl mb-2 block">02. {lang === 'en' ? 'Data Injection & Evaluation' : 'Injeksi & Evaluasi Data'}</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Multi-Source Data Integration' : 'Integrasi Multi-Sumber Data'}</h3>
-                    <p className="text-[#86868b] text-sm sm:text-base">
-                        {lang === 'en' ? 'Extracting and evaluating raw data from your existing systems (Excel, Google Sheets, CRM, SQL, ERP, POS).' : <>Menarik dan mengevaluasi data mentah dari sistem Anda (<span className="text-white font-medium">Excel, Google Sheets, CRM, SQL, ERP, atau POS Kasir</span>).</>}
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 1 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>02. {lang === 'en' ? 'Data Injection & Evaluation' : 'Injeksi & Evaluasi Data'}</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Multi-Source Data Integration' : 'Integrasi Multi-Sumber Data'}</h3>
+                    <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
+                        {lang === 'en' ? 'Extracting and evaluating raw data from your existing systems (Excel, Google Sheets, CRM, SQL, ERP, POS).' : <>Menarik dan mengevaluasi data mentah dari sistem Anda (<span className={activeWorkflowStep === 1 ? "text-emerald-300 font-semibold" : "text-white/40"}>Excel, Google Sheets, CRM, SQL, ERP, atau POS Kasir</span>).</>}
                     </p>
                 </div>
                 
-                <div className="step-item opacity-20 transition-opacity duration-500">
-                    <span className="text-emerald-500 font-bold text-xl mb-2 block">03. Data Engineering & ETL</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Cleansing & Restructuring' : 'Cleansing & Restrukturisasi'}</h3>
-                    <p className="text-[#86868b] text-sm sm:text-base">
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 2 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>03. Data Engineering & ETL</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Cleansing & Restructuring' : 'Cleansing & Restrukturisasi'}</h3>
+                    <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
                         {lang === 'en' ? 'Data scrubbing, format standardization, duplicate handling, and relational table restructuring.' : 'Pembersihan data, standarisasi format, penanganan duplikasi, dan restrukturisasi tabel relasional komprehensif.'}
                     </p>
                 </div>
 
-                <div className="step-item opacity-20 transition-opacity duration-500">
-                    <span className="text-emerald-500 font-bold text-xl mb-2 block">04. {lang === 'en' ? 'Modeling & Visual Architecture' : 'Pemodelan & Arsitektur Visual'}</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Algorithms & Interactive Dashboards' : 'Algoritma & Dashboard Interaktif'}</h3>
-                    <p className="text-[#86868b] text-sm sm:text-base">
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 3 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>04. {lang === 'en' ? 'Modeling & Visual Architecture' : 'Pemodelan & Arsitektur Visual'}</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Algorithms & Interactive Dashboards' : 'Algoritma & Dashboard Interaktif'}</h3>
+                    <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
                         {lang === 'en' ? 'Building Machine Learning / BI logic algorithms and developing enterprise interactive dashboard interfaces.' : 'Pembangunan logika algoritma Machine Learning / BI serta pengembangan antarmuka dashboard interaktif tingkat korporat.'}
                     </p>
                 </div>
 
-                <div className="step-item opacity-20 transition-opacity duration-500">
-                    <span className="text-emerald-500 font-bold text-xl mb-2 block">05. {lang === 'en' ? 'Strategic Handover & Delivery' : 'Penyerahan & Handover Strategis'}</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
-                    <p className="text-[#86868b] text-sm sm:text-base">
-                        {lang === 'en' ? 'Delivery of final assets (Power BI/Tableau files, Apps Script Web App, Python scripts, Executive PDF) along with data insight interpretation guidelines.' : <>Pengiriman aset akhir (<span className="text-white font-medium">File Power BI/Tableau, Web App Apps Script, Skrip Python, PDF Eksekutif</span>) beserta panduan pembacaan wawasan data.</>}
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 4 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>05. {lang === 'en' ? 'Strategic Handover & Delivery' : 'Penyerahan & Handover Strategis'}</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
+                    <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
+                        {lang === 'en' ? 'Delivery of final assets (Power BI/Tableau files, Apps Script Web App, Python scripts, Executive PDF) along with data insight interpretation guidelines.' : <>Pengiriman aset akhir (<span className={activeWorkflowStep === 4 ? "text-emerald-300 font-semibold" : "text-white/40"}>File Power BI/Tableau, Web App Apps Script, Skrip Python, PDF Eksekutif</span>) beserta panduan pembacaan wawasan data.</>}
                     </p>
                 </div>
             </div>
