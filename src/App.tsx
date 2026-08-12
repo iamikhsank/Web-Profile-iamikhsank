@@ -1499,16 +1499,17 @@ ${formData.message}`;
                   </div>
 
                   <div className="space-y-2">
-                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 cursor-pointer">
+                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-2.5 px-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-xs sm:text-sm tracking-normal transition-all duration-300 cursor-pointer">
                       {lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}
                     </button>
                     <a 
                       href={fastworkUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="block w-full py-2.5 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-bold text-sm sm:text-base tracking-wider transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-semibold text-xs sm:text-sm tracking-normal transition-all cursor-pointer"
                     >
-                      {lang === 'en' ? 'Order This Category Service on Fastwork →' : 'Pesan Jasa Kategori Ini di Fastwork →'}
+                      <span>{lang === 'en' ? 'Order Category Service on Fastwork' : 'Pesan Jasa Kategori Ini di Fastwork'}</span>
+                      <span className="text-sm font-bold leading-none">→</span>
                     </a>
                   </div>
                 </div>
@@ -1712,10 +1713,10 @@ ${formData.message}`;
                                         <div className="flex flex-col items-end gap-2 w-full sm:w-auto">
                                             <button
                                                 onClick={() => setSelectedCaseStudy(item)}
-                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm sm:text-base font-bold hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all cursor-pointer shadow-sm hover:scale-[1.02]"
+                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all cursor-pointer shadow-sm hover:scale-[1.02]"
                                             >
                                                 <span>{lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}</span>
-                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                                             </button>
                                             {/* Tech Stack minimal */}
                                             <div className="flex flex-wrap gap-1.5 justify-end max-w-[240px]">
