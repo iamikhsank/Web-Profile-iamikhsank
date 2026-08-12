@@ -27,6 +27,8 @@
     <meta name="description" content="Ikhsan Kamal - Data Analyst Indonesia & Business Intelligence Consultant. Layanan Dashboard Power BI, Data Analytics Consultant, SQL & Python Data Analyst, serta Business Analytics." />
     <meta name="keywords" content="Consultant, Analytics Engineer, Full-Stack Developer, Data Analyst Indonesia, Business Intelligence Analyst Indonesia, Power BI Consultant, Data Analytics Consultant, Dashboard Power BI, Business Intelligence Consultant, Data Visualization, Python Data Analyst, SQL Data Analyst, Business Analytics, Apps Script, AppsScript, Tableau, Power BI, Spreadsheets, Google Sheets, Excel, MS Excel, Machine Learning, Data Science" />
     <meta name="author" content="Ikhsan Kamal" />
+    <meta name="application-name" content="Ikhsan Kamal - Data Analytics &amp; BI Consultant" />
+    <meta name="apple-mobile-web-app-title" content="Ikhsan Kamal - Data Analytics &amp; BI Consultant" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#000000" />
     <meta name="google-site-verification" content="p3TEkbQWHq2hRPrroLGVfQVjwAtWdgcNR3P5irxfLEo" />
@@ -38,7 +40,7 @@
     <meta property="og:title" content="Spesialis Data Analytics & Konsultan Business Intelligence (BI) | Ikhsan Kamal" />
     <meta property="og:description" content="Data Analyst Indonesia & Business Intelligence Consultant. Spesialis Dashboard Power BI, Data Visualization, SQL & Python Data Analyst, serta Business Analytics." />
     <meta property="og:image" content="https://iamikhsank.github.io/Web-Profile-iamikhsank/assets/prj_img/Sales%20Analytics%20Cockpit%20(2).png" />
-    <meta property="og:site_name" content="Ikhsan Kamal - Data Analytics & BI Consultant" />
+    <meta property="og:site_name" content="Ikhsan Kamal - Data Analytics &amp; BI Consultant" />
     <meta property="og:locale" content="id_ID" />
 
     <!-- Twitter Cards -->
@@ -57,8 +59,8 @@
           "@type": "WebSite",
           "@id": "https://iamikhsank.github.io/Web-Profile-iamikhsank/#website",
           "url": "https://iamikhsank.github.io/Web-Profile-iamikhsank/",
-          "name": "Ikhsan Kamal",
-          "alternateName": "Ikhsan Kamal - Data Analytics & BI Consultant"
+          "name": "Ikhsan Kamal - Data Analytics & BI Consultant",
+          "alternateName": "Ikhsan Kamal"
         },
         {
           "@type": "Person",
