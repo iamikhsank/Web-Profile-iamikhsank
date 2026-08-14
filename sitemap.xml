@@ -32,7 +32,13 @@
   </url>
   <url>
     <loc>https://iamikhsank.github.io/Web-Profile-iamikhsank/case-studies/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iamikhsank.github.io/Web-Profile-iamikhsank/articles/</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
