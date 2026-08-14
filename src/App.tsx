@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { translations, Language } from "./translations";
+import { Database, BarChart3, BrainCircuit, Lightbulb } from "lucide-react";
 
 
 interface PaketHargaItem {
@@ -44,6 +45,179 @@ interface PortofolioItem {
   caseStudy: CaseStudyDetail;
 }
 
+export interface ArtikelItem {
+  id: string;
+  judul: string;
+  seoTitle: string;
+  deskripsi: string;
+  platform: 'Medium' | 'LinkedIn' | 'Substack' | 'Dev.to' | 'GitHub' | 'Internal';
+  kategori: string;
+  linkArtikel: string;
+  linkGambar: string;
+  tanggalPublikasi: string;
+  waktuBaca: string;
+  penulis: string;
+}
+
+const artikelList: ArtikelItem[] = [
+  {
+    id: "ART-016",
+    judul: "Phone Marketing Fatigue: 3 Key Insights for Financial Sector",
+    seoTitle: "Institutional Tele-Deposit Intelligence & Customer Propensity Detection Project (Telesales Campaign Analytics)",
+    deskripsi: "Analisis 11,162 data nasabah perbankan: mengidentifikasi batas kejenuhan panggilan (Sweetspot 1-3 dial), jendela durasi optimasi kampanye (Maret, Sep, Okt, Des >75% yield), dan pemodelan kecenderungan nasabah berbasis Google Apps Script SPA.",
+    platform: "LinkedIn",
+    kategori: "Fintech & Campaign BI",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_dynamic-campaign-performance-deposit-analytics-activity-7491549835519696896-WLdP",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D561FAQHjzMRe4w0MRw/feedshare-document-cover-images_480/B56Z_dTTbJIMBA-/0/1786124258163?e=2147483647&v=beta&t=oHW1X0cinTPkuHF7ArXfymaLxHLnDk0BibEAZmKLGX4",
+    tanggalPublikasi: "08 Agt 2026",
+    waktuBaca: "5 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-015",
+    judul: "StockFlow Analytics: Enterprise Supply Chain & Inventory Intelligence Engine",
+    seoTitle: "StockFlow ERP Showcase: Optimasi Modal Kerja, Pembebasan Dead Stock & Prevention Lost Sales",
+    deskripsi: "Showcase platform Inventory Intelligence berbasis Google Apps Script & Sheets: mengalkulasi Dynamic Reorder Point (ROP), eliminasi dead stock via Matriks Pareto ABC-XYZ 3x3, dan penghematan biaya gudang.",
+    platform: "LinkedIn",
+    kategori: "Supply Chain ERP & GAS",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_stockflow-erp-showcase-activity-7486029097157017600-z2VT",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D561FAQF4Gu4nZm2J7g/feedshare-document-cover-images_480/B56Z.O3lxPHYBA-/0/1784808368961?e=2147483647&v=beta&t=3DFfP-LfBgzd6FHfB2adzeoOPhUzeXqftmu3YtiHQFI",
+    tanggalPublikasi: "23 Jul 2026",
+    waktuBaca: "5 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-014",
+    judul: "Revenue Guardian: Enterprise Revenue Risk Mitigation Engine",
+    seoTitle: "Arsitektur Revenue Risk Mitigation Engine & Single Page Application (SPA) Berbasis Google Apps Script",
+    deskripsi: "Membangun platform mitigasi risiko pendapatan (Revenue-at-Risk Engine) berbasis Google Apps Script Serverless & SPA UI: deteksi dini transaksi meluruh, transparansi risiko finansial, serta keamanan kelas korporat (Anti-Formula Injection & Audit Trail).",
+    platform: "LinkedIn",
+    kategori: "Enterprise System Architecture",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_dataanalytics-dashboard-googleappsscript-activity-7483951372304928769-C5Nc",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQGwVHZfUAC_RA/feedshare-shrink_800/B56Z9xWDbnH4Ac-/0/1784313035119?e=2147483647&v=beta&t=7WR4v28KQAV6257pub5QjTjoA9P_PVtu5cmYmeWUZDY",
+    tanggalPublikasi: "17 Jul 2026",
+    waktuBaca: "6 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-013",
+    judul: "Worksense Analytics: Enterprise Google Apps Script Custom Web App",
+    seoTitle: "Solusi Web App Internal & Single Source of Truth Analytics Berbasis Google Apps Script dengan TCO Rp 0",
+    deskripsi: "Merancang Worksense Analytics Custom Web App berbasis Google Apps Script untuk mengeliminasi friksi rekap data manual puluhan Google Sheets: sentralisasi data real-time, deteksi anomali performa instan via Streamgraph, tanpa biaya sewa server bulanan.",
+    platform: "LinkedIn",
+    kategori: "Apps Script & Web App",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_googleappsscript-businessintelligence-webappdevelopment-activity-7483100187335249920-tUrF",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQGK_dEP5Ipw3g/feedshare-shrink_800/B56Z9lP93bGUAc-/0/1784110112560?e=2147483647&v=beta&t=XYXLh6935W5B7H3S7RdYtgNDxwIlqQt-yTJZZRmZm7A",
+    tanggalPublikasi: "15 Jul 2026",
+    waktuBaca: "5 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-012",
+    judul: "Enterprise Multichannel ERP Platform (Google Apps Script & Sheets Core)",
+    seoTitle: "Arsitektur Enterprise Multichannel ERP Serverless Google Apps Script dengan Low TCO & Security RBAC",
+    deskripsi: "Membangun platform ERP Multichannel skala korporasi untuk mengonsolidasi transaksi Tokopedia, Shopee, FB, IG, dan Direct Store di atas Google Apps Script & Sheets dengan Zero Infrastructure Cost (Low TCO) dan Role-Based Access Control (RBAC).",
+    platform: "LinkedIn",
+    kategori: "Enterprise ERP & GAS",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_googleappsscript-dataanalytics-businessintelligence-activity-7480124406258614272-qrNx",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQFZxPS_mSR4eQ/feedshare-shrink_800/B56Z869giaIoAc-/0/1783400630776?e=2147483647&v=beta&t=E_MasroD7qh7PJLZXUqdJFPYZws513hy0_vUcmdh0-Q",
+    tanggalPublikasi: "07 Jul 2026",
+    waktuBaca: "5 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-011",
+    judul: "Google Sheets Modern Interactive Business Analytics Dashboard",
+    seoTitle: "Dashboard Analitik Bisnis Interaktif Berbasis Google Sheets & Spreadsheet Automation tanpa Server Enterprise",
+    deskripsi: "Membangun dashboard analytics modern berpenampilan aplikasi enterprise langsung di atas Google Sheets: monitoring performa marketing, sales & revenue tracking, visualisasi KPI, dan executive summary dengan fitur sinkronisasi data mandiri.",
+    platform: "LinkedIn",
+    kategori: "Apps Script & Sheets BI",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_dashboard-businessintelligence-googlesheets-activity-7461833500938178560-5DNL",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQENCVrbiFfUDQ/feedshare-shrink_800/B56Z43CB0bHkAc-/0/1779039739462?e=2147483647&v=beta&t=Gm_XuRy0ieuc73T56_69zTrjQ0w6yNwZvHUuowHYbN4",
+    tanggalPublikasi: "18 Mei 2026",
+    waktuBaca: "4 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-010",
+    judul: "Banking & Financial Performance Power BI Dashboard",
+    seoTitle: "Dashboard Analisis Kinerja Perbankan & Keuangan Enterprise (YoY Growth, Funding vs Lending, Liquidity)",
+    deskripsi: "Desain dashboard analitik perbankan komprehensif untuk memantau tren pertumbuhan keuangan YoY, rasio Funding vs Lending, distribusi produk & aset, hingga pemantauan likuiditas & cashflow operasional secara real-time.",
+    platform: "LinkedIn",
+    kategori: "Financial BI & Analytics",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_dataanalytics-powerbi-businessintelligence-activity-7445104428140998656-vorm",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQEnSNxbofhyDw/feedshare-shrink_800/B56Z1JTBePKYAc-/0/1775051217079?e=2147483647&v=beta&t=UjzyKdwlyom7_qvqEpGbQ8zftaxEcUSQ-CbQ87QwPXc",
+    tanggalPublikasi: "01 Apr 2026",
+    waktuBaca: "3 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-009",
+    judul: "HSSE Dashboard: Bridging Compliance Gaps with Data Insights",
+    seoTitle: "HSSE Corporate Executive Dashboard Power BI untuk Monitoring Keselamatan & Kepatuhan Operasional",
+    deskripsi: "Desain dashboard HSSE Power BI untuk mengonsolidasi indikator performa keselamatan dan kepatuhan operasional: audit & inspeksi, efektivitas closure, cakupan induksi & pelatihan, hingga keterlibatan manajemen.",
+    platform: "LinkedIn",
+    kategori: "HSSE & Enterprise BI",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_businessintelligence-dataanalytics-hsse-activity-7445417409567621120-4a9Y",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQErDeZLMCD-qg/feedshare-shrink_800/B56Z1NvrccHMAc-/0/1775125837825?e=2147483647&v=beta&t=JOkH668zWIiCMt6MiXCa03QvTgoPVmz4VJlMt60HOEw",
+    tanggalPublikasi: "02 Apr 2026",
+    waktuBaca: "3 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-008",
+    judul: "Polynomial Regression & Overfitting Trade-offs",
+    seoTitle: "Analisis Kompleksitas Polinomial & Penanganan Overfitting dalam Model Machine Learning",
+    deskripsi: "Eksperimen teknis pemilihan derajat polinomial (Degree 1-15) pada model Polynomial Regression. Menganalisis kurva trade-off antara Underfitting, Optimal Fit, hingga Overfitting ekstrim pada data sampel non-linear.",
+    platform: "LinkedIn",
+    kategori: "Machine Learning & AI",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_machinelearning-polynomialregression-overfitting-activity-7353266705650851842-KtHc",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D4E22AQFmyfenLRly2A/feedshare-image-high-res/B4EZgwNGqVHIA0-/0/1753155398880?e=2147483647&v=beta&t=Yi77Ak707iaj1ZE6GDaUCYTBRutDxmACh5J8tWMWxmc",
+    tanggalPublikasi: "22 Jul 2025",
+    waktuBaca: "4 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-007",
+    judul: "Visualizing Gradient Descent in Linear Regression",
+    seoTitle: "Visualisasi Gradient Descent & Iteratif Optimasi Parameter Linear Regression dalam Machine Learning",
+    deskripsi: "Breakdown teknis visualisasi proses pembelajaran iteratif 1,000 training epoch pada algoritma Linear Regression. Eksperimen dampak learning rate (η = 0.02, 0.1, 0.5) terhadap konvergensi Mean Squared Error (MSE) cost function.",
+    platform: "LinkedIn",
+    kategori: "Machine Learning & AI",
+    linkArtikel: "https://www.linkedin.com/posts/ikhsankamal_machinelearning-gradientdescent-linearregression-activity-7345349749018869761-KmMk",
+    linkGambar: "https://media.licdn.com/dms/image/v2/D5622AQEgHzLeDKeg2w/feedshare-shrink_1280/B56Ze_srDeH8Ak-/0/1751267849233?e=2147483647&v=beta&t=08K8VZkuOrXPWAjMJc0gJnnx4OIz-F4wcK0No04IHyw",
+    tanggalPublikasi: "30 Jun 2025",
+    waktuBaca: "4 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-006",
+    judul: "The Six Data Analysis Phases",
+    seoTitle: "Enam Tahapan Utama Analisis Data (Ask, Prepare, Process, Analyze, Share, Act)",
+    deskripsi: "Ulasan komprehensif 6 tahapan fundamental analisis data menurut kerangka kerja Google Data Analytics: Ask, Prepare, Process, Analyze, Share, dan Act untuk menghasilkan wawasan bisnis berlandaskan data yang dapat ditindaklanjuti.",
+    platform: "Medium",
+    kategori: "Data Methodology & BI",
+    linkArtikel: "https://medium.com/@iamikhsank/the-six-data-analysis-phases-2ec7249c3d6a",
+    linkGambar: "https://miro.medium.com/v2/resize:fit:1200/1*Lc9qCvDFqOd9Wk3vTFooLg.jpeg",
+    tanggalPublikasi: "17 Okt 2024",
+    waktuBaca: "6 min read",
+    penulis: "Ikhsan Kamal"
+  },
+  {
+    id: "ART-005",
+    judul: "Exploratory Data Analysis (EDA) Steps for Beginners",
+    seoTitle: "Panduan Praktis Exploratory Data Analysis (EDA) Python untuk Pemula",
+    deskripsi: "Panduan teknis langkah demi langkah pelaksanaan Exploratory Data Analysis (EDA) menggunakan Python, Pandas, dan Data Visualization untuk mengidentifikasi pola mendasar, menangani missing values, serta memvalidasi distribusi data.",
+    platform: "Medium",
+    kategori: "Data Science & EDA",
+    linkArtikel: "https://medium.com/@iamikhsank/exploratory-data-analysis-eda-steps-for-beginners-abc22edab38e",
+    linkGambar: "https://miro.medium.com/v2/resize:fit:736/1*2NUlBdXQufrX6QM6X0eccg.jpeg",
+    tanggalPublikasi: "15 Agt 2024",
+    waktuBaca: "5 min read",
+    penulis: "Ikhsan Kamal"
+  }
+];
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -57,14 +231,18 @@ const resolveAssetUrl = (assetPath: string): string => {
   
   const cleanPath = assetPath.replace(/^\.\//, '').replace(/^\//, '');
   const isGas = typeof window !== 'undefined' && (window.location.hostname.includes('script.google.com') || window.location.protocol === 'file:');
-  const prefix = isGas ? '/' : `${GITHUB_PAGES_BASE}/`;
+  const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.startsWith('192.168.') || window.location.hostname.startsWith('10.'));
+  
+  const prefix = (isGas || isLocal) ? '/' : `${GITHUB_PAGES_BASE}/`;
   
   return `${prefix}${cleanPath}`;
 };
 
 const getRouteHref = (targetRoute: string): string => {
   const isGas = typeof window !== 'undefined' && (window.location.hostname.includes('script.google.com') || window.location.protocol === 'file:');
-  if (isGas) {
+  const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.startsWith('192.168.') || window.location.hostname.startsWith('10.'));
+
+  if (isGas || isLocal) {
     return targetRoute === '/' ? '#/' : `#${targetRoute}`;
   }
 
@@ -95,6 +273,9 @@ const normalizeRoute = (): string => {
   }
   if (path.includes("case-studies") || hash.includes("case-studies")) {
     return "/case-studies";
+  }
+  if (path.includes("articles") || hash.includes("articles")) {
+    return "/articles";
   }
   return "/";
 };
@@ -139,7 +320,7 @@ export default function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [currentRoute]);
+  }, []);
 
   const navigateRoute = (targetRoute: string) => {
     if (typeof window === "undefined") return;
@@ -172,9 +353,9 @@ export default function App() {
 
   useEffect(() => {
     if (currentRoute === "/services/power-bi-dashboard") {
-      document.title = "Konsultan Power BI & Tableau Dashboard | Ikhsan Kamal";
+      document.title = "Konsultan Power BI & Dashboard Eksekutif | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", "Layanan Konsultan Power BI & Tableau Dashboard eksekutif. Mengubah data perusahaan menjadi visualisasi interaktif real-time berstandar B2B.");
+      if (metaDesc) metaDesc.setAttribute("content", "Jasa Pembuatan Dashboard Power BI Eksekutif. Konsolidasi data multi-sumber, pemodelan DAX presisi, dan visualisasi KPI interaktif.");
     } else if (currentRoute === "/services/data-analysis") {
       document.title = "Spesialis Data Analysis & ETL Data Cleansing | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -191,6 +372,10 @@ export default function App() {
       document.title = "Studi Kasus 6-Tahap Data Analytics & Business Intelligence | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", "Arsip Studi Kasus 6-Tahap Data Analytics & Business Intelligence oleh Ikhsan Kamal. Problem, Data ETL, Analisis, Visualisasi Dashboard, Insight, dan ROI Impact.");
+    } else if (currentRoute === "/articles") {
+      document.title = "Publikasi Artikel & Executive Insights Data Analytics | Ikhsan Kamal";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", "Kumpulan artikel teknis, panduan arsitektur Data Analytics, serta wawasan Business Intelligence yang dipublikasikan di Medium dan LinkedIn.");
     } else {
       document.title = "Spesialis Data Analytics & Konsultan Business Intelligence (BI) | Ikhsan Kamal";
       const metaDesc = document.querySelector('meta[name="description"]');
@@ -757,6 +942,8 @@ export default function App() {
     }
   }, [currentRoute, lang]);
 
+  const [articlePlatformFilter, setArticlePlatformFilter] = useState<'All' | 'LinkedIn' | 'Medium'>('All');
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const [formData, setFormData] = useState({
@@ -933,107 +1120,152 @@ ${formData.message}`;
 
   return (
     <div className="selection:bg-emerald-500/30">
-        
+      {/* Complex Liquid Silk Fabric Mesh with Deep Concave Dark Folds */}
+      <div className="silk-bg-container" aria-hidden="true">
+        <div className="silk-dark-fold-1"></div>
+        <div className="silk-dark-fold-2"></div>
+        <div className="silk-ridge-highlight"></div>
+        <div className="silk-vignette-overlay"></div>
+      </div>
 
-    {/* Navigation Header */}
-    <header>
-      <nav className="glass-nav fixed top-0 w-full z-50 transition-all duration-300" aria-label="Main Navigation">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-              <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-lg md:text-xl text-white hover:opacity-80 transition-opacity">IKHSAN K<span className="text-emerald-500">.</span></a>
-              <div className="hidden lg:flex items-center space-x-4 text-sm font-medium text-[#86868b]">
-                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className={`hover:text-white transition cursor-pointer ${currentRoute === '/' ? 'text-white font-semibold' : ''}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-                  <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/power-bi-dashboard' ? 'text-emerald-400 font-semibold' : ''}`}>Power BI</a>
-                  <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/data-analysis' ? 'text-emerald-400 font-semibold' : ''}`}>Data Analysis</a>
-                  <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-emerald-400 font-semibold' : ''}`}>Corporate BI</a>
-                  <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-emerald-400 font-semibold' : ''}`}>ML &amp; AI</a>
-                  <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`hover:text-white transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-emerald-400 font-semibold' : ''}`}>Case Studies</a>
-                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'showcase')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
-                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'pricing')} className="hover:text-white transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
-                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-white transition cursor-pointer">FAQ</a>
+    {/* Navigation Header - Floating Pill Glassmorphism Navbar */}
+    <header className="fixed top-3 sm:top-5 inset-x-0 z-50 px-3 sm:px-6 flex justify-center pointer-events-none">
+      <nav className="glass-nav-pill pointer-events-auto max-w-7xl w-full h-14 sm:h-16 rounded-full px-4 sm:px-8 flex items-center justify-between" aria-label="Main Navigation">
+          <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className="font-sans font-extrabold tracking-tight text-base sm:text-lg md:text-xl text-white hover:opacity-80 transition-opacity shrink-0">IKHSAN K<span className="text-white/40">.</span></a>
+          
+          <div className="hidden lg:flex items-center space-x-1 sm:space-x-1.5 text-xs sm:text-sm font-medium text-[#a1a1aa]">
+              <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'top')} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+              <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/services/power-bi-dashboard' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>Power BI</a>
+              <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/services/data-analysis' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>Data Analysis</a>
+              <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/services/business-intelligence' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
+              <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/services/machine-learning-ai' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
+              <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/case-studies' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>Case Studies</a>
+              <a href={getRouteHref('/articles')} onClick={(e) => { e.preventDefault(); navigateRoute('/articles'); }} className={`px-3 py-1.5 rounded-full transition cursor-pointer ${currentRoute === '/articles' ? 'text-white font-semibold bg-white/10' : 'hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Articles' : 'Artikel'}</a>
+              <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'pricing')} className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition cursor-pointer">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
+              <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'faq')} className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition cursor-pointer">FAQ</a>
+          </div>
+          
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              {/* Language Switcher Segmented Control (Desktop Only) */}
+              <div className="hidden lg:flex items-center bg-white/5 border border-white/10 rounded-full p-0.5 text-xs font-semibold">
+                <button 
+                  onClick={() => toggleLanguage('id')} 
+                  className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'id' ? 'bg-white/20 text-white font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
+                  aria-label="Bahasa Indonesia"
+                >
+                  ID
+                </button>
+                <button 
+                  onClick={() => toggleLanguage('en')} 
+                  className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'en' ? 'bg-white/20 text-white font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
+                  aria-label="English"
+                >
+                  EN
+                </button>
               </div>
-              <div className="flex items-center gap-3">
-                  {/* Language Switcher Segmented Control */}
-                  <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-0.5 text-xs font-semibold">
-                    <button 
-                      onClick={() => toggleLanguage('id')} 
-                      className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'id' ? 'bg-emerald-500 text-black font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
-                      aria-label="Bahasa Indonesia"
-                    >
-                      ID
-                    </button>
-                    <button 
-                      onClick={() => toggleLanguage('en')} 
-                      className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'en' ? 'bg-emerald-500 text-black font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
-                      aria-label="English"
-                    >
-                      EN
-                    </button>
-                  </div>
-                  <a href={getRouteHref('/')} onClick={(e) => handleNavClick(e, 'contact')} className="hidden lg:inline-flex bg-[#f5f5f7] text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer">{lang === 'en' ? 'Consultation' : 'Konsultasi'}</a>
-                  {/* Hamburger Menu Button */}
-                  <button 
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-                    className="lg:hidden flex flex-col items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
-                    aria-label="Toggle mobile menu"
-                    aria-expanded={mobileMenuOpen}
-                  >
-                    <span className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[3px]' : ''}`}></span>
-                    <span className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 mt-1 ${mobileMenuOpen ? '-rotate-45 -translate-y-[3px]' : ''}`}></span>
-                  </button>
-              </div>
+
+              {/* Consultation CTA Specular Glint Pill (Matching 'Gabung' button style in reference image) */}
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => handleNavClick(e, 'contact')} 
+                className="glint-border-wrapper hidden sm:inline-flex group cursor-pointer text-center"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-4 py-1.5 text-xs sm:text-sm font-bold">
+                  <span>{lang === 'en' ? 'Consultation' : 'Konsultasi'}</span>
+                </span>
+              </a>
+
+              {/* Hamburger Menu Button */}
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+                className="lg:hidden flex flex-col items-center justify-center w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                aria-label="Toggle mobile menu"
+                aria-expanded={mobileMenuOpen}
+              >
+                <span className={`block w-4.5 h-0.5 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[2.5px]' : ''}`}></span>
+                <span className={`block w-4.5 h-0.5 bg-white rounded-full transition-all duration-300 mt-1 ${mobileMenuOpen ? '-rotate-45 -translate-y-[2.5px]' : ''}`}></span>
+              </button>
           </div>
       </nav>
+    </header>
 
       {/* Mobile Navigation Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMobileMenuOpen(false)}>
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div className="fixed inset-0 z-[60] lg:hidden" onClick={() => setMobileMenuOpen(false)}>
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
         </div>
       )}
-      <div className={`fixed top-0 right-0 z-45 h-full w-[280px] sm:w-[320px] bg-[#0a0a0c]/95 backdrop-blur-2xl border-l border-white/10 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] transform transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{zIndex: 45}}>
-        <div className="flex flex-col h-full pt-16 pb-8 px-6 overflow-y-auto">
-          {/* Mobile Drawer Top Language Switcher */}
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-            <span className="text-xs text-[#86868b] font-medium">{lang === 'en' ? 'Language' : 'Bahasa'}</span>
-            <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-0.5 text-xs font-semibold">
+      <div className={`fixed top-0 right-0 z-[70] h-full w-[300px] sm:w-[340px] bg-[#0a0a0c]/98 backdrop-blur-3xl border-l border-white/10 shadow-[-20px_0_60px_rgba(0,0,0,0.9)] transform transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col h-full pt-6 pb-8 px-6 overflow-y-auto">
+          {/* Mobile Drawer Top Bar with Brand & Close Button */}
+          <div className="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className="font-sans font-extrabold tracking-tight text-lg text-white">IKHSAN K<span className="text-white/40">.</span></a>
+            
+            <div className="flex items-center gap-3">
+              {/* Language Switcher */}
+              <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-0.5 text-xs font-semibold">
+                <button 
+                  onClick={() => toggleLanguage('id')} 
+                  className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'id' ? 'bg-white/20 text-white font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
+                >
+                  ID
+                </button>
+                <button 
+                  onClick={() => toggleLanguage('en')} 
+                  className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === 'en' ? 'bg-white/20 text-white font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
+                >
+                  EN
+                </button>
+              </div>
+
+              {/* Close Button */}
               <button 
-                onClick={() => toggleLanguage('id')} 
-                className={`px-3 py-1 rounded-full transition-all cursor-pointer ${lang === 'id' ? 'bg-emerald-500 text-black font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
+                onClick={() => setMobileMenuOpen(false)} 
+                className="w-8 h-8 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer"
+                aria-label="Tutup menu navigasi"
               >
-                ID
-              </button>
-              <button 
-                onClick={() => toggleLanguage('en')} 
-                className={`px-3 py-1 rounded-full transition-all cursor-pointer ${lang === 'en' ? 'bg-emerald-500 text-black font-extrabold shadow-sm' : 'text-[#86868b] hover:text-white'}`}
-              >
-                EN
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
           </div>
+
           {/* Layanan Section */}
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-emerald-500 mb-3">{lang === 'en' ? 'Services' : 'Layanan'}</p>
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#86868b] mb-2.5 px-2">{lang === 'en' ? 'SERVICES' : 'LAYANAN'}</p>
           <div className="space-y-1 mb-6">
-            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
-            <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/power-bi-dashboard' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI &amp; Tableau</a>
-            <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/data-analysis' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis &amp; ETL</a>
-            <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/business-intelligence' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
-            <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/machine-learning-ai' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
+            <a href={getRouteHref('/services/power-bi-dashboard')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/power-bi-dashboard'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/power-bi-dashboard' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Power BI &amp; Tableau</a>
+            <a href={getRouteHref('/services/data-analysis')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/data-analysis'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/data-analysis' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Data Analysis &amp; ETL</a>
+            <a href={getRouteHref('/services/business-intelligence')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/business-intelligence'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/business-intelligence' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Corporate BI</a>
+            <a href={getRouteHref('/services/machine-learning-ai')} onClick={(e) => { e.preventDefault(); navigateRoute('/services/machine-learning-ai'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/services/machine-learning-ai' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>ML &amp; AI</a>
           </div>
+
           {/* Navigasi Section */}
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#86868b] mb-3">{lang === 'en' ? 'Navigation' : 'Navigasi'}</p>
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#86868b] mb-2.5 px-2">{lang === 'en' ? 'NAVIGATION' : 'NAVIGASI'}</p>
           <div className="space-y-1 mb-6">
-            <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
-            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'showcase'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Showcase' : 'Karya'}</a>
+            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'top'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/case-studies' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>Case Studies</a>
+            <a href={getRouteHref('/articles')} onClick={(e) => { e.preventDefault(); navigateRoute('/articles'); setMobileMenuOpen(false); }} className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${currentRoute === '/articles' ? 'bg-white/10 text-white font-bold' : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'}`}>{lang === 'en' ? 'Articles' : 'Artikel'}</a>
             <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'pricing'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">{lang === 'en' ? 'Pricing' : 'Harga'}</a>
             <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'faq'); setMobileMenuOpen(false); }} className="block px-4 py-2.5 rounded-xl text-sm font-medium text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-all">FAQ</a>
           </div>
+
           {/* CTA */}
-          <div className="mt-auto">
-            <a href={getRouteHref('/')} onClick={(e) => { handleNavClick(e, 'contact'); setMobileMenuOpen(false); }} className="block w-full text-center bg-[#f5f5f7] text-black px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white transition-all">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
+          <div className="mt-auto pt-4 border-t border-white/10">
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => { handleNavClick(e, 'contact'); setMobileMenuOpen(false); }} 
+              className="glint-border-wrapper group cursor-pointer text-center w-full block"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill py-3 px-4 text-sm font-bold text-white w-full justify-center">
+                <span>{lang === 'en' ? 'Free Consultation' : 'Konsultasi Proyek Gratis'}</span>
+              </span>
+            </a>
           </div>
         </div>
       </div>
-    </header>
 
     <main id="main-content">
 
@@ -1045,7 +1277,7 @@ ${formData.message}`;
           <div className="flex items-center gap-2 mb-6">
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
-            <span className="px-4 py-1.5 rounded-full border border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+            <span className="glint-pill-static">
               Konsultan Power BI & Tableau Dashboard
             </span>
           </div>
@@ -1059,23 +1291,66 @@ ${formData.message}`;
             Memvisualisasikan metrik bisnis krusial (<span className="text-white font-medium">Sales Performance, Inventory Tracking, Cash Flow, Marketing ROI</span>) ke dalam dasbor Power BI, Tableau, dan React Web App interaktif yang dapat diakses langsung dari desktop dan mobile.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Dashboard Power BI</a>
-            <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
-            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+          <div className="flex flex-col items-center gap-4 mb-16 w-full max-w-4xl">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full">
+              {/* Button 1: Konsultasi Dashboard Power BI */}
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => scrollToSection(e, 'contact')} 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Power BI Consultation' : 'Konsultasi Dashboard Power BI'}</span>
+                  <svg className="w-5 h-5 text-white/90 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 2: Pesan via Fastwork */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">Pesan via Fastwork</span>
+                  <svg className="w-5 h-5 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+            </div>
+
+            {/* Bottom Row: Kembali ke Portofolio Utama */}
+            <div className="pt-2">
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</span>
+                  <svg className="w-5 h-5 text-white/90 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-blue-400 mb-1">3.5x</p>
+              <p className="text-3xl font-extrabold text-white mb-1">3.5x</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Decision Making</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-emerald-400 mb-1">100%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Sinkronisasi Data Real-time</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-purple-400 mb-1">Rp 0</p>
+              <p className="text-3xl font-extrabold text-white mb-1">Rp 0</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Pemborosan Biaya Lisensi</p>
             </div>
           </div>
@@ -1083,48 +1358,72 @@ ${formData.message}`;
 
         <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-blue-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Visualisasi Data</span>
+            <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Visualisasi Data</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Dashboard Power BI & Tableau Korporat</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">01</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Executive Sales & Revenue Cockpit</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Power BI DAX</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Sales Pipeline</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">01</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Executive Sales & Revenue Cockpit</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Pemantauan tren omzet harian, pencapaian target sales rep, rasio konversi funnel, dan proyeksi pendapatan bulanan berbasis data aktual.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Power BI DAX</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Sales Pipeline</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Financial Cash Flow & P&L Analytics</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Cash Flow</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Tableau Desktop</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">02</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Financial Cash Flow & P&L Analytics</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Laporan laba rugi interaktif, tracking arus kas masuk/keluar, analisis rasio utang piutang (aging receivables), dan pengawasan margin keuntungan.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Cash Flow</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Tableau Desktop</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Multi-Warehouse Inventory Control</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto ABC-XYZ</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Inventory BI</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">03</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Multi-Warehouse Inventory Control</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Monitoring persediaan barang di banyak lokasi gudang, indikator status ROP (Reorder Point), serta analisis rotasi barang mati (dead stock).</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Pareto ABC-XYZ</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Inventory BI</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Custom Web App Embedding</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Embedded BI</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">React + Apps Script</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">04</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Custom Web App Embedding</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Penyematan visualisasi data ke dalam aplikasi web internal perusahaan (React & Apps Script) sehingga seluruh tim dapat mengakses tanpa akun Power BI Pro.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Embedded BI</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">React + Apps Script</span>
               </div>
             </div>
           </div>
@@ -1140,7 +1439,7 @@ ${formData.message}`;
           <div className="flex items-center gap-2 mb-6">
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
-            <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+            <span className="glint-pill-static">
               Spesialis Data Analysis & ETL Data Cleansing
             </span>
           </div>
@@ -1154,23 +1453,66 @@ ${formData.message}`;
             Pembersihan, ekstraksi (<span className="text-white font-medium">ETL Pipeline</span>), standarisasi format, dan penyusunan tabel relasional dari Google Sheets, MS Excel, Database SQL (MySQL/PostgreSQL), POS Kasir, dan CRM ke dalam master data yang valid dan bebas duplikasi.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Data Cleansing</a>
-            <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork (Terverifikasi & Ulasan Klien)</a>
-            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+          <div className="flex flex-col items-center gap-4 mb-16 w-full max-w-4xl">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full">
+              {/* Button 1: Konsultasi Data Cleansing */}
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => scrollToSection(e, 'contact')} 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Data Cleansing Consultation' : 'Konsultasi Data Cleansing'}</span>
+                  <svg className="w-5 h-5 text-white/90 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 2: Pesan via Fastwork */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">Pesan via Fastwork</span>
+                  <svg className="w-5 h-5 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+            </div>
+
+            {/* Bottom Row: Kembali ke Portofolio Utama */}
+            <div className="pt-2">
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+                className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</span>
+                  <svg className="w-5 h-5 text-white/90 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-emerald-400 mb-1">99.9%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">99.9%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Akurasi Validasi Data</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-blue-400 mb-1">100%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Eliminasi Duplikasi</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-purple-400 mb-1">&lt; 5 Detik</p>
+              <p className="text-3xl font-extrabold text-white mb-1">&lt; 5 Detik</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync ETL</p>
             </div>
           </div>
@@ -1178,48 +1520,72 @@ ${formData.message}`;
 
         <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-emerald-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Data Analysis</span>
+            <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Data Analysis</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Data Engineering & Cleansing</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">01</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Multi-Source Data Scrubbing</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Data Scrubbing</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Automated ETL</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">01</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Multi-Source Data Scrubbing</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Penanganan file Excel/CSV berantakan, perbaikan format tanggal, pembersihan spasi ganda, dan penanganan nilai kosong (*null values*) secara otomatis.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Data Scrubbing</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Automated ETL</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">02</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">SQL Relational Database Engineering</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">SQL Engineering</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Schema Design</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">02</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">SQL Relational Database Engineering</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Penyusunan struktur skema tabel relasional (MySQL, PostgreSQL, Google Cloud SQL) dengan kueri optimasi tinggi untuk ketersediaan data cepat.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">SQL Engineering</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Schema Design</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">03</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Dynamic Pareto ABC-XYZ Analytics</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Pareto Analysis</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Modeling</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">03</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Dynamic Pareto ABC-XYZ Analytics</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Penerapan pemodelan statistik Pareto 80/20 dan volatilitas permintaan untuk mengelompokkan kontribusi omzet produk secara presisi.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Pareto Analysis</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Data Modeling</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Automated Master Sheet Consolidation</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Master Consolidation</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Apps Script ETL</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">04</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Automated Master Sheet Consolidation</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Mengonsolidasi puluhan file laporan cabang terpisah secara otomatis ke Master Google Sheets terstruktur menggunakan Apps Script serverless.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Master Consolidation</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Apps Script ETL</span>
               </div>
             </div>
           </div>
@@ -1235,7 +1601,7 @@ ${formData.message}`;
           <div className="flex items-center gap-2 mb-6">
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
-            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+            <span className="glint-pill-static text-xs tracking-widest uppercase">
               Konsultan Business Intelligence & Corporate BI
             </span>
           </div>
@@ -1249,24 +1615,81 @@ ${formData.message}`;
             Membangun arsitektur data terpusat, otomatisasi alur kerja Apps Script, dan konsolidasi KPI eksekutif dengan penghematan TCO 100% (<span className="text-white font-medium">Zero Server Cost</span>).
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Corporate BI</a>
-            <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan via Fastwork</a>
-            <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Otomasi Apps Script</a>
-            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+          <div className="flex flex-col items-center gap-4 mb-16 w-full max-w-6xl">
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-3 sm:gap-4 w-full">
+              {/* Button 1: Konsultasi Corporate BI */}
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => scrollToSection(e, 'contact')} 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Corporate BI Consultation' : 'Konsultasi Corporate BI'}</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 2: Pesan via Fastwork */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">Pesan via Fastwork</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#25D366] group-hover:scale-110 transition-transform shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 3: Pesan Otomasi Apps Script */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">Pesan Otomasi Apps Script</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#25D366] group-hover:scale-110 transition-transform shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+            </div>
+
+            {/* Bottom Row: Kembali ke Portofolio Utama */}
+            <div className="pt-1">
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:-translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-purple-400 mb-1">100%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">100%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Zero Server Cost TCO</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-emerald-400 mb-1">5 Channel</p>
+              <p className="text-3xl font-extrabold text-white mb-1">5 Channel</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Konsolidasi 1 Cockpit</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-blue-400 mb-1">&lt; 5 Detik</p>
+              <p className="text-3xl font-extrabold text-white mb-1">&lt; 5 Detik</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Kecepatan Sync Pipeline</p>
             </div>
           </div>
@@ -1274,48 +1697,72 @@ ${formData.message}`;
 
         <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Corporate BI</span>
+            <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Corporate BI</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Arsitektur Business Intelligence</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Single Source of Truth Architecture</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Data Integration</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Single Source</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">01</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Single Source of Truth Architecture</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Menghilangkan isolasi data (*data silos*) antar divisi dengan mengintegrasikan seluruh log operasional ke satu database terpusat.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Data Integration</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Single Source</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">02</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Automated Formal PDF Reporting</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">PDF Automation</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Google Drive Sync</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">02</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#86868b] hover:text-white transition leading-tight">Automated Formal PDF Reporting</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Penjadwalan pengiriman laporan formal format PDF A4 secara otomatis ke email direksi dan Drive tanpa rekap manual.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">PDF Automation</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Google Drive Sync</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold">03</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Executive Approval Workflow Engine</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Approval Engine</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-blue-300 font-medium">Governance</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">03</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Executive Approval Workflow Engine</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Sistem persetujuan bertingkat (*multi-stage approval*) untuk pesanan pembelian (PO), pengeluaran biaya, dan perubahan status operasional.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Approval Engine</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Governance</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 text-amber-400 font-bold">04</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Role-Based Access Control (RBAC)</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">RBAC Security</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-amber-300 font-medium">Google Auth</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">04</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Role-Based Access Control (RBAC)</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Pengaturan hak akses ketat berdasarkan peran pengguna (Admin, Direksi, Manajer, Staf Gudang) untuk keamanan data perusahaan.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">RBAC Security</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Google Auth</span>
               </div>
             </div>
           </div>
@@ -1331,7 +1778,7 @@ ${formData.message}`;
           <div className="flex items-center gap-2 mb-6">
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
-            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 text-purple-400 bg-purple-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+            <span className="glint-pill-static text-xs tracking-widest uppercase">
               Predictive Analytics & Enterprise AI Consultant
             </span>
           </div>
@@ -1345,24 +1792,81 @@ ${formData.message}`;
             Memanfaatkan pemodelan skrip Python canggih (<span className="text-white font-medium">Pandas, Scikit-learn, PyTorch</span>) untuk <span className="text-white font-medium">Sales Forecasting</span>, <span className="text-white font-medium">Customer Churn Prediction</span>, segmentasi RFM, dan integrasi Enterprise AI.
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">Konsultasi Machine Learning & AI</a>
-            <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Machine Learning (Terverifikasi & Ulasan Klien)</a>
-            <a href="https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full font-bold text-sm hover:bg-[#00b900]/20 transition-all cursor-pointer flex items-center justify-center gap-2">Pesan Data Science & Predictive</a>
-            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</a>
+          <div className="flex flex-col items-center gap-4 mb-16 w-full max-w-6xl">
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-3 sm:gap-4 w-full">
+              {/* Button 1: Konsultasi Machine Learning & AI */}
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => scrollToSection(e, 'contact')} 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'ML & AI Consultation' : 'Konsultasi Machine Learning & AI'}</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 2: Pesan Machine Learning */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">Pesan Machine Learning</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#25D366] group-hover:scale-110 transition-transform shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+
+              {/* Button 3: Pesan Data Science & Predictive */}
+              <a 
+                href="https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner-fastwork"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">Pesan Data Science & Predictive</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#25D366] group-hover:scale-110 transition-transform shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                </span>
+              </a>
+            </div>
+
+            {/* Bottom Row: Kembali ke Portofolio Utama */}
+            <div className="pt-1">
+              <a 
+                href={getRouteHref('/')} 
+                onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+                className="glint-border-wrapper group cursor-pointer text-center"
+              >
+                <div className="glint-spinner"></div>
+                <div className="shimmer-sweep-beam"></div>
+                <span className="glint-inner-pill px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                  <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Portofolio Utama'}</span>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:-translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl w-full mx-auto border-t border-white/10 pt-10">
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-purple-400 mb-1">94.5%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">94.5%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Skor Akurasi Prediksi Sales</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-emerald-400 mb-1">3x</p>
+              <p className="text-3xl font-extrabold text-white mb-1">3x</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Peningkatan Konversi RFM</p>
             </div>
             <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl text-center">
-              <p className="text-3xl font-extrabold text-blue-400 mb-1">0%</p>
+              <p className="text-3xl font-extrabold text-white mb-1">0%</p>
               <p className="text-xs text-[#86868b] uppercase tracking-wider font-semibold">Penumpukan Dead Stock</p>
             </div>
           </div>
@@ -1370,48 +1874,72 @@ ${formData.message}`;
 
         <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-purple-400 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Machine Learning & AI</span>
+            <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">Spesialisasi Machine Learning & AI</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">Solusi Predictive Analytics Enterprise</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 text-purple-400 font-bold">01</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Predictive Sales & Revenue Forecasting</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Sales Forecast</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-purple-300 font-medium">Time-Series ML</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">01</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Predictive Sales & Revenue Forecasting</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Pemodelan algoritma regresi time-series untuk memprediksi volume omzet penjualan bulan depan berdasarkan tren histori dan musiman.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Sales Forecast</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Time-Series ML</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6 text-rose-400 font-bold">02</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Customer Churn Prediction Engine</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Churn Analytics</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-rose-300 font-medium">Scikit-learn</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">02</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Customer Churn Prediction Engine</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Mendeteksi potensi pelanggan yang akan pindah ke kompetitor sebelum mereka pergi dengan pemodelan klasifikasi perilaku transaksi.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Churn Analytics</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Scikit-learn</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 font-bold">03</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">RFM Customer Segmentation</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">RFM Analysis</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-emerald-300 font-medium">Clustering</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">03</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">RFM Customer Segmentation</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Memetakan profil pelanggan berdasarkan Recency, Frequency, dan Monetary (RFM) untuk penawaran promosi yang sangat personal.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">RFM Analysis</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Clustering</span>
               </div>
             </div>
 
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400 font-bold">04</div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">LLM & Chat With Your Data Engine</h3>
-              <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Enterprise AI</span>
-                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-cyan-300 font-medium">Chat With Data</span>
+            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="metallic-badge-circle">
+                    <span className="metallic-badge-inner">04</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">LLM & Chat With Your Data Engine</h3>
+                </div>
+                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">Integrasi kecerdasan buatan (AI/LLM) untuk memungkinkan manajer berdiskusi dan menanyakan wawasan bisnis langsung ke database secara alami.</p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Enterprise AI</span>
+                <span className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80 font-medium">Chat With Data</span>
               </div>
             </div>
           </div>
@@ -1427,15 +1955,15 @@ ${formData.message}`;
           <div className="flex items-center gap-2 mb-6">
             <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
             <span className="text-xs text-[#86868b]">/</span>
-            <span className="px-4 py-1.5 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+            <span className="glint-pill-static text-xs tracking-widest uppercase">
               {lang === 'en' ? '6-Stage Case Studies Archive (MBB Standard)' : 'Arsip Studi Kasus 6-Tahap MBB Standard'}
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-5xl">
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-7xl mx-auto px-4">
             {lang === 'en' ? 'Data Analytics Case Studies.' : 'Studi Kasus Analisis Data.'}
-            <span className="block text-lg sm:text-xl md:text-4xl lg:text-5xl text-[#86868b] font-semibold tracking-normal mt-4 leading-snug">
-              Problem → Data → Analysis → Dashboard → Insight → ROI Impact.
+            <span className="block text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-[#a1a1aa] font-bold tracking-normal mt-4 leading-snug">
+              Problem → Data → Analysis → Dashboard → Insight → <span className="whitespace-nowrap">ROI Impact.</span>
             </span>
           </h1>
 
@@ -1446,31 +1974,55 @@ ${formData.message}`;
             }
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-emerald-500 text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all cursor-pointer">{lang === 'en' ? 'Consult Your Case Study' : 'Konsultasi Studi Kasus Anda'}</a>
-            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/10 transition-all cursor-pointer">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</a>
+          <div className="flex flex-row flex-wrap sm:flex-nowrap items-center justify-center gap-4 mb-12 w-full max-w-4xl px-4">
+            {/* Button 1: Konsultasi Studi Kasus Anda */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => scrollToSection(e, 'contact')} 
+              className="glint-border-wrapper group cursor-pointer text-center"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Consult Your Case Study' : 'Konsultasi Studi Kasus Anda'}</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </span>
+            </a>
+
+            {/* Button 2: Kembali ke Beranda Utama */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+              className="glint-border-wrapper group cursor-pointer text-center"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:-translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </span>
+            </a>
           </div>
         </section>
 
         {/* Portfolio Case Studies Grid */}
         <section className="py-20 md:py-24 lg:py-32 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portofolio.map((item) => {
-              const kat = (item.kategori || '').toLowerCase();
-              const fastworkUrl = kat.includes('power bi') || kat.includes('tableau') || kat.includes('dashboard')
+            {portofolio.map((item, idx) => {
+              const fastworkUrl = (item.kategori || '').toLowerCase().includes('power bi') || (item.kategori || '').toLowerCase().includes('tableau') || (item.kategori || '').toLowerCase().includes('dashboard')
                 ? "https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service"
-                : kat.includes('machine learning') || kat.includes('ai')
+                : (item.kategori || '').toLowerCase().includes('machine learning') || (item.kategori || '').toLowerCase().includes('ai')
                 ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
-                : kat.includes('corporate bi') || kat.includes('business intelligence')
+                : (item.kategori || '').toLowerCase().includes('corporate bi') || (item.kategori || '').toLowerCase().includes('business intelligence')
                 ? "https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service"
-                : kat.includes('data science') || kat.includes('predictive')
+                : (item.kategori || '').toLowerCase().includes('data science') || (item.kategori || '').toLowerCase().includes('predictive')
                 ? "https://fastwork.id/user/iamikhsan/data-science-69848195?source=seller-center_my-service"
-                : kat.includes('apps script') || kat.includes('sheets') || kat.includes('excel')
+                : (item.kategori || '').toLowerCase().includes('apps script') || (item.kategori || '').toLowerCase().includes('sheets') || (item.kategori || '').toLowerCase().includes('excel')
                 ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
                 : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service";
 
               return (
-                <div key={item.id} className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group">
+                <div key={item.id} className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group">
                   <div>
                     <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
                       <img src={resolveAssetUrl(item.linkGambar)} alt={`Studi Kasus Analisis Data ${item.judul} - ${item.kategori}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -1478,43 +2030,224 @@ ${formData.message}`;
                         href={fastworkUrl} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="absolute top-3 left-3 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-lg hover:bg-white/20 transition-all cursor-pointer"
+                        className="absolute top-3 left-3 glint-pill-static text-xs backdrop-blur-md cursor-pointer z-20 hover:scale-105 transition-transform"
                         title={`Pesan Layanan Kategori ${item.kategori} di Fastwork`}
                       >
                         {item.kategori} ↗
                       </a>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-snug group-hover:text-white/90 transition-colors">
                       {item.seoTitle}
                     </h3>
 
                     <p className="text-sm sm:text-base text-[#86868b] font-medium mb-3">{lang === 'en' ? 'Client:' : 'Klien:'} {item.klien}</p>
-                    <p className="text-sm sm:text-base text-[#86868b] leading-relaxed mb-4 line-clamp-3">{item.deskripsi}</p>
-
-                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-5">
-                      <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-0.5">{item.metrikLabel}</p>
-                      <p className="text-lg font-extrabold text-emerald-400">{item.metrikNilai}</p>
-                    </div>
+                    <p className="text-sm sm:text-base text-[#86868b] leading-relaxed mb-5 line-clamp-3">{item.deskripsi}</p>
                   </div>
 
-                  <div className="space-y-2">
-                    <button onClick={() => setSelectedCaseStudy(item)} className="w-full py-2.5 px-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-xs sm:text-sm tracking-normal transition-all duration-300 cursor-pointer">
-                      {lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}
+                  <div className="space-y-3 pt-2">
+                    <button 
+                      onClick={() => setSelectedCaseStudy(item)} 
+                      className="glint-border-wrapper group cursor-pointer text-center w-full"
+                    >
+                      <div className="glint-spinner"></div>
+                      <div className="shimmer-sweep-beam"></div>
+                      <span className="glint-inner-pill py-2.5 px-4 text-xs sm:text-sm font-extrabold text-white w-full justify-center">
+                        {lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}
+                      </span>
                     </button>
                     <a 
                       href={fastworkUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-xl bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 text-center font-semibold text-xs sm:text-sm tracking-normal transition-all cursor-pointer"
+                      className="glint-border-wrapper group cursor-pointer text-center w-full"
                     >
-                      <span>{lang === 'en' ? 'Order Category Service on Fastwork' : 'Pesan Jasa Kategori Ini di Fastwork'}</span>
-                      <span className="text-sm font-bold leading-none">→</span>
+                      <div className="glint-spinner-fastwork"></div>
+                      <div className="shimmer-sweep-beam"></div>
+                      <span className="glint-inner-pill py-2.5 px-4 text-xs sm:text-sm font-extrabold text-white w-full justify-center gap-1.5">
+                        <span>{lang === 'en' ? 'Order Category Service on Fastwork' : 'Pesan Jasa Kategori Ini di Fastwork'}</span>
+                        <span className="text-[#25D366] text-sm font-extrabold">→</span>
+                      </span>
                     </a>
                   </div>
                 </div>
               );
             })}
+          </div>
+        </section>
+      </div>
+    )}
+
+    {/* FULL ARTICLES & EXTERNAL INSIGHTS GALLERY PAGE VIEW */}
+    {currentRoute === "/articles" && (
+      <div className="pt-28 pb-16">
+        <div className="ambient-glow"></div>
+        <section className="min-h-[50vh] flex flex-col items-center justify-center text-center px-6 relative z-10">
+          <div className="flex items-center gap-2 mb-6">
+            <a href={getRouteHref('/')} onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} className="text-xs text-[#86868b] hover:text-white transition">{lang === 'en' ? 'Home' : 'Utama'}</a>
+            <span className="text-xs text-[#86868b]">/</span>
+            <span className="glint-pill-static text-xs tracking-widest uppercase">
+              {lang === 'en' ? 'Published Articles & Executive Insights' : 'Publikasi Artikel & Executive Insights'}
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight max-w-6xl mx-auto">
+            {lang === 'en' ? 'Articles & Publications.' : 'Artikel & Publikasi Eksekutif.'}
+            <span className="block text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-[#a1a1aa] font-bold tracking-normal mt-4 leading-snug">
+              Medium → LinkedIn → Architecture Notes → Case Analysis.
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-[#86868b] max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            {lang === 'en' 
+              ? 'Preview and read our technical breakdowns, Data Analytics architecture guides, and Business Intelligence insights published across Medium, LinkedIn, and corporate blogs.'
+              : 'Kumpulan preview dan tautan artikel teknis, panduan arsitektur Data Analytics, serta wawasan Business Intelligence yang telah dipublikasikan di Medium, LinkedIn, dan jurnal eksekutif.'
+            }
+          </p>
+
+          <div className="flex flex-row flex-wrap sm:flex-nowrap items-center justify-center gap-4 mb-12 w-full max-w-4xl px-4">
+            {/* Button 1: Konsultasi Data & BI */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => handleNavClick(e, 'contact')} 
+              className="glint-border-wrapper group cursor-pointer text-center"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Consult Your Project' : 'Konsultasi Proyek Data Anda'}</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </span>
+            </a>
+
+            {/* Button 2: Kembali ke Beranda Utama */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => { e.preventDefault(); navigateRoute('/'); }} 
+              className="glint-border-wrapper group cursor-pointer text-center"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Return to Main Portfolio' : 'Kembali ke Beranda Utama'}</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:-translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        {/* Platform Filter Segmented Control */}
+        <section className="pt-8 pb-4 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-center">
+          <div className="inline-flex max-w-full overflow-x-auto items-center p-1 sm:p-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md gap-1 scrollbar-none">
+            <button
+              onClick={() => setArticlePlatformFilter('All')}
+              className={`px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
+                articlePlatformFilter === 'All'
+                  ? 'bg-white text-black shadow-lg scale-[1.02]'
+                  : 'text-[#86868b] hover:text-white hover:bg-white/5'
+              }`}
+            >
+              {lang === 'en' ? 'All' : 'Semua'} <span className="hidden sm:inline">{lang === 'en' ? 'Publications' : 'Publikasi'}</span> ({artikelList.length})
+            </button>
+
+            <button
+              onClick={() => setArticlePlatformFilter('LinkedIn')}
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
+                articlePlatformFilter === 'LinkedIn'
+                  ? 'bg-[#0077B5] text-white shadow-lg scale-[1.02]'
+                  : 'text-[#86868b] hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              <span>LinkedIn</span>
+              <span className="opacity-80">({artikelList.filter(a => a.platform === 'LinkedIn').length})</span>
+            </button>
+
+            <button
+              onClick={() => setArticlePlatformFilter('Medium')}
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
+                articlePlatformFilter === 'Medium'
+                  ? 'bg-white text-black shadow-lg scale-[1.02]'
+                  : 'text-[#86868b] hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <img src="https://w7.pngwing.com/pngs/194/410/png-transparent-medium-medium-logo-social-media-circle-icon.png" alt="Medium Icon" className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full object-contain shrink-0" />
+              <span>Medium</span>
+              <span className="opacity-80">({artikelList.filter(a => a.platform === 'Medium').length})</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Articles Grid Section */}
+        <section className="py-12 md:py-20 max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {artikelList
+              .filter(art => {
+                if (articlePlatformFilter === 'LinkedIn') return art.platform === 'LinkedIn';
+                if (articlePlatformFilter === 'Medium') return art.platform === 'Medium';
+                return true;
+              })
+              .map((art) => (
+              <div key={art.id} className="glass-panel p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="relative h-56 rounded-2xl overflow-hidden mb-6">
+                    <img src={resolveAssetUrl(art.linkGambar)} alt={`Artikel ${art.judul}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    {/* Platform Badge */}
+                    <div className="absolute top-3 left-3 glint-pill-static text-[10px] sm:text-xs backdrop-blur-md z-20 flex items-center gap-1.5 px-2.5 py-1">
+                      {art.platform === 'Medium' ? (
+                        <>
+                          <img src="https://w7.pngwing.com/pngs/194/410/png-transparent-medium-medium-logo-social-media-circle-icon.png" alt="Medium Logo" className="w-4 h-4 rounded-full object-contain shrink-0" />
+                          <span>Medium ↗</span>
+                        </>
+                      ) : art.platform === 'LinkedIn' ? (
+                        <>
+                          <svg className="w-3.5 h-3.5 fill-[#0077B5] shrink-0" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                          <span>LinkedIn ↗</span>
+                        </>
+                      ) : (
+                        <span>{art.platform} ↗</span>
+                      )}
+                    </div>
+                    {/* Category Tag */}
+                    <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-black/80 backdrop-blur-md text-white/90 border border-white/10">
+                      {art.kategori}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 text-xs text-[#86868b] mb-3 font-medium">
+                    <span>{art.penulis}</span>
+                    <span>•</span>
+                    <span>{art.tanggalPublikasi}</span>
+                    <span>•</span>
+                    <span>{art.waktuBaca}</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-white/90 transition-colors">
+                    {art.judul}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed mb-6">
+                    {art.deskripsi}
+                  </p>
+                </div>
+
+                <div className="pt-2">
+                  <a 
+                    href={art.linkArtikel} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="glint-border-wrapper group cursor-pointer text-center w-full"
+                  >
+                    <div className="glint-spinner"></div>
+                    <div className="shimmer-sweep-beam"></div>
+                    <span className="glint-inner-pill py-2.5 px-4 text-xs sm:text-sm font-extrabold text-white w-full justify-center gap-2">
+                      <span>{lang === 'en' ? `Read on ${art.platform}` : `Baca Selengkapnya di ${art.platform}`}</span>
+                      <svg className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </div>
@@ -1527,9 +2260,11 @@ ${formData.message}`;
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-6 relative z-10 pt-28 sm:pt-36 md:pt-44 lg:pt-48 pb-16">
         <div className="ambient-glow"></div>
         
-        <span className="px-5 py-2 rounded-full border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm">
-            Data Analytics & Business Intelligence
-        </span>
+        <div className="relative inline-flex mb-8 rounded-full p-[1px]" style={{background: 'linear-gradient(90deg, #ffffff 0%, #d0e8f5 10%, #1a2840 22%, #88a4bc 35%, #ffffff 50%, #eae4dc 65%, #5c524a 78%, #88a4bc 88%, #d0e8f5 95%, #ffffff 100%)'}}>
+            <span className="relative z-10 px-5 py-2 rounded-full bg-[#0a0a0c] text-white/80 text-xs sm:text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
+                Data Analytics & Business Intelligence
+            </span>
+        </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.08]">
             Data-Driven Decisions. <br/>
@@ -1543,90 +2278,173 @@ ${formData.message}`;
             }
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-24 w-full sm:w-auto px-4 sm:px-0">
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'showcase')} className="bg-[#f5f5f7] text-black px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 transition-transform cursor-pointer text-center">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</a>
-            <a href={getRouteHref('/')} onClick={(e) => scrollToSection(e, 'contact')} className="bg-transparent border border-white/20 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/5 transition-colors cursor-pointer text-center">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</a>
+        <div className="flex flex-col sm:flex-row gap-5 mb-12 md:mb-24 w-full sm:w-auto px-4 sm:px-0 justify-center items-center">
+            {/* Button 1: Lihat Proyek (Pure Monochrome Silver Chrome Glint) */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => scrollToSection(e, 'showcase')} 
+              className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'View Projects' : 'Lihat Proyek'}</span>
+                <svg className="w-5 h-5 text-white/90 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </a>
+
+            {/* Button 2: Konsultasi Gratis (Pure Monochrome Platinum Specular Glint) */}
+            <a 
+              href={getRouteHref('/')} 
+              onClick={(e) => scrollToSection(e, 'contact')} 
+              className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+            >
+              <div className="glint-spinner"></div>
+              <div className="shimmer-sweep-beam"></div>
+              <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Free Consultation' : 'Konsultasi Gratis'}</span>
+                <svg className="w-5 h-5 text-white/90 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </span>
+            </a>
         </div>
         
-        {/* Tech Stack Marquee (Inserted Here) */}
-        <div className="w-full max-w-5xl mx-auto mt-12 opacity-80 hover:opacity-100 transition-opacity duration-500">
-            <p className="text-xs uppercase tracking-[0.2em] text-[#86868b] mb-6 font-semibold">{lang === 'en' ? 'Technologies Used' : 'Teknologi yang Digunakan'}</p>
+        {/* Tech Stack Marquee (Ordered by Relevance) */}
+        <div className="w-full max-w-6xl mx-auto mt-14 opacity-90 hover:opacity-100 transition-opacity duration-500">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#86868b] mb-6 font-semibold">{lang === 'en' ? 'Core Technologies & Tools (Ordered by Relevance)' : 'Teknologi & Tool Utama (Diurutkan Berdasarkan Relevansi)'}</p>
             <div className="tech-marquee-wrapper">
                 <div className="tech-marquee">
-                    {/* Original Set */}
+                    {/* Set 1: Ordered by Relevance */}
+                    {/* 1. Power BI */}
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Apps Script</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Power BI</span>
                     </div>
+
+                    {/* 2. Google Apps Script */}
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Google Sheets</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Google Apps Script</span>
                     </div>
+
+                    {/* 3. Google Sheets */}
+                    <div className="tech-icon-box">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Google Sheets</span>
+                    </div>
+
+                    {/* 4. MS Excel */}
+                    <div className="tech-icon-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg/3840px-Microsoft_Office_Excel_%282019%E2%80%932025%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Logo Microsoft Excel" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">MS Excel</span>
+                    </div>
+
+                    {/* 5. Python */}
+                    <div className="tech-icon-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/3840px-Python-logo-notext.svg.png" alt="Logo Python" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Python</span>
+                    </div>
+
+                    {/* 6. PyTorch */}
+                    <div className="tech-icon-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Logo PyTorch" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">PyTorch</span>
+                    </div>
+
+                    {/* 7. TensorFlow */}
+                    <div className="tech-icon-box">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/960px-TensorFlow_logo.svg.png" alt="Logo TensorFlow" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">TensorFlow</span>
+                    </div>
+
+                    {/* 8. Tableau */}
+                    <div className="tech-icon-box">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Tableau</span>
+                    </div>
+
+                    {/* 9. React 19 */}
                     <div className="tech-icon-box">
                         <svg viewBox="-11.5 -10.232 23 20.463" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
                         <span className="text-sm font-medium">React 19</span>
                     </div>
+
+                    {/* 10. TypeScript */}
+                    <div className="tech-icon-box">
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">TypeScript</span>
+                    </div>
+
+                    {/* 11. SQL & BigQuery */}
+                    <div className="tech-icon-box">
+                        <img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-icon.svg" alt="Logo BigQuery & SQL Database" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">SQL & BigQuery</span>
+                    </div>
+
+                    {/* 12. Tailwind v4 */}
                     <div className="tech-icon-box">
                         <svg viewBox="0 0 256 154" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z" fill="#06B6D4"/></svg>
                         <span className="text-sm font-medium">Tailwind v4</span>
                     </div>
+
+                    {/* Set 2: Duplicated for Seamless Infinite Scroll */}
                     <div className="tech-icon-box">
-                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">TypeScript</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Power BI</span>
                     </div>
+
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">HTML5</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Google Apps Script</span>
                     </div>
+
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">CSS3</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Google Sheets</span>
                     </div>
+
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Power BI</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg/3840px-Microsoft_Office_Excel_%282019%E2%80%932025%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Logo Microsoft Excel" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">MS Excel</span>
                     </div>
+
                     <div className="tech-icon-box">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Tableau</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/3840px-Python-logo-notext.svg.png" alt="Logo Python" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Python</span>
                     </div>
-                    
-                    {/* Duplicated Set for Infinite Scroll */}
+
                     <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_Apps_Script.svg/1280px-Google_Apps_Script.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20221103122014" alt="Logo Google Apps Script - Serverless Backend Engine" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Apps Script</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Logo PyTorch" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">PyTorch</span>
                     </div>
+
                     <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968557.png" alt="Logo Google Sheets - Database & Spreadsheets Infrastructure" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Google Sheets</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/960px-TensorFlow_logo.svg.png" alt="Logo TensorFlow" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">TensorFlow</span>
                     </div>
+
+                    <div className="tech-icon-box">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-semibold text-white">Tableau</span>
+                    </div>
+
                     <div className="tech-icon-box">
                         <svg viewBox="-11.5 -10.232 23 20.463" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><circle r="2.05" fill="#61dafb"/><g stroke="#61dafb" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
                         <span className="text-sm font-medium">React 19</span>
                     </div>
+
+                    <div className="tech-icon-box">
+                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">TypeScript</span>
+                    </div>
+
+                    <div className="tech-icon-box">
+                        <img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-icon.svg" alt="Logo BigQuery & SQL Database" className="w-6 h-6 object-contain" />
+                        <span className="text-sm font-medium">SQL & BigQuery</span>
+                    </div>
+
                     <div className="tech-icon-box">
                         <svg viewBox="0 0 256 154" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg"><path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8z" fill="#06B6D4"/></svg>
                         <span className="text-sm font-medium">Tailwind v4</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <img src="https://images.icon-icons.com/2415/PNG/512/typescript_plain_logo_icon_146316.png" alt="Logo TypeScript - Pemrograman Frontend Single Page Application" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">TypeScript</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="Logo HTML5 - Standard Markup Semantik" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">HTML5</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="Logo CSS3 - Styling Glassmorphism & UI Responsif" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">CSS3</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png?_=20210102182532" alt="Logo Microsoft Power BI - Platform Visualisasi Data Eksekutif" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Power BI</span>
-                    </div>
-                    <div className="tech-icon-box">
-                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="Logo Tableau - Enterprise Business Intelligence Software" className="w-6 h-6 object-contain" />
-                        <span className="text-sm font-medium">Tableau</span>
                     </div>
                 </div>
             </div>
@@ -1641,7 +2459,7 @@ ${formData.message}`;
             <p className="text-[#86868b] mt-4 text-sm sm:text-base md:text-lg">{lang === 'en' ? 'Empirical proof of efficiency using modern BI & data architecture.' : 'Bukti nyata efisiensi menggunakan arsitektur modern.'}</p>
         </div>
 
-        <div className="cards-container relative pb-16 space-y-6">
+        <div className="cards-container relative space-y-6">
             
             
             {isLoadingPortofolio ? (
@@ -1649,12 +2467,12 @@ ${formData.message}`;
                     <p className="text-[#86868b] animate-pulse">{lang === 'en' ? 'Loading portfolio data...' : 'Memuat data portofolio...'}</p>
                 </div>
             ) : portofolio.length > 0 ? (
-                portofolio.map((item, index) => {
+                portofolio.slice(0, 3).map((item, index) => {
                     const colorMap: Record<string, string> = {
-                        emerald: "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20",
-                        blue: "text-blue-500 bg-blue-500/10 border border-blue-500/20",
-                        purple: "text-purple-500 bg-purple-500/10 border border-purple-500/20",
-                        default: "text-gray-500 bg-gray-500/10 border border-gray-500/20"
+                        emerald: "text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.15)]",
+                        blue: "text-blue-400 bg-blue-500/10 border border-blue-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.15)]",
+                        purple: "text-purple-400 bg-purple-500/10 border border-purple-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(168,85,247,0.15)]",
+                        default: "text-white bg-white/10 border border-white/20 backdrop-blur-md shadow-sm"
                     };
                     const colorClass = colorMap[item.warnaKategori] || colorMap.default;
                     const gradientMap: Record<string, string> = {
@@ -1677,9 +2495,11 @@ ${formData.message}`;
                             <div className={`card-inner w-full rounded-2xl md:rounded-3xl border border-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] ${index % 2 !== 0 ? 'bg-[#121214]' : 'bg-[#0a0a0c]'} overflow-hidden flex flex-col md:flex-row relative origin-top`}>
                                 <div className="w-full md:w-[62%] p-6 sm:p-8 md:p-10 flex flex-col justify-between z-10">
                                     <div>
-                                        {/* Badge Section */}
-                                        <div className="flex items-center gap-2.5 mb-3">
-                                            <span className={`text-xs sm:text-sm font-semibold tracking-widest uppercase px-2.5 py-0.5 rounded-full ${colorClass}`}>{item.kategori}</span>
+                                        {/* Badge Section (Static Glossy Glint Pill - No Rotation) */}
+                                        <div className="flex items-center gap-2.5 mb-4">
+                                            <span className="glint-pill-static">
+                                                {item.kategori}
+                                            </span>
                                         </div>
                                         
                                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1.5 tracking-tight leading-tight">{item.judul}</h3>
@@ -1697,7 +2517,7 @@ ${formData.message}`;
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                 {item.fitur.map((f, i) => (
                                                     <div key={i} className="flex items-start gap-2">
-                                                        <svg className={`w-5 h-5 shrink-0 mt-0.5 ${svgColorClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                                                        <svg className="w-5 h-5 shrink-0 mt-0.5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
                                                         <p className="text-sm sm:text-base text-[#f5f5f7]">{f}</p>
                                                     </div>
                                                 ))}
@@ -1707,23 +2527,24 @@ ${formData.message}`;
                                     
                                     <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
                                         <div>
-                                            <p className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-0.5 ${gradientClass}`}>{item.metrikNilai}</p>
+                                            <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter mb-0.5 text-white">{item.metrikNilai}</p>
                                             <p className="text-xs sm:text-sm font-semibold text-[#86868b] tracking-wide uppercase">{item.metrikLabel}</p>
                                         </div>
-                                        <div className="flex flex-col items-end gap-2 w-full sm:w-auto">
-                                            <button
-                                                onClick={() => setSelectedCaseStudy(item)}
-                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all cursor-pointer shadow-sm hover:scale-[1.02]"
-                                            >
-                                                <span>{lang === 'en' ? 'Read Case Study (6-Stage Deep-Dive)' : 'Baca Case Study (6-Stage Deep-Dive)'}</span>
-                                                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                            </button>
-                                            {/* Tech Stack minimal */}
-                                            <div className="flex flex-wrap gap-1.5 justify-end max-w-[240px]">
-                                                {item.techStack.map((tech, i) => (
-                                                    <span key={i} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold text-[#86868b]">{tech}</span>
+                                        <div className="flex flex-col items-start sm:items-end gap-2.5 w-full sm:w-auto">
+                                            {/* Tech Stack minimal (Max 3, At Top) */}
+                                            <div className="flex flex-wrap gap-1.5 justify-start sm:justify-end">
+                                                {item.techStack.slice(0, 3).map((tech, i) => (
+                                                    <span key={i} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-[#86868b] whitespace-nowrap">{tech}</span>
                                                 ))}
                                             </div>
+                                            {/* Read Case Study Button (At Bottom) */}
+                                            <button
+                                                onClick={() => setSelectedCaseStudy(item)}
+                                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-white/30 transition-all cursor-pointer shadow-sm hover:scale-[1.02] whitespace-nowrap shrink-0"
+                                            >
+                                                <span>{lang === 'en' ? 'Read Case Study' : 'Baca Case Study'}</span>
+                                                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -1753,11 +2574,22 @@ ${formData.message}`;
                     <p className="text-[#86868b]">Belum ada data portofolio.</p>
                 </div>
             )}
-   </div>
+        </div>
+
+        {/* View All Case Studies CTA */}
+        <div className="mt-8 text-center relative z-20">
+            <a 
+                href={getRouteHref('/case-studies')} 
+                onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }}
+                className="pill-btn-specular inline-flex items-center gap-2 !px-8 !py-4 font-bold text-sm sm:text-base cursor-pointer"
+            >
+                <span>{lang === 'en' ? 'View All Case Studies →' : 'Lihat Selengkapnya →'}</span>
+            </a>
+        </div>
     </section>
 
     {/* 2.3 SOCIAL PROOF (KLIEN & TESTIMONI) */}
-    <section id="social-proof" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
+    <section id="social-proof" className="pt-12 pb-20 md:pb-24 lg:pb-32 relative">
         <div className="max-w-7xl mx-auto px-6">
             
             {/* Client Marquee */}
@@ -1766,53 +2598,53 @@ ${formData.message}`;
                 <div className="tech-marquee-wrapper">
                     <div className="tech-marquee flex items-center">
                         {/* First Set */}
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
 
                         {/* Duplicated Set for Infinite Loop */}
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://zonalogo.com/assets/logo-pertamina.webp?asset=888" alt="Logo Pertamina - Klien Enterprise Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Pertamina</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/3840px-Bank_Central_Asia.svg.png" alt="Logo Bank Central Asia (BCA) - Klien Perbankan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Central Asia</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/BI_Logo_%28cropped%29.png/250px-BI_Logo_%28cropped%29.png" alt="Logo Bank Indonesia (BI) - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Bank Indonesia</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Logo_kementerian_keuangan_republik_indonesia.png" alt="Logo Kementerian Keuangan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Keuangan</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Kementerian_Kehutanan_RI_%282024%29_%28cropped%29.png" alt="Logo Kementerian Kehutanan RI - Klien Pemerintahan Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">Kementerian Kehutanan</span>
                         </div>
-                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-emerald-500/40 transition-all duration-300">
+                        <div className="tech-icon-box bg-white/5 border border-white/10 px-6 py-3.5 rounded-full flex items-center gap-3.5 shrink-0 hover:bg-white/10 hover:border-white/30 transition-all duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/BMG_2003.png" alt="Logo BMKG Indonesia - Klien Lembaga Negara Ikhsan Kamal" className="h-7 w-auto object-contain" />
                             <span className="text-sm font-bold tracking-wide text-white">BMKG</span>
                         </div>
@@ -1823,11 +2655,11 @@ ${formData.message}`;
             {/* Testimonials (Bento Style - Anonymized Enterprise NDA Verified Reviews) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                 {/* Testi 1 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
+                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="flex items-center justify-between mb-6 relative z-10">
-                        <svg className="w-10 h-10 text-emerald-500/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <span className="text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 relative z-10">
+                        <svg className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-500/30 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <span className="glint-pill-static text-[10px] sm:text-xs">
                             {lang === 'en' ? 'Verified Client · NDA Protected' : 'Klien Terverifikasi · NDA Protected'}
                         </span>
                     </div>
@@ -1850,11 +2682,11 @@ ${formData.message}`;
                 </div>
 
                 {/* Testi 2 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
+                <div className="glass-panel p-5 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] social-anim relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="flex items-center justify-between mb-6 relative z-10">
-                        <svg className="w-10 h-10 text-blue-500/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <span className="text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 relative z-10">
+                        <svg className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/30 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <span className="glint-pill-static text-[10px] sm:text-xs">
                             {lang === 'en' ? 'Verified Client · NDA Protected' : 'Klien Terverifikasi · NDA Protected'}
                         </span>
                     </div>
@@ -1880,10 +2712,10 @@ ${formData.message}`;
     </section>
 
     {/* 2.4 SPESIALISASI LAYANAN & ARSITEKTUR DATA */}
-    <section id="services" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
+    <section id="services" className="py-20 md:py-24 lg:py-32 relative border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10 md:mb-20">
-                <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Services & Data Architecture' : 'Spesialisasi Layanan & Arsitektur Data'}</span>
+                <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Services & Data Architecture' : 'Spesialisasi Layanan & Arsitektur Data'}</span>
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight">
                     Executive Dashboard &<br/>
                     <span className="text-[#86868b]">Predictive Analytics (Machine Learning).</span>
@@ -1896,126 +2728,143 @@ ${formData.message}`;
             {/* 4 Pillars Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:mb-20">
                 {/* Service 1 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="relative z-10">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3M21 19c0 1.66-4.03 3-9 3s-9-1.34-9-3M3 5v14M21 5v14"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
+                    <div className="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Cleansing & ETL Pipeline</h3>
+                            <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
+                                {lang === 'en' ? 'Cleansing, standardization, and consolidation of data from multiple sources (Google Sheets, MS Excel, MySQL, CRM, ERP, or POS) into valid, deduplicated rational formats.' : <>Pembersihan, standarisasi, dan konsolidasi data dari berbagai sumber (<span className="text-white/80 font-medium">Google Sheets, MS Excel, Database MySQL, CRM, ERP, atau POS Kasir</span>) menjadi format rasional yang valid dan bebas duplikasi.</>}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Analytics Engineer</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">SQL Data Analyst</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">MS Excel &amp; Spreadsheets</span>
+                            </div>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Cleansing & ETL Pipeline</h3>
-                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
-                            {lang === 'en' ? 'Cleansing, standardization, and consolidation of data from multiple sources (Google Sheets, MS Excel, MySQL, CRM, ERP, or POS) into valid, deduplicated rational formats.' : <>Pembersihan, standarisasi, dan konsolidasi data dari berbagai sumber (<span className="text-white/80 font-medium">Google Sheets, MS Excel, Database MySQL, CRM, ERP, atau POS Kasir</span>) menjadi format rasional yang valid dan bebas duplikasi.</>}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>Analytics Engineer</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>SQL Data Analyst</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-emerald-400/90 tracking-wide" style={{background: 'rgba(52,211,153,0.06)', border: '1px solid rgba(52,211,153,0.1)'}}>MS Excel & Spreadsheets</span>
+                        <div className="pt-4 border-t border-white/5 flex justify-end mt-6">
+                            <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="pill-btn-specular">
+                                <span>{lang === 'en' ? 'Order Data Analysis Service' : 'Pesan Jasa Analisis Data'}</span>
+                                <span className="text-base font-extrabold">→</span>
+                            </a>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-emerald-400 hover:text-emerald-300 transition-colors mt-4">{lang === 'en' ? 'Order Data Analysis Service (Verified & Client Reviews) →' : 'Pesan Jasa Analisis Data (Terverifikasi & Ulasan Klien) →'}</a>
                     </div>
                 </div>
 
                 {/* Service 2 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="relative z-10">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="1.8"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 9h18M9 21V9M14 15l2-2 3 3"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
+                    <div className="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Power BI, Tableau &amp; Web App Dashboards</h3>
+                            <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
+                                {lang === 'en' ? 'Enterprise Power BI Data Visualization & Dashboard development to monitor critical metrics such as Sales Performance, Inventory Tracking, Financial Cash Flow, to Marketing ROI in a single interactive view.' : <>Pengembangan Data Visualization &amp; Dashboard Power BI tingkat korporat untuk memantau metrik krusial seperti <span className="text-white/80 font-medium">Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI</span> dalam satu layar interaktif.</>}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Dashboard Power BI</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Tableau</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Power BI Consultant</span>
+                            </div>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Power BI, Tableau & Web App Dashboards</h3>
-                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
-                            {lang === 'en' ? 'Enterprise Power BI Data Visualization & Dashboard development to monitor critical metrics such as Sales Performance, Inventory Tracking, Financial Cash Flow, to Marketing ROI in a single interactive view.' : <>Pengembangan Data Visualization & Dashboard Power BI tingkat korporat untuk memantau metrik krusial seperti <span className="text-white/80 font-medium">Sales Performance, Inventory Tracking, Financial Cash Flow, hingga Marketing ROI</span> dalam satu layar interaktif.</>}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Dashboard Power BI</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Tableau</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-400/90 tracking-wide" style={{background: 'rgba(96,165,250,0.06)', border: '1px solid rgba(96,165,250,0.1)'}}>Power BI Consultant</span>
+                        <div className="pt-4 border-t border-white/5 flex justify-end mt-6">
+                            <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="pill-btn-specular">
+                                <span>{lang === 'en' ? 'Order Power BI & Tableau Dashboard' : 'Pesan Dashboard Power BI & Tableau'}</span>
+                                <span className="text-base font-extrabold">→</span>
+                            </a>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-analysis-84856158?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-blue-400 hover:text-blue-300 transition-colors mt-4">{lang === 'en' ? 'Order Power BI & Tableau Dashboard →' : 'Pesan Dashboard Power BI & Tableau →'}</a>
                     </div>
                 </div>
 
                 {/* Service 3 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-purple-500/30 transition-all duration-500">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="relative z-10">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 2a4 4 0 00-4 4c0 1.9 1.3 3.5 3 3.9V13h2V9.9c1.7-.4 3-2 3-3.9a4 4 0 00-4-4zM6 14a3 3 0 100 6 3 3 0 000-6zm12 0a3 3 0 100 6 3 3 0 000-6zM8.5 16h7"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
+                    <div className="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Science &amp; Predictive Analytics (ML)</h3>
+                            <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
+                                {lang === 'en' ? <>Python Data Analyst services combining Machine Learning algorithms (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) for precise business Data Science strategies including <span className="text-white/80 font-medium">Sales Forecasting, RFM Segmentation, and Churn Prediction</span>.</> : <>Layanan Python Data Analyst mengombinasikan algoritma Machine Learning (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) untuk strategi Data Science bisnis presisi melingkupi <span className="text-white/80 font-medium">Sales Forecasting, RFM Segmentation, hingga Churn Prediction</span>.</>}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Machine Learning</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Data Science</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Python Data Analyst</span>
+                            </div>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Data Science & Predictive Analytics (ML)</h3>
-                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-4">
-                            {lang === 'en' ? 'Python Data Analyst services combining Machine Learning algorithms (Pandas, Scikit-learn) for precise business Data Science strategies:' : <>Layanan Python Data Analyst mengombinasikan algoritma Machine Learning (<span className="text-white/80 font-medium">Pandas, Scikit-learn</span>) untuk strategi Data Science bisnis presisi:</>}
-                        </p>
-                        <ul className="space-y-2 text-sm sm:text-base text-[#f5f5f7]/80 mb-6">
-                            <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Sales Forecasting:</span> {lang === 'en' ? 'Predicting future revenue & sales volumes.' : 'Prediksi volume omzet & penjualan di masa depan.'}</li>
-                            <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">RFM Segmentation:</span> {lang === 'en' ? 'Mapping customer profiles with highest purchasing power.' : 'Memetakan profil pelanggan dengan daya beli tertinggi.'}</li>
-                            <li className="flex items-start gap-2"><span className="text-purple-400/90 font-semibold shrink-0">Churn Prediction:</span> {lang === 'en' ? 'Detecting customers at risk of switching to competitors.' : 'Mendeteksi potensi pelanggan yang akan pindah ke kompetitor.'}</li>
-                        </ul>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Machine Learning</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Data Science</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-purple-400/90 tracking-wide" style={{background: 'rgba(167,139,250,0.06)', border: '1px solid rgba(167,139,250,0.1)'}}>Python Data Analyst</span>
+                        <div className="pt-4 border-t border-white/5 flex justify-end mt-6">
+                            <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="pill-btn-specular">
+                                <span>{lang === 'en' ? 'Order Machine Learning Model' : 'Pesan Model Machine Learning'}</span>
+                                <span className="text-base font-extrabold">→</span>
+                            </a>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-purple-400 hover:text-purple-300 transition-colors mt-4">{lang === 'en' ? 'Order Machine Learning Model (Verified & Client Reviews) →' : 'Pesan Model Machine Learning (Terverifikasi & Ulasan Klien) →'}</a>
                     </div>
                 </div>
 
                 {/* Service 4 */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
-                    <div className="relative z-10">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition duration-300" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.12)', backdropFilter: 'blur(20px)'}}>
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] relative overflow-hidden group hover:border-white/20 transition-all duration-500 flex flex-col justify-between">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[40px] -mr-10 -mt-10 transition-transform duration-700 group-hover:scale-150"></div>
+                    <div className="relative z-10 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Actionable Insights &amp; Executive Reporting</h3>
+                            <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
+                                {lang === 'en' ? 'Delivery of comprehensive Business Analytics report documents containing hidden insights and strategic recommendations ready for executive board execution.' : <>Penyerahan dokumen laporan Business Analytics komprehensif berisi <span className="text-white/80 font-medium">hidden insights</span> dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.</>}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Business Analytics</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">BI Consultant</span>
+                                <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-white/80 tracking-wide bg-white/5 border border-white/10">Full-Stack Developer</span>
+                            </div>
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">Actionable Insights & Executive Reporting</h3>
-                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed mb-6">
-                            {lang === 'en' ? 'Delivery of comprehensive Business Analytics report documents containing hidden insights and strategic recommendations ready for executive board execution.' : <>Penyerahan dokumen laporan Business Analytics komprehensif berisi <span className="text-white/80 font-medium">hidden insights</span> dan rekomendasi langkah strategis yang siap dieksekusi oleh dewan direksi maupun manajer operasional.</>}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Business Analytics</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>BI Consultant</span>
-                            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-amber-400/90 tracking-wide" style={{background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.1)'}}>Full-Stack Developer</span>
+                        <div className="pt-4 border-t border-white/5 flex justify-end mt-6">
+                            <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="pill-btn-specular">
+                                <span>{lang === 'en' ? 'Order Business Intelligence Specialist' : 'Pesan Business Intelligence Specialist'}</span>
+                                <span className="text-base font-extrabold">→</span>
+                            </a>
                         </div>
-                        <a href="https://fastwork.id/user/iamikhsan/data-visualization-55978134?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-amber-400 hover:text-amber-300 transition-colors mt-4">{lang === 'en' ? 'Order Business Intelligence Specialist →' : 'Pesan Business Intelligence Specialist →'}</a>
                     </div>
                 </div>
             </div>
 
             {/* Target Industry Sectors */}
-            <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
-                <div className="text-center mb-10">
-                    <span className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-2 block">{lang === 'en' ? 'Relevant Solutions for Industry Sectors' : 'Solusi Relevan Untuk Sektor Industri'}</span>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">{lang === 'en' ? 'Cross-Industry Experience.' : 'Pengalaman Lintas Industri.'}</h3>
-                </div>
+            <div className="glass-panel p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-[#0a0a0c]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    {/* Left Column: Title & Subtitle */}
+                    <div className="lg:col-span-4 text-left">
+                        <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-3 block">{lang === 'en' ? 'Relevant Solutions for Industry Sectors' : 'Solusi Relevan Untuk Sektor Industri'}</span>
+                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">{lang === 'en' ? 'Cross-Industry Experience.' : 'Pengalaman Lintas Industri.'}</h3>
+                        <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
+                            {lang === 'en' ? 'Architecting tailored enterprise analytics pipelines & GAS automation engineered specifically for diverse operational ecosystems.' : 'Merancang arsitektur analitik data enterprise & otomasi Apps Script khusus yang disesuaikan dengan kebutuhan operasional berbagai sektor bisnis.'}
+                        </p>
+                    </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    {/* Right Column: 4 Industry Cards aligned parallel */}
+                    <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div className="p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-white/30 hover:bg-white/[0.08] transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <h4 className="text-white font-bold text-base sm:text-lg mb-2">Retail, F&B & E-Commerce</h4>
+                                <p className="text-xs sm:text-sm font-medium text-[#86868b]">{lang === 'en' ? 'POS Cashier, Stock & Sales' : 'POS Kasir, Stok & Sales'}</p>
+                            </div>
                         </div>
-                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">Retail, F&B & E-Commerce</h4>
-                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'POS Cashier, Stock & Sales' : 'POS Kasir, Stok & Sales'}</p>
-                    </div>
-                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1h2m4 0h2a1 1 0 001-1v-4a1 1 0 00-.293-.707l-3-3A1 1 0 0015.586 7H14v9a1 1 0 001 1h2"/></svg>
+
+                        <div className="p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-white/30 hover:bg-white/[0.08] transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <h4 className="text-white font-bold text-base sm:text-lg mb-2">{lang === 'en' ? 'Distribution & Supply Chain' : 'Distribusi & Supply Chain'}</h4>
+                                <p className="text-xs sm:text-sm font-medium text-[#86868b]">FMCG, Logistik & Fleet</p>
+                            </div>
                         </div>
-                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">{lang === 'en' ? 'Distribution & Supply Chain' : 'Distribusi & Supply Chain'}</h4>
-                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">FMCG, Logistik & Fleet</p>
-                    </div>
-                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/></svg>
+
+                        <div className="p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-white/30 hover:bg-white/[0.08] transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <h4 className="text-white font-bold text-base sm:text-lg mb-2">{lang === 'en' ? 'Finance & Banking' : 'Keuangan & Perbankan'}</h4>
+                                <p className="text-xs sm:text-sm font-medium text-[#86868b]">{lang === 'en' ? 'Cash Flow & Culture Telemetry' : 'Cash Flow & Telemetri Budaya'}</p>
+                            </div>
                         </div>
-                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">{lang === 'en' ? 'Finance & Banking' : 'Keuangan & Perbankan'}</h4>
-                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'Cash Flow & Culture Telemetry' : 'Cash Flow & Telemetri Budaya'}</p>
-                    </div>
-                    <div className="p-6 sm:p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-emerald-500/40 transition duration-300 group">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition duration-300">
-                            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+
+                        <div className="p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 text-left hover:border-white/30 hover:bg-white/[0.08] transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <h4 className="text-white font-bold text-base sm:text-lg mb-2">Digital Marketing Agency</h4>
+                                <p className="text-xs sm:text-sm font-medium text-[#86868b]">ROI, Funnel & Lead Analytics</p>
+                            </div>
                         </div>
-                        <h4 className="text-white font-bold text-base sm:text-lg mb-1">Digital Marketing Agency</h4>
-                        <p className="text-xs sm:text-sm font-semibold text-[#86868b]">ROI, Funnel & Lead Analytics</p>
                     </div>
                 </div>
             </div>
@@ -2023,10 +2872,10 @@ ${formData.message}`;
     </section>
 
     {/* 2.5 WHY APPS SCRIPT */}
-    <section id="why-apps-script" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5">
+    <section id="why-apps-script" className="py-20 md:py-24 lg:py-32 relative border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10 md:mb-20">
-                <span className="text-emerald-500 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Key Reasons to Choose Our Architecture' : 'Alasan Utama Memilih Arsitektur Kami'}</span>
+                <span className="text-white/40 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Key Reasons to Choose Our Architecture' : 'Alasan Utama Memilih Arsitektur Kami'}</span>
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight">
                     {lang === 'en' ? <>Enterprise Applications.<br/><span className="text-[#86868b]">Zero Monthly Infrastructure Bills.</span></> : <>Aplikasi Enterprise.<br/><span className="text-[#86868b]">Tanpa Tagihan Infrastruktur Bulanan.</span></>}
                 </h2>
@@ -2035,9 +2884,6 @@ ${formData.message}`;
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Feature 1 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
-                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-bold mb-3">Zero Server Cost</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Your system runs 100% on Google serverless infrastructure. Say goodbye to monthly AWS, Azure, or VPS backend hosting bills.' : 'Sistem Anda berjalan 100% di atas infrastruktur serverless Google. Ucapkan selamat tinggal pada biaya langganan AWS, Azure, atau VPS bulanan untuk hosting backend.'}
@@ -2046,9 +2892,6 @@ ${formData.message}`;
 
                 {/* Feature 2 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
-                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-bold mb-3">Native Integration</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Directly connected with the Google Workspace ecosystem. Generate PDFs in Drive, send emails via Gmail, and sync to Calendar without complex OAuth APIs.' : 'Terhubung langsung dengan ekosistem Google Workspace. Generate PDF di Drive, kirim email via Gmail, dan sync ke Calendar tanpa API otorisasi (OAuth) yang rumit.'}
@@ -2057,9 +2900,6 @@ ${formData.message}`;
 
                 {/* Feature 3 */}
                 <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] feature-card">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20">
-                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-bold mb-3">Enterprise Security</h3>
                     <p className="text-[#86868b] leading-relaxed text-sm sm:text-base">
                         {lang === 'en' ? 'Enterprise-grade security. Your data never leaves your Google Drive domain, encrypted, and backed by Google native authorization.' : 'Keamanan sekelas perusahaan besar. Data Anda tidak pernah keluar dari Google Drive domain Anda, dienkripsi, dan memanfaatkan sistem otorisasi bawaan Google.'}
@@ -2067,16 +2907,26 @@ ${formData.message}`;
                 </div>
             </div>
             
-            <div className="text-center mt-12">
-                <a href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] px-8 py-4 rounded-full text-sm sm:text-base font-bold hover:bg-[#00b900]/20 transition-all cursor-pointer">
-                    {lang === 'en' ? 'Order Google Sheets & Apps Script Automation on Fastwork →' : 'Pesan Otomasi Google Sheets & Apps Script di Fastwork →'}
+            <div className="text-center mt-12 flex justify-center">
+                <a 
+                  href="https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="glint-border-wrapper group cursor-pointer text-center"
+                >
+                  <div className="glint-spinner-fastwork"></div>
+                  <div className="shimmer-sweep-beam"></div>
+                  <span className="glint-inner-pill px-8 py-4 sm:px-10 sm:py-4.5 text-base sm:text-lg">
+                    <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Order Google Sheets & Apps Script Automation on Fastwork' : 'Pesan Otomasi Google Sheets & Apps Script di Fastwork'}</span>
+                    <svg className="w-5 h-5 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.38C8.56 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+                  </span>
                 </a>
             </div>
         </div>
     </section>
 
     {/* 3. ALUR PENGERJAAN (Scroll Highlight) */}
-    <section id="workflow" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
+    <section id="workflow" className="py-20 md:py-24 lg:py-32 relative">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative">
             {/* Pinned Title */}
             <div className="md:sticky top-1/3 h-fit">
@@ -2087,43 +2937,43 @@ ${formData.message}`;
             {/* Scrolling Steps */}
             <div className="space-y-12 md:space-y-24 py-10 step-container">
                 
-                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 0 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
-                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>01. {lang === 'en' ? 'Business Requirements Audit' : 'Audit Kebutuhan Bisnis'}</span>
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 0 ? 'active-workflow-bar' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-sky-300 font-extrabold' : 'text-white/40'}`}>01. {lang === 'en' ? 'Business Requirements Audit' : 'Audit Kebutuhan Bisnis'}</span>
                     <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Goals & KPI Metrics Discussion' : 'Diskusi Target & Metrik KPI'}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 0 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
-                        {lang === 'en' ? 'In-depth discussion on key target Goals and KPI metrics to be achieved by your management.' : <>Diskusi mendalam mengenai target (<span className={activeWorkflowStep === 0 ? "text-emerald-300 font-semibold" : "text-white/40"}>Goals</span>) dan metrik utama (<span className={activeWorkflowStep === 0 ? "text-emerald-300 font-semibold" : "text-white/40"}>KPI</span>) yang ingin dicapai oleh manajemen atau perusahaan Anda.</>}
+                        {lang === 'en' ? 'In-depth discussion on key target Goals and KPI metrics to be achieved by your management.' : <>Diskusi mendalam mengenai target (<span className={activeWorkflowStep === 0 ? "text-sky-300 font-semibold" : "text-white/40"}>Goals</span>) dan metrik utama (<span className={activeWorkflowStep === 0 ? "text-sky-300 font-semibold" : "text-white/40"}>KPI</span>) yang ingin dicapai oleh manajemen atau perusahaan Anda.</>}
                     </p>
                 </div>
                 
-                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 1 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
-                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>02. {lang === 'en' ? 'Data Injection & Evaluation' : 'Injeksi & Evaluasi Data'}</span>
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 1 ? 'active-workflow-bar' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-sky-300 font-extrabold' : 'text-white/40'}`}>02. {lang === 'en' ? 'Data Injection & Evaluation' : 'Injeksi & Evaluasi Data'}</span>
                     <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Multi-Source Data Integration' : 'Integrasi Multi-Sumber Data'}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 1 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
-                        {lang === 'en' ? 'Extracting and evaluating raw data from your existing systems (Excel, Google Sheets, CRM, SQL, ERP, POS).' : <>Menarik dan mengevaluasi data mentah dari sistem Anda (<span className={activeWorkflowStep === 1 ? "text-emerald-300 font-semibold" : "text-white/40"}>Excel, Google Sheets, CRM, SQL, ERP, atau POS Kasir</span>).</>}
+                        {lang === 'en' ? 'Extracting and evaluating raw data from your existing systems (Excel, Google Sheets, CRM, SQL, ERP, POS).' : <>Menarik dan mengevaluasi data mentah dari sistem Anda (<span className={activeWorkflowStep === 1 ? "text-sky-300 font-semibold" : "text-white/40"}>Excel, Google Sheets, CRM, SQL, ERP, atau POS Kasir</span>).</>}
                     </p>
                 </div>
                 
-                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 2 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
-                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>03. Data Engineering & ETL</span>
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 2 ? 'active-workflow-bar' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-sky-300 font-extrabold' : 'text-white/40'}`}>03. Data Engineering & ETL</span>
                     <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Cleansing & Restructuring' : 'Cleansing & Restrukturisasi'}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 2 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
                         {lang === 'en' ? 'Data scrubbing, format standardization, duplicate handling, and relational table restructuring.' : 'Pembersihan data, standarisasi format, penanganan duplikasi, dan restrukturisasi tabel relasional komprehensif.'}
                     </p>
                 </div>
 
-                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 3 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
-                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>04. {lang === 'en' ? 'Modeling & Visual Architecture' : 'Pemodelan & Arsitektur Visual'}</span>
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 3 ? 'active-workflow-bar' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-sky-300 font-extrabold' : 'text-white/40'}`}>04. {lang === 'en' ? 'Modeling & Visual Architecture' : 'Pemodelan & Arsitektur Visual'}</span>
                     <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Algorithms & Interactive Dashboards' : 'Algoritma & Dashboard Interaktif'}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 3 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
                         {lang === 'en' ? 'Building Machine Learning / BI logic algorithms and developing enterprise interactive dashboard interfaces.' : 'Pembangunan logika algoritma Machine Learning / BI serta pengembangan antarmuka dashboard interaktif tingkat korporat.'}
                     </p>
                 </div>
 
-                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 4 ? 'opacity-100 border-emerald-500 bg-emerald-500/[0.04] shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'opacity-25 border-white/10'}`}>
-                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-emerald-400 font-extrabold' : 'text-emerald-500/50'}`}>05. {lang === 'en' ? 'Strategic Handover & Delivery' : 'Penyerahan & Handover Strategis'}</span>
-                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-white' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
+                <div className={`step-item transition-all duration-500 border-l-2 pl-6 sm:pl-8 py-2 rounded-r-2xl ${activeWorkflowStep === 4 ? 'active-workflow-bar' : 'opacity-25 border-white/10'}`}>
+                    <span className={`font-bold text-xl mb-2 block transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-sky-300 font-extrabold' : 'text-white/40'}`}>05. {lang === 'en' ? 'Strategic Handover & Delivery' : 'Penyerahan & Handover Strategis'}</span>
+                    <h3 className={`text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-[#ffffff]' : 'text-[#86868b]'}`}>{lang === 'en' ? 'Final Assets & Data Insight Guide' : 'Aset Akhir & Panduan Wawasan Data'}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed transition-colors duration-500 ${activeWorkflowStep === 4 ? 'text-[#f5f5f7] font-normal' : 'text-[#86868b]/70 font-light'}`}>
-                        {lang === 'en' ? 'Delivery of final assets (Power BI/Tableau files, Apps Script Web App, Python scripts, Executive PDF) along with data insight interpretation guidelines.' : <>Pengiriman aset akhir (<span className={activeWorkflowStep === 4 ? "text-emerald-300 font-semibold" : "text-white/40"}>File Power BI/Tableau, Web App Apps Script, Skrip Python, PDF Eksekutif</span>) beserta panduan pembacaan wawasan data.</>}
+                        {lang === 'en' ? 'Delivery of final assets (Power BI/Tableau files, Apps Script Web App, Python scripts, Executive PDF) along with data insight interpretation guidelines.' : <>Pengiriman aset akhir (<span className={activeWorkflowStep === 4 ? "text-sky-300 font-semibold" : "text-white/40"}>File Power BI/Tableau, Web App Apps Script, Skrip Python, PDF Eksekutif</span>) beserta panduan pembacaan wawasan data.</>}
                     </p>
                 </div>
             </div>
@@ -2131,7 +2981,7 @@ ${formData.message}`;
     </section>
 
     {/* 2.6 ABOUT THE EXPERT */}
-    <section id="about" className="py-20 md:py-24 lg:py-32 relative bg-black border-t border-white/5 overflow-hidden">
+    <section id="about" className="py-20 md:py-24 lg:py-32 relative border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
             <div className="about-card glass-panel p-6 sm:p-8 md:p-16 rounded-2xl md:rounded-[3rem] relative flex flex-col md:flex-row gap-6 md:gap-12 items-center" itemScope itemType="https://schema.org/Person">
                 
@@ -2154,8 +3004,8 @@ ${formData.message}`;
                 {/* Biography */}
                 <div className="w-full md:w-2/3 z-10">
                     <div className="mb-2 flex items-center gap-4">
-                        <div className="h-[1px] w-12 bg-emerald-500"></div>
-                        <span className="text-emerald-500 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase">The Expert</span>
+                        <div className="h-[2px] w-12 rounded-full" style={{ background: 'linear-gradient(90deg, #ffffff 0%, #d0e8f5 10%, #1a2840 22%, #88a4bc 35%, #ffffff 50%, #eae4dc 65%, #5c524a 78%, #88a4bc 88%, #d0e8f5 95%, #ffffff 100%)' }}></div>
+                        <span className="text-white/40 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase">The Expert</span>
                     </div>
                     
                     <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-3" itemProp="name">Ikhsan Kamal.</h2>
@@ -2169,18 +3019,18 @@ ${formData.message}`;
                     </p>
 
                     {/* Stats / Highlight */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8 border-t border-white/10 pt-8">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-8 border-t border-white/10 pt-8">
                         <div>
-                            <p className="text-4xl font-bold text-white mb-2 tracking-tighter">5<span className="text-emerald-500">+</span></p>
-                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Years Experience' : 'Tahun Pengalaman'}</p>
+                            <p className="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 tracking-tighter">5<span className="text-white/60">+</span></p>
+                            <p className="text-[10px] sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Years Experience' : 'Tahun Pengalaman'}</p>
                         </div>
                         <div>
-                            <p className="text-4xl font-bold text-white mb-2 tracking-tighter">50<span className="text-emerald-500">+</span></p>
-                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Enterprise Projects' : 'Proyek Skala Enterprise'}</p>
+                            <p className="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 tracking-tighter">50<span className="text-white/60">+</span></p>
+                            <p className="text-[10px] sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Enterprise Projects' : 'Proyek Skala Enterprise'}</p>
                         </div>
-                        <div className="hidden md:block">
-                            <p className="text-4xl font-bold text-white mb-2 tracking-tighter">100<span className="text-emerald-500">%</span></p>
-                            <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Custom Systems' : 'Sistem Kustom'}</p>
+                        <div>
+                            <p className="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2 tracking-tighter">100<span className="text-white/60">%</span></p>
+                            <p className="text-[10px] sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Custom Systems' : 'Sistem Kustom'}</p>
                         </div>
                     </div>
                 </div>
@@ -2234,41 +3084,56 @@ ${formData.message}`;
                         }
 
                         return (
-                          <div key={paket.id} className={`glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 ${paket.rekomendasi ? 'border-emerald-500/50 relative transform md:scale-105 z-10 bg-[#111] shadow-[0_0_50px_rgba(5,150,105,0.15)]' : ''}`}>
+                          <div key={paket.id} className={`relative hover:-translate-y-2 transition-transform duration-300 group flex flex-col ${paket.rekomendasi ? 'transform md:scale-105 z-10 pt-5' : ''}`}>
+                              {/* RECOMMENDED Badge - outside overflow-hidden */}
                               {paket.rekomendasi && (
-                                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-1 rounded-full text-xs sm:text-sm font-bold tracking-wide">RECOMMENDED</div>
+                                  <div className="absolute -top-0 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs sm:text-sm font-extrabold tracking-wider z-30 shadow-[0_0_20px_rgba(255,255,255,0.4)]">RECOMMENDED</div>
                               )}
-                              <h3 className={`text-2xl sm:text-3xl font-bold mb-2 ${paket.rekomendasi ? 'text-emerald-400' : ''}`}>{paket.namaPaket}</h3>
-                              <p className="text-[#86868b] mb-6 text-sm sm:text-base">{subjudul}</p>
-                              <div className="mb-8">
-                                  <span className="text-4xl font-bold">{harga}</span>
-                              </div>
-                              <ul className="space-y-4 mb-10 text-sm sm:text-base text-[#f5f5f7]">
-                                  {fiturAktif.map((fitur, i) => (
-                                      <li key={`aktif-${i}`} className="flex items-start gap-3"><span>✓</span> {fitur}</li>
-                                  ))}
-                                  {fiturInaktif.map((fitur, i) => (
-                                      <li key={`inaktif-${i}`} className="flex items-start gap-3 text-[#86868b]"><span>—</span> {fitur}</li>
-                                  ))}
-                              </ul>
-                              <div className="space-y-2 mt-auto">
-                                <a href={getRouteHref('/')} className={`block w-full py-3 rounded-full text-center font-bold text-sm sm:text-base transition ${paket.rekomendasi ? 'bg-emerald-500 text-black hover:bg-emerald-400' : 'border border-white/20 hover:bg-white/10'}`}>
-                                    {teksTombol}
-                                </a>
-                                <a 
-                                  href={
-                                    paket.namaPaket.toLowerCase().includes('basic') || paket.namaPaket.toLowerCase().includes('spreadsheet') 
-                                      ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
-                                      : paket.namaPaket.toLowerCase().includes('enterprise') || paket.namaPaket.toLowerCase().includes('custom')
-                                      ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
-                                      : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service"
-                                  } 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="block w-full py-2.5 rounded-full text-center font-bold text-sm sm:text-base bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition cursor-pointer"
-                                >
-                                    {lang === 'en' ? 'Order on Fastwork →' : 'Pesan di Fastwork →'}
-                                </a>
+                              {/* Animated Holographic Border Container */}
+                              <div className="relative overflow-hidden rounded-2xl md:rounded-[2rem] flex-1 flex flex-col">
+                                  {/* Spinning Holographic Border */}
+                                  <div className="absolute inset-0 rounded-2xl md:rounded-[2rem] overflow-hidden">
+                                      <div className="absolute -inset-[150%] w-[400%] h-[400%]" style={{
+                                          background: 'conic-gradient(from 0deg, #ffffff 0%, #d0e8f5 10%, #1a2840 22%, #88a4bc 35%, #ffffff 50%, #eae4dc 65%, #5c524a 78%, #88a4bc 88%, #d0e8f5 95%, #ffffff 100%)',
+                                          animation: 'glint-rotate 7.5s linear infinite',
+                                          opacity: paket.rekomendasi ? 0.6 : 0.3,
+                                      }}></div>
+                                  </div>
+                                  {/* Inner Card Surface */}
+                                  <div className={`relative z-10 p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-[2rem] m-[1.5px] flex-1 flex flex-col ${paket.rekomendasi ? 'bg-[#111] shadow-[0_0_50px_rgba(255,255,255,0.08)]' : 'bg-[#0d0d0f]'}`}>
+                                      <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-white">{paket.namaPaket}</h3>
+                                      <p className="text-[#86868b] mb-6 text-sm sm:text-base">{subjudul}</p>
+                                      <div className="mb-8">
+                                          <span className="text-4xl font-bold">{harga}</span>
+                                      </div>
+                                      <ul className="space-y-4 mb-10 text-sm sm:text-base text-[#f5f5f7] flex-1">
+                                          {fiturAktif.map((fitur, i) => (
+                                              <li key={`aktif-${i}`} className="flex items-start gap-3"><span>✓</span> {fitur}</li>
+                                          ))}
+                                          {fiturInaktif.map((fitur, i) => (
+                                              <li key={`inaktif-${i}`} className="flex items-start gap-3 text-[#86868b]"><span>—</span> {fitur}</li>
+                                          ))}
+                                      </ul>
+                                      <div className="space-y-3 mt-auto">
+                                        <a href={getRouteHref('/')} className="pill-btn-specular !py-3 !w-full !justify-center text-white font-extrabold">
+                                            {teksTombol}
+                                        </a>
+                                        <a 
+                                          href={
+                                            paket.namaPaket.toLowerCase().includes('basic') || paket.namaPaket.toLowerCase().includes('spreadsheet') 
+                                              ? "https://fastwork.id/user/iamikhsan/excel-dashboard-53324531?source=seller-center_my-service"
+                                              : paket.namaPaket.toLowerCase().includes('enterprise') || paket.namaPaket.toLowerCase().includes('custom')
+                                              ? "https://fastwork.id/user/iamikhsan/machine-learning-10631626?source=seller-center_my-service"
+                                              : "https://fastwork.id/user/iamikhsan/data-analysis-59830902?source=seller-center_my-service"
+                                          } 
+                                          target="_blank" 
+                                          rel="noopener noreferrer" 
+                                          className="pill-btn-specular !py-3 !w-full !justify-center text-white/80"
+                                        >
+                                            {lang === 'en' ? 'Order on Fastwork →' : 'Pesan di Fastwork →'}
+                                        </a>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
                         );
@@ -2280,7 +3145,7 @@ ${formData.message}`;
 
 
     {/* 5. FAQ */}
-    <section id="faq" className="py-20 md:py-24 lg:py-32 relative bg-[#050505]">
+    <section id="faq" className="py-20 md:py-24 lg:py-32 relative">
         <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-10 md:mb-20">
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">{lang === 'en' ? 'Frequently Asked Questions.' : 'Tanya Jawab.'}</h2>
@@ -2290,7 +3155,7 @@ ${formData.message}`;
                 {faqs.map((faq, index) => (
                     <div 
                         key={index} 
-                        className={`faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-emerald-500/30 transition-colors ${activeFaq === index ? 'active' : ''}`}
+                        className={`faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-white/30 transition-colors ${activeFaq === index ? 'active' : ''}`}
                         onClick={() => setActiveFaq(activeFaq === index ? null : index)}
                     >
                         <button className="w-full px-6 py-5 flex justify-between items-center text-left">
@@ -2321,29 +3186,52 @@ ${formData.message}`;
                 
                 {/* Left: Copy & Booking Info */}
                 <div className="z-10">
-                    <span className="text-emerald-500 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Start Collaboration' : 'Mulai Kolaborasi'}</span>
+                    <span className="text-white/40 font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'Start Collaboration' : 'Mulai Kolaborasi'}</span>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">{lang === 'en' ? <>Automate your business <br/>today.</> : <>Otomatiskan bisnis <br/>Anda hari ini.</>}</h2>
                     <p className="text-[#86868b] text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-light max-w-lg">
                         {lang === 'en' ? <>Schedule a <span className="text-white font-medium">30-minute discovery call</span>. We will analyze your current workflow and map out the right system architecture—no commitment required.</> : <>Jadwalkan sesi <span className="text-white font-medium">discovery call (30 Menit)</span>. Kita akan membedah alur kerja Anda saat ini dan memetakan arsitektur sistem yang tepat—tanpa komitmen apapun.</>}
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
-                        
-                        {/* Direct Booking Button (Calendly style) */}
-                        <a href="https://calendly.com/your-link" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-500 text-black px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-emerald-400 transition-colors text-center">
-                            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                            {lang === 'en' ? 'Calendar Booking' : 'Booking Kalender'}
+                    <div className="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-12">
+                        {/* Direct Booking Button (Calendly style - Specular Glint) */}
+                        <a 
+                          href="https://calendly.com/your-link" 
+                          target="_blank" 
+                          className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+                        >
+                          <div className="glint-spinner"></div>
+                          <div className="shimmer-sweep-beam"></div>
+                          <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base">
+                            <svg className="w-5 h-5 shrink-0 text-white/90 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            <span className="font-extrabold tracking-tight text-white">{lang === 'en' ? 'Calendar Booking' : 'Booking Kalender'}</span>
+                          </span>
                         </a>
-                        {/* WhatsApp Button */}
-                        <a href="https://wa.me/6282126574799" target="_blank" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#20b958] transition-colors text-center">
-                            <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            WhatsApp
+
+                        {/* WhatsApp Button (3-Color Specular Glint) */}
+                        <a 
+                          href="https://wa.me/6282126574799" 
+                          target="_blank" 
+                          className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+                        >
+                          <div className="glint-spinner-fastwork"></div>
+                          <div className="shimmer-sweep-beam"></div>
+                          <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base">
+                            <svg className="w-5 h-5 shrink-0 text-[#25D366] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            <span className="font-extrabold tracking-tight text-white">WhatsApp</span>
+                          </span>
                         </a>
-                        {/* Alternative Direct Email */}
-                        <a href="mailto:iamikhsank@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition-colors text-center">
-                            Email
+
+                        {/* Direct Email (Specular Glint) */}
+                        <a 
+                          href="mailto:iamikhsank@gmail.com" 
+                          className="glint-border-wrapper group cursor-pointer text-center w-full sm:w-auto"
+                        >
+                          <div className="glint-spinner"></div>
+                          <div className="shimmer-sweep-beam"></div>
+                          <span className="glint-inner-pill px-6 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base">
+                            <span className="font-extrabold tracking-tight text-white">Email</span>
+                          </span>
                         </a>
-                        
                     </div>
 
                     {/* Micro Info */}
@@ -2356,12 +3244,15 @@ ${formData.message}`;
                             <svg className="w-5 h-5 text-emerald-500/70 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             <span>{lang === 'en' ? 'Typical Response: 12-24 Hours' : 'Responsibilitas Tipikal: 12-24 Jam'}</span>
                         </div>
-                        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
-                            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/40 mr-1 block w-full sm:w-auto mb-1 sm:mb-0">{lang === 'en' ? 'Profile Platforms:' : 'Platform Profil:'}</span>
-                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] hover:bg-[#00b900]/20 transition">{lang === 'en' ? 'Fastwork Profile (6 Verified Services)' : 'Profil Fastwork (6 Jasa Terverifikasi)'}</a>
-                            <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">LinkedIn</a>
-                            <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Fiverr</a>
-                            <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition">Instagram</a>
+                        <div className="flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/10">
+                            <span className="glint-pill-static font-bold text-white/50">{lang === 'en' ? 'Profile Platforms:' : 'Platform Profil:'}</span>
+                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="glint-pill-static hover:border-emerald-500/50 hover:text-emerald-400 gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
+                                <span>{lang === 'en' ? 'Fastwork Profile (6 Verified Services)' : 'Profil Fastwork (6 Jasa Terverifikasi)'}</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ikhsankamal" target="_blank" rel="noopener noreferrer" className="glint-pill-static hover:border-blue-500/50 hover:text-blue-400">LinkedIn</a>
+                            <a href="https://www.fiverr.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="glint-pill-static hover:border-emerald-500/50 hover:text-emerald-400">Fiverr</a>
+                            <a href="https://www.instagram.com/iamikhsank_" target="_blank" rel="noopener noreferrer" className="glint-pill-static hover:border-pink-500/50 hover:text-pink-400">Instagram</a>
                         </div>
                     </div>
                 </div>
@@ -2407,8 +3298,18 @@ ${formData.message}`;
                         <div id="success-msg" className={`${submitStatus === 'success' ? 'block' : 'hidden'} bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-3 rounded-xl text-sm sm:text-base text-center`}>
                             {lang === 'en' ? 'Thank you! Your message has been received. Redirecting to WhatsApp...' : 'Terima kasih! Pesan Anda telah diterima. Mengalihkan ke WhatsApp...'}
                         </div>
-                        <button type="submit" disabled={isSubmitting} className="w-full bg-[#f5f5f7] text-black font-bold text-base sm:text-lg rounded-xl py-4 mt-2 hover:bg-white hover:scale-[1.02] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)] disabled:opacity-50 disabled:hover:scale-100">
-                            {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Mengirim...') : (lang === 'en' ? 'Send Inquiry' : 'Kirim Pertanyaan')}
+                        <button 
+                          type="submit" 
+                          disabled={isSubmitting} 
+                          className="glint-border-wrapper group cursor-pointer text-center w-full mt-2"
+                        >
+                          <div className="glint-spinner"></div>
+                          <div className="shimmer-sweep-beam"></div>
+                          <span className="glint-inner-pill py-4 text-base sm:text-lg">
+                            <span className="font-extrabold tracking-tight text-white">
+                              {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Mengirim...') : (lang === 'en' ? 'Send Inquiry' : 'Kirim Pertanyaan')}
+                            </span>
+                          </span>
                         </button>
                     </form>
                 </div>
@@ -2416,30 +3317,151 @@ ${formData.message}`;
             </div>
         </div>
     </section>
+
+    {/* Executive Articles & Publications Navigation Banner (HOMEPAGE ONLY) */}
+    <section className="py-16 md:py-20 relative border-t border-white/5 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto px-6">
+            <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
+                <div className="space-y-3 text-center lg:text-left relative z-10 max-w-2xl">
+                    <span className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase block">
+                      {lang === 'en' ? 'Thought Leadership & Technical Articles' : 'Thought Leadership & Artikel Teknis'}
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+                      {lang === 'en' ? 'Read Our Latest Articles on Medium & LinkedIn' : 'Baca Artikel Teknis Terbaru Kami di Medium & LinkedIn'}
+                    </h3>
+                    <p className="text-[#86868b] text-sm sm:text-base font-light leading-relaxed">
+                      {lang === 'en'
+                        ? 'Deep-dive guides on Serverless Data Architecture, Power BI optimization, Python Inventory Models, and Enterprise Data Analytics.'
+                        : 'Panduan mendalam mengenai Arsitektur Data Serverless, Optimasi Dashboard Power BI, Model Inventory Python, dan Analitik Data Enterprise.'
+                      }
+                    </p>
+                </div>
+                <div className="relative z-10 shrink-0">
+                    <a 
+                      href={getRouteHref('/articles')} 
+                      onClick={(e) => { e.preventDefault(); navigateRoute('/articles'); }} 
+                      className="glint-border-wrapper group cursor-pointer text-center"
+                    >
+                      <div className="glint-spinner"></div>
+                      <div className="shimmer-sweep-beam"></div>
+                      <span className="glint-inner-pill px-8 py-4 text-sm sm:text-base whitespace-nowrap">
+                        <span className="font-extrabold tracking-tight text-white">
+                          {lang === 'en' ? 'Explore Articles Gallery ↗' : 'Jelajahi Galeri Artikel ↗'}
+                        </span>
+                      </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     </>
     )}
     </main>
 
-    <footer className="text-center pb-8 pt-8 text-[#86868b] text-sm border-t border-white/5">
-        <p>{lang === 'en' ? '© 2026 Ikhsan K. Data Analytics Specialist & Business Intelligence Consultant.' : '© 2026 Ikhsan K. Spesialis Data Analytics & Konsultan Business Intelligence.'}</p>
+    <footer className="relative border-t border-white/5">
+        {/* Main Footer Content */}
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+                {/* Column 1: Brand */}
+                <div>
+                    <div className="flex items-center gap-2.5 mb-5">
+                        <div className="holographic-line" style={{width: '3px', height: '28px', borderRadius: '9999px', background: 'linear-gradient(180deg, #ffffff 0%, #d0e8f5 10%, #1a2840 22%, #88a4bc 35%, #ffffff 50%, #eae4dc 65%, #5c524a 78%, #88a4bc 88%, #d0e8f5 95%, #ffffff 100%)'}}></div>
+                        <span className="text-white font-bold text-lg tracking-tight">IKHSAN KAMAL</span>
+                    </div>
+                    <p className="text-[#86868b] text-sm leading-relaxed">
+                        {lang === 'en' ? 'Enterprise-grade data analytics, business intelligence consulting, and Google Apps Script automation. Transforming raw data into strategic decisions.' : 'Layanan analitik data enterprise, konsultasi business intelligence, dan otomasi Google Apps Script. Mengubah data mentah menjadi keputusan strategis.'}
+                    </p>
+                </div>
+
+                {/* Column 2: Layanan */}
+                <div>
+                    <h4 className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-5">{lang === 'en' ? 'SERVICES' : 'LAYANAN'}</h4>
+                    <ul className="space-y-3">
+                        <li><a href={getRouteHref('#services')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Data Analytics & BI' : 'Analisis Data & BI'}</a></li>
+                        <li><a href={getRouteHref('#services')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Google Apps Script Automation' : 'Otomasi Google Apps Script'}</a></li>
+                        <li><a href={getRouteHref('#services')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Predictive Analytics & ML' : 'Analitik Prediktif & ML'}</a></li>
+                        <li><a href={getRouteHref('#services')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Executive Reporting' : 'Laporan Eksekutif'}</a></li>
+                    </ul>
+                </div>
+
+                {/* Column 3: Navigasi */}
+                <div>
+                    <h4 className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-5">{lang === 'en' ? 'NAVIGATION' : 'NAVIGASI'}</h4>
+                    <ul className="space-y-3">
+                        <li><a href={getRouteHref('/case-studies')} onClick={(e) => { e.preventDefault(); navigateRoute('/case-studies'); }} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">Case Studies</a></li>
+                        <li><a href={getRouteHref('/articles')} onClick={(e) => { e.preventDefault(); navigateRoute('/articles'); }} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Articles & Publications' : 'Artikel & Publikasi'}</a></li>
+                        <li><a href={getRouteHref('#workflow')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Work Process' : 'Proses Kerja'}</a></li>
+                        <li><a href={getRouteHref('#pricing')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">{lang === 'en' ? 'Pricing' : 'Investasi'}</a></li>
+                        <li><a href={getRouteHref('#faq')} className="text-[#86868b] text-sm hover:text-white transition-colors duration-200">FAQ</a></li>
+                    </ul>
+                </div>
+
+                {/* Column 4: Kontak */}
+                <div>
+                    <h4 className="text-white/40 font-bold text-xs tracking-[0.2em] uppercase mb-5">{lang === 'en' ? 'CONTACT' : 'KONTAK'}</h4>
+                    <ul className="space-y-3">
+                        <li>
+                            <a href="https://wa.me/6282126574799" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[#86868b] text-sm hover:text-white transition-colors duration-200">
+                                <svg className="w-4 h-4 text-[#25D366] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                +62 821-2657-4799
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:iamikhsank@gmail.com" className="flex items-center gap-2.5 text-[#86868b] text-sm hover:text-white transition-colors duration-200">
+                                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                iamikhsank@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://fastwork.id/user/iamikhsan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[#86868b] text-sm hover:text-white transition-colors duration-200">
+                                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                                fastwork.id/user/iamikhsan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/iamikhsank" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-[#86868b] text-sm hover:text-white transition-colors duration-200">
+                                <svg className="w-4 h-4 fill-current flex-shrink-0 text-white/80" viewBox="0 0 24 24"><path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                github.com/iamikhsank
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {/* Copyright Bar */}
+        <div className="border-t border-white/5 py-6">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+                <p className="text-[#86868b] text-xs sm:text-sm">
+                    {lang === 'en' ? '© 2026 Ikhsan Kamal. Data Analytics Specialist & Business Intelligence Consultant. All rights reserved.' : '© 2026 Ikhsan Kamal. Spesialis Data Analytics & Konsultan Business Intelligence. Hak cipta dilindungi.'}
+                </p>
+                <p className="text-[#86868b]/50 text-xs">
+                    {lang === 'en' ? 'Enterprise Data Solutions' : 'Solusi Data Enterprise'}
+                </p>
+            </div>
+        </div>
     </footer>
 
     {/* 6-STAGE CASE STUDY INTERACTIVE GLASSMORPHISM MODAL DRAWER */}
     {selectedCaseStudy && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/80 backdrop-blur-xl transition-all duration-300 overflow-y-auto">
-        <div className="relative w-full max-w-5xl bg-[#0a0a0c] border border-white/15 rounded-none sm:rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden my-0 sm:my-8 max-h-[100vh] md:max-h-[90vh] flex flex-col">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/40 backdrop-blur-md transition-all duration-300 overflow-y-auto">
+        <div className="relative w-full max-w-5xl bg-[#0a0a0c] border border-white/15 rounded-2xl sm:rounded-[2rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden my-4 sm:my-8 max-h-[92vh] flex flex-col">
           {/* Modal Header */}
-          <div className="sticky top-0 z-20 px-6 md:px-8 py-5 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-[#141416]/90 backdrop-blur-md text-white border border-white/20 shadow-md">{selectedCaseStudy.kategori}</span>
-                <span className="text-xs sm:text-sm font-semibold text-[#86868b]">{lang === 'en' ? 'Client:' : 'Klien:'} {selectedCaseStudy.klien}</span>
+          <div className="sticky top-0 z-20 px-6 md:px-8 py-5 bg-[#0a0a0c]/95 backdrop-blur-md border-b border-white/10 flex justify-between items-start gap-4">
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="glint-pill-static">
+                  {selectedCaseStudy.kategori}
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{lang === 'en' ? 'Client:' : 'Klien:'} {selectedCaseStudy.klien}</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">{selectedCaseStudy.seoTitle || selectedCaseStudy.judul}</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">{selectedCaseStudy.seoTitle || selectedCaseStudy.judul}</h2>
             </div>
             <button
               onClick={() => setSelectedCaseStudy(null)}
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition-all shrink-0 cursor-pointer"
+              className="w-9 h-9 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all flex items-center justify-center shrink-0 cursor-pointer mt-1"
               aria-label="Tutup Case Study"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -2448,18 +3470,28 @@ ${formData.message}`;
 
           {/* Modal Content Scroll Area */}
           <div className="p-6 md:p-8 space-y-8 overflow-y-auto custom-scrollbar">
-            {/* Banner Image & High Impact Metric */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 h-36 sm:h-48 md:h-64 relative bg-black">
-                <img src={resolveAssetUrl(selectedCaseStudy.linkGambar)} alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} className="w-full h-full object-cover object-left-top" />
+            {/* Banner Image & High Impact Metric (50/50 Split) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+              <div className="rounded-2xl overflow-hidden border border-white/10 h-44 sm:h-52 md:h-56 relative bg-black/50 shadow-2xl group">
+                <img 
+                  src={resolveAssetUrl(selectedCaseStudy.linkGambar)} 
+                  alt={`Visualisasi Detail Studi Kasus ${selectedCaseStudy.judul}`} 
+                  className="w-full h-full object-cover object-left-top opacity-90 transition-transform duration-700 group-hover:scale-105" 
+                  onError={(e) => {
+                    // Fallback visually clean surface if image fails
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
+                />
               </div>
-              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">{lang === 'en' ? 'ROI Results & Primary Impact' : 'Hasil ROI & Dampak Utama'}</p>
-                <p className="text-3xl font-extrabold text-white tracking-tight">{selectedCaseStudy.metrikNilai}</p>
-                <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider">{selectedCaseStudy.metrikLabel}</p>
-                <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5">
+              <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.03] flex flex-col justify-between h-full space-y-4">
+                <div>
+                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/40 mb-2">{lang === 'en' ? 'ROI Results & Primary Impact' : 'Hasil ROI & Dampak Utama'}</p>
+                  <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{selectedCaseStudy.metrikNilai}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-[#86868b] uppercase tracking-wider mt-1">{selectedCaseStudy.metrikLabel}</p>
+                </div>
+                <div className="pt-3 border-t border-white/10 flex flex-wrap gap-1.5">
                   {selectedCaseStudy.techStack.map((t, i) => (
-                    <span key={i} className="px-2 py-0.5 rounded bg-white/10 text-xs sm:text-sm font-semibold text-white/80">{t}</span>
+                    <span key={i} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-white/80">{t}</span>
                   ))}
                 </div>
               </div>
@@ -2468,72 +3500,72 @@ ${formData.message}`;
             {/* 6-Stage McKinsey/BCG Framework Grid */}
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="h-[1px] w-8 bg-emerald-500"></div>
-                <span className="text-emerald-400 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">6-Stage Business Intelligence Case Study Breakdown</span>
+                <div className="h-[2px] w-8 rounded-full" style={{ background: 'linear-gradient(90deg, #ffffff 0%, #d0e8f5 10%, #1a2840 22%, #88a4bc 35%, #ffffff 50%, #eae4dc 65%, #5c524a 78%, #88a4bc 88%, #d0e8f5 95%, #ffffff 100%)' }}></div>
+                <span className="text-white/40 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">6-Stage Business Intelligence Case Study Breakdown</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* Stage 1: Problem */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-rose-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-rose-400">01. Problem ({lang === 'en' ? 'Business Challenge' : 'Tantangan Bisnis'})</span>
-                    <span className="w-7 h-7 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold flex items-center justify-center">1</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">01. Problem ({lang === 'en' ? 'Business Challenge' : 'Tantangan Bisnis'})</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">1</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.problem || selectedCaseStudy.deskripsi}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.problem || selectedCaseStudy.deskripsi}</p>
                 </div>
 
                 {/* Stage 2: Data */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-amber-400">02. Data (ETL & Ingesting)</span>
-                    <span className="w-7 h-7 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold flex items-center justify-center">2</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">02. Data (ETL & Ingestion)</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">2</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.data}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.data}</p>
                 </div>
 
                 {/* Stage 3: Analysis */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-400">03. Analysis ({lang === 'en' ? 'Methodology & KPI' : 'Metodologi & KPI'})</span>
-                    <span className="w-7 h-7 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold flex items-center justify-center">3</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">03. Analysis ({lang === 'en' ? 'Methodology & KPI' : 'Metodologi & KPI'})</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">3</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.analysis}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.analysis}</p>
                 </div>
 
                 {/* Stage 4: Dashboard */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-purple-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-purple-400">04. Dashboard ({lang === 'en' ? 'Visualization Features' : 'Fitur Visualisasi'})</span>
-                    <span className="w-7 h-7 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold flex items-center justify-center">4</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">04. Dashboard ({lang === 'en' ? 'Visualization Features' : 'Fitur Visualisasi'})</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">4</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.dashboard}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.dashboard}</p>
                 </div>
 
                 {/* Stage 5: Insight */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-cyan-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-cyan-400">05. Insight (Hidden Insights)</span>
-                    <span className="w-7 h-7 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold flex items-center justify-center">5</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">05. Insight (Hidden Insights)</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">5</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.insight}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.insight}</p>
                 </div>
 
                 {/* Stage 6: Business Impact */}
-                <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+                <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all group flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400">06. Business Impact ({lang === 'en' ? 'ROI Value' : 'Nilai ROI'})</span>
-                    <span className="w-7 h-7 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold flex items-center justify-center">6</span>
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">06. Business Impact ({lang === 'en' ? 'ROI Value' : 'Nilai ROI'})</span>
+                    <span className="w-6 h-6 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-bold font-mono flex items-center justify-center">6</span>
                   </div>
-                  <p className="text-sm sm:text-base text-[#f5f5f7]/90 leading-relaxed font-light">{selectedCaseStudy.caseStudy?.businessImpact}</p>
+                  <p className="text-sm sm:text-base text-[#86868b] leading-relaxed font-light">{selectedCaseStudy.caseStudy?.businessImpact}</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Modal Footer */}
-          <div className="p-6 bg-[#0a0a0c] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm sm:text-base text-[#86868b]">{lang === 'en' ? 'Want to implement a similar system architecture for your enterprise?' : 'Ingin mengimplementasikan arsitektur sistem serupa untuk perusahaan Anda?'}</p>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+          <div className="sticky bottom-0 z-20 p-5 sm:p-6 bg-[#0a0a0c]/95 backdrop-blur-xl border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs sm:text-sm text-white/80 font-medium text-center sm:text-left">{lang === 'en' ? 'Want to implement a similar system architecture for your enterprise?' : 'Ingin mengimplementasikan arsitektur sistem serupa untuk perusahaan Anda?'}</p>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
               <a
                 href={
                   (selectedCaseStudy.kategori || '').toLowerCase().includes('power bi') || (selectedCaseStudy.kategori || '').toLowerCase().includes('tableau') || (selectedCaseStudy.kategori || '').toLowerCase().includes('dashboard')
@@ -2550,15 +3582,15 @@ ${formData.message}`;
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-[#00b900]/10 border border-[#00b900]/40 text-[#25D366] font-bold text-sm sm:text-base hover:bg-[#00b900]/20 transition-all text-center cursor-pointer"
+                className="pill-btn-specular !px-5 !py-2.5 text-xs sm:text-sm font-semibold text-white/90 text-center cursor-pointer"
               >
-                {lang === 'en' ? 'Order This Category Service on Fastwork →' : 'Pesan Jasa Kategori Ini di Fastwork →'}
+                {lang === 'en' ? 'Order Category on Fastwork →' : 'Pesan Kategori Ini di Fastwork →'}
               </a>
               <a
                 href={`https://wa.me/6282126574799?text=Halo%20Ikhsan,%20saya%20tertarik%20dengan%20Case%20Study%20${encodeURIComponent(selectedCaseStudy.judul)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-emerald-500 text-black font-bold text-sm sm:text-base hover:bg-emerald-400 transition-all hover:scale-105 text-center cursor-pointer"
+                className="pill-btn-specular !px-5 !py-2.5 text-xs sm:text-sm font-extrabold text-white text-center cursor-pointer"
               >
                 {lang === 'en' ? 'Discuss via WhatsApp' : 'Diskusi via WhatsApp'}
               </a>
