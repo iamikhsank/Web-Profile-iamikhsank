@@ -49,6 +49,12 @@ const routes = [
     title: 'Galeri Studi Kasus & Portfolio Data Analytics | Ikhsan Kamal',
     description: 'Kumpulan studi kasus proyek data analytics, implementasi BI enterprise, dan otomasi spreadsheet yang telah berhasil dikerjakan untuk kementerian & perusahaan.',
     canonical: 'https://iamikhsank.github.io/Web-Profile-iamikhsank/case-studies/'
+  },
+  {
+    path: 'articles',
+    title: 'Artikel & Publikasi Eksekutif Data Analytics | Ikhsan Kamal',
+    description: 'Kumpulan artikel teknis, panduan arsitektur Data Analytics, serta wawasan Business Intelligence yang telah dipublikasikan di Medium, LinkedIn, dan jurnal eksekutif.',
+    canonical: 'https://iamikhsank.github.io/Web-Profile-iamikhsank/articles/'
   }
 ];
 
